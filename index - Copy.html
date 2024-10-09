@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmers Picnic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Search Field -->
+        <input type="text" id="searchField" placeholder="Search..." class="search-box" onkeyup="filterItems()">
+
+        <!-- Items List -->
+        <div id="itemsContainer" class="items-container">
+            <!-- Items will be dynamically added here -->
+        </div>
+
+        <!-- Contact Me on WhatsApp -->
+        <div class="contact-whatsapp">
+            <a href="https://wa.me/yourphonenumber" target="_blank">
+                <img src="whatsapp-icon.svg" alt="WhatsApp" class="whatsapp-icon">
+                Contact Me on WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
