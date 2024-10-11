@@ -6,6 +6,7 @@
     <title>Programming Quizzes | Learning Sutras</title>
     <link rel="icon" type="image/x-icon" href="me.jpg">
     <style>
+     
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -91,11 +92,17 @@
     </div>
 
     <div id="quiz-list">
+
+         <a href="flutter/dsa/index.html" target="_blank">Data Structures and Algorithms in Dart, Flutter Programming</a>
         <a href="published/index.html?fj=printf.json&qn=A%20Quiz%20on%20Printf" target="_blank">C Printf Basics Quiz</a>
         <a href="published/index.html?fj=scanprint.json&qn=A%20Quiz%20on%20Printf" target="_blank">C Printf and Scanf Basics Quiz</a>
         <a href="django/multipleusrtypesdjango.html" target="_blank">Django Authentication Walkthrough</a>
         <!-- Add more links as needed -->
-    </div>
+         <!--   -->
+         <a href="published/index.html?fj=ifelse.json&qn=If else in C" target="_blank">If Else in C</a>
+    
+    <a href="published/index.html?fj=scanifelse.json&qn=If else in C" target="_blank">Interactive If Else in C</a>
+        </div>
 
       <!-- ******************Branding ********************************** -->
       <div class='flip-container'>
@@ -199,13 +206,29 @@
             for (let i = 0; i < quizLinks.length; i++) {
                 let quizText = quizLinks[i].innerText.toLowerCase();
                 if (quizText.includes(input)) {
-                    quizLinks[i].style.display = "block";
+                   // console.log("Show");
+                    //quizLinks[i].style.display="block";
+                    quizLinks[i].classList.remove("hidethelink");
                 } else {
-                    quizLinks[i].style.display = "none";
+                    // quizLinks[i].style.display="none";
+                    quizLinks[i].classList.add("hidethelink");
+                   // console.log("Hide");
                 }
+                console.log(quizLinks[i].classList);
             }
         }
     </script>
+    <style>
+
+.hidethelink{
+        display: none !important;
+        
+        /* visibility: hidden; */
+        /* opacity: 0; */
+        /* width: 0%; */
+   
+    }
+    </style>
 
 </body>
 </html>
