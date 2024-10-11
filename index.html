@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming Quizzes | Learning Sutras</title>
     <link rel="icon" type="image/x-icon" href="me.jpg">
     <style>
-     
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
+
         header {
             background-color: #0044cc;
             color: white;
             padding: 1rem 2rem;
             text-align: center;
         }
+
         header h1 {
             margin: 0;
         }
+
         nav {
             display: flex;
             justify-content: space-between;
             padding: 1rem 2rem;
             background-color: #003399;
         }
+
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 1rem;
         }
+
         #search-bar {
             display: flex;
             justify-content: center;
             margin: 2rem 0;
         }
+
         #search-bar input {
             width: 50%;
             padding: 0.5rem;
@@ -45,11 +51,13 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         #quiz-list {
             margin: 2rem;
             padding: 1rem;
             text-align: center;
         }
+
         #quiz-list a {
             display: block;
             margin: 1rem 0;
@@ -60,9 +68,11 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
+
         #quiz-list a:hover {
             background-color: #002266;
         }
+
         footer {
             background-color: #003399;
             color: white;
@@ -74,6 +84,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -86,31 +97,34 @@
         <a href="#">Contact</a>
         <a href="#">About</a>
     </nav>
-    
+
     <div id="search-bar">
         <input type="text" placeholder="Search quizzes..." id="quizSearch" onkeyup="filterQuizzes()">
     </div>
 
     <div id="quiz-list">
+        <a href="published/dsa/index.html" target="_blank">Algorithms and Programs</a>
 
-         <a href="flutter/dsa/index.html" target="_blank">Data Structures and Algorithms in Dart, Flutter Programming</a>
+        <a href="flutter/dsa/index.html" target="_blank">Data Structures and Algorithms in Dart, Flutter Programming</a>
         <a href="published/index.html?fj=printf.json&qn=A%20Quiz%20on%20Printf" target="_blank">C Printf Basics Quiz</a>
-        <a href="published/index.html?fj=scanprint.json&qn=A%20Quiz%20on%20Printf" target="_blank">C Printf and Scanf Basics Quiz</a>
+        <a href="published/index.html?fj=scanprint.json&qn=A%20Quiz%20on%20Printf" target="_blank">C Printf and Scanf
+            Basics Quiz</a>
         <a href="django/multipleusrtypesdjango.html" target="_blank">Django Authentication Walkthrough</a>
         <!-- Add more links as needed -->
-         <!--   -->
-         <a href="published/index.html?fj=ifelse.json&qn=If else in C" target="_blank">If Else in C</a>
-    
-    <a href="published/index.html?fj=scanifelse.json&qn=If else in C" target="_blank">Interactive If Else in C</a>
-        </div>
+        <!--   -->
+        <a href="published/index.html?fj=ifelse.json&qn=If else in C" target="_blank">If Else in C</a>
 
-      <!-- ******************Branding ********************************** -->
-      <div class='flip-container'>
+        <a href="published/index.html?fj=scanifelse.json&qn=If else in C" target="_blank">Interactive If Else in C</a>
+    </div>
+
+    <!-- ******************Branding ********************************** -->
+    <div class='flip-container'>
         <div class='flipper'>
-        <img alt='Me' class='flip-image' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglwaii2_xBr47JtUxESk3iekPLl1TSI5B6RuwqNOs_8zk9iGlLqw3d_WprAhKKp3m9F1eO4XBh_JfU_jj6Ad759bHWsqU0evz1SdsG_XBJPc7nXmkbGHO2glvshLTd0fOaKlIGfEVHlEeltJcg2Azc70rVoswRtvH-QiohpHrAuuPEE1uwA9CToBM9foE/s16000/me.jpg'/>
+            <img alt='Me' class='flip-image'
+                src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglwaii2_xBr47JtUxESk3iekPLl1TSI5B6RuwqNOs_8zk9iGlLqw3d_WprAhKKp3m9F1eO4XBh_JfU_jj6Ad759bHWsqU0evz1SdsG_XBJPc7nXmkbGHO2glvshLTd0fOaKlIGfEVHlEeltJcg2Azc70rVoswRtvH-QiohpHrAuuPEE1uwA9CToBM9foE/s16000/me.jpg' />
         </div>
-        </div>
-        <style>
+    </div>
+    <style>
         /* 3D Flipping Image Section */
         .flip-container {
             width: 80px;
@@ -121,7 +135,7 @@
             perspective: 1000px;
             animation: move-around 20s infinite linear;
         }
-        
+
         .flip-container .flipper {
             position: relative;
             width: 100%;
@@ -129,11 +143,11 @@
             transition: transform 0.8s;
             transform-style: preserve-3d;
         }
-        
+
         .flip-container:hover .flipper {
             border-style: ridge;
         }
-        
+
         .flip-image {
             width: 100%;
             height: 100%;
@@ -141,62 +155,78 @@
             border-radius: 50%;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* Keyframe animation to move the image randomly */
         @keyframes move-around {
-            0% { top: 20px; left: 20px; }
-            25% { top: 50px; left: 80%; }
-            50% { top: 80%; left: 50%; }
-            75% { top: 50%; left: 20px; }
-            100% { top: 20px; left: 20px; }
+            0% {
+                top: 20px;
+                left: 20px;
+            }
+
+            25% {
+                top: 50px;
+                left: 80%;
+            }
+
+            50% {
+                top: 80%;
+                left: 50%;
+            }
+
+            75% {
+                top: 50%;
+                left: 20px;
+            }
+
+            100% {
+                top: 20px;
+                left: 20px;
+            }
         }
-        </style>
-    
-    
-    
-      <a href="https://wa.me/919335874326?text=Hi, I would like to get in touch!" target="_blank" class="whatsapp-button">
+    </style>
+
+
+
+    <a href="https://wa.me/919335874326?text=Hi, I would like to get in touch!" target="_blank" class="whatsapp-button">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
             class="whatsapp-icon">
         Contact Me on WhatsApp
     </a>
     <style>
-        
-    /* WhatsApp Button */
-    .whatsapp-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 250px;
-        padding: 12px;
-        margin: 20px auto;
-        background-color: #25D366;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        text-decoration: none;
-        border-radius: 50px;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        cursor: pointer;
-    }
-    
-    /* WhatsApp Icon */
-    .whatsapp-icon {
-        width: 24px;
-        height: 24px;
-        margin-right: 10px;
-    }
-    
-    .whatsapp-button:hover {
-        background-color: #128C7E;
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-    }
-    
-    
+        /* WhatsApp Button */
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+            padding: 12px;
+            margin: 20px auto;
+            background-color: #25D366;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        /* WhatsApp Icon */
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+        }
     </style>
-    
+
     <!-- ******************Branding ********************************** -->
-    
+
     <script>
         // Placeholder search functionality
         function filterQuizzes() {
@@ -206,29 +236,29 @@
             for (let i = 0; i < quizLinks.length; i++) {
                 let quizText = quizLinks[i].innerText.toLowerCase();
                 if (quizText.includes(input)) {
-                   // console.log("Show");
+                    // console.log("Show");
                     //quizLinks[i].style.display="block";
                     quizLinks[i].classList.remove("hidethelink");
                 } else {
                     // quizLinks[i].style.display="none";
                     quizLinks[i].classList.add("hidethelink");
-                   // console.log("Hide");
+                    // console.log("Hide");
                 }
                 console.log(quizLinks[i].classList);
             }
         }
     </script>
     <style>
+        .hidethelink {
+            display: none !important;
 
-.hidethelink{
-        display: none !important;
-        
-        /* visibility: hidden; */
-        /* opacity: 0; */
-        /* width: 0%; */
-   
-    }
+            /* visibility: hidden; */
+            /* opacity: 0; */
+            /* width: 0%; */
+
+        }
     </style>
 
 </body>
+
 </html>
