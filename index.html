@@ -51,6 +51,13 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+        #search-bar label {
+            /* width: 50%; */
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
         #quiz-list {
             display:flex;
@@ -108,6 +115,7 @@
 
     <div id="search-bar">
         <input type="text" placeholder="Search quizzes..." id="quizSearch" onkeyup="filterQuizzes()">
+        <br><label id="lblCount"></label>
     </div>
 
     <div id="quiz-list">
@@ -237,13 +245,17 @@
 
     <script>
         // Placeholder search functionality
+        const lblCount=document.getElementById("lblCount");
+        
         function filterQuizzes() {
+            let count=0;
             let input = document.getElementById('quizSearch').value.toLowerCase();
             let quizLinks = document.getElementById('quiz-list').getElementsByTagName('a');
 
             for (let i = 0; i < quizLinks.length; i++) {
                 let quizText = quizLinks[i].innerText.toLowerCase();
                 if (quizText.includes(input)) {
+                    count++;
                     // console.log("Show");
                     //quizLinks[i].style.display="block";
                     quizLinks[i].classList.remove("hidethelink");
@@ -254,7 +266,9 @@
                 }
                 console.log(quizLinks[i].classList);
             }
+            lblCount.innerHTML=`Found:${count}`;
         }
+        filterQuizzes();
     </script>
     <style>
         .hidethelink {
