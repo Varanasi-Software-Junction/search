@@ -51,6 +51,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         #search-bar label {
             /* width: 50%; */
             padding: 0.5rem;
@@ -60,7 +61,7 @@
         }
 
         #quiz-list {
-            display:flex;
+            display: flex;
             /* width: 50%; */
             margin: 2rem;
             padding: 1rem;
@@ -73,7 +74,7 @@
         #quiz-list a {
             margin: 20px;
             min-width: fit-content;
-            
+
             display: block;
             margin: 1rem 0;
             padding: 0.5rem 1rem;
@@ -103,7 +104,7 @@
 <body>
 
     <header>
-        <h1>Programming Quizzes</h1>
+        <h1>Programming Encyclopaedia</h1>
     </header>
 
     <nav>
@@ -114,7 +115,7 @@
     </nav>
 
     <div id="search-bar">
-        <input type="text" placeholder="Search quizzes..." id="quizSearch" onkeyup="filterQuizzes()">
+        <input type="text" placeholder="Search programs..." id="quizSearch" onkeyup="filterQuizzes()">
         <br><label id="lblCount"></label>
     </div>
 
@@ -136,6 +137,7 @@
     <!-- ******************Branding ********************************** -->
     <div class='flip-container'>
         <div class='flipper'>
+            <h1 style="display: none;" id="memsg">Hello</h1>
             <img alt='Me' class='flip-image'
                 src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglwaii2_xBr47JtUxESk3iekPLl1TSI5B6RuwqNOs_8zk9iGlLqw3d_WprAhKKp3m9F1eO4XBh_JfU_jj6Ad759bHWsqU0evz1SdsG_XBJPc7nXmkbGHO2glvshLTd0fOaKlIGfEVHlEeltJcg2Azc70rVoswRtvH-QiohpHrAuuPEE1uwA9CToBM9foE/s16000/me.jpg' />
         </div>
@@ -242,14 +244,15 @@
     </style>
 
     <!-- ******************Branding ********************************** -->
-<!-- <script src="https://varanasi-software-junction.github.io/picnic/js/hello.js"></script>
-    <script> -->
-        
+    <!-- <script src="https://varanasi-software-junction.github.io/picnic/js/hello.js"></script>-->
+    <script>
+        // const melbl=document.getElementById("memsg");
+
         // Placeholder search functionality
-        const lblCount=document.getElementById("lblCount");
-        
+        // const lblCount=document.getElementById("lblCount");
+
         function filterQuizzes() {
-            let count=0;
+            let count = 0;
             let input = document.getElementById('quizSearch').value.toLowerCase();
             let quizLinks = document.getElementById('quiz-list').getElementsByTagName('a');
 
@@ -267,7 +270,9 @@
                 }
                 console.log(quizLinks[i].classList);
             }
-            lblCount.innerHTML=`Found:${count}`;
+            // lblCount.innerHTML=`Found:${count}`;
+            // memsg.innerHTML=lblCount.innerHTML;
+            // memsg.style.display="block";
         }
         filterQuizzes();
     </script>
