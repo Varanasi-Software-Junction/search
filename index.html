@@ -249,7 +249,7 @@
         // const melbl=document.getElementById("memsg");
 
         // Placeholder search functionality
-        // const lblCount=document.getElementById("lblCount");
+        const lblCount=document.getElementById("lblCount");
 
         function filterQuizzes() {
             let count = 0;
@@ -270,7 +270,7 @@
                 }
                 console.log(quizLinks[i].classList);
             }
-            // lblCount.innerHTML=`Found:${count}`;
+            lblCount.innerHTML=`Found:${count}`;
             // memsg.innerHTML=lblCount.innerHTML;
             // memsg.style.display="block";
         }
@@ -279,6 +279,7 @@
     <style>
         .hidethelink {
             display: none !important;
+            
 
             /* visibility: hidden; */
             /* opacity: 0; */
