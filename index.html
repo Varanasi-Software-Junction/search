@@ -120,18 +120,18 @@
     </div>
 
     <div id="quiz-list">
-        <a href="published/dsa/index.html" target="_blank">Algorithms and Programs</a>
+        <a class="showthelink" href="published/dsa/index.html" target="_blank">Algorithms and Programs</a>
 
-        <a href="flutter/dsa/index.html" target="_blank">Data Structures and Algorithms in Dart, Flutter Programming</a>
-        <a href="published/index.html?fj=printf.json&qn=A%20Quiz%20on%20Printf" target="_blank">C Printf Basics Quiz</a>
-        <a href="published/index.html?fj=scanprint.json&qn=A%20Quiz%20on%20Printf" target="_blank">C Printf and Scanf
+        <a class="showthelink"  href="flutter/dsa/index.html" target="_blank">Data Structures and Algorithms in Dart, Flutter Programming</a>
+        <a class="showthelink"  href="published/index.html?fj=printf.json&qn=A%20Quiz%20on%20Printf" target="_blank">C Printf Basics Quiz</a>
+        <a class="showthelink"  href="published/index.html?fj=scanprint.json&qn=A%20Quiz%20on%20Printf" target="_blank">C Printf and Scanf
             Basics Quiz</a>
-        <a href="django/multipleusrtypesdjango.html" target="_blank">Django Authentication Walkthrough</a>
+        <a class="showthelink"  href="django/multipleusrtypesdjango.html" target="_blank">Django Authentication Walkthrough</a>
         <!-- Add more links as needed -->
         <!--   -->
-        <a href="published/index.html?fj=ifelse.json&qn=If else in C" target="_blank">If Else in C</a>
+        <a class="showthelink"  href="published/index.html?fj=ifelse.json&qn=If else in C" target="_blank">If Else in C</a>
 
-        <a href="published/index.html?fj=scanifelse.json&qn=If else in C" target="_blank">Interactive If Else in C</a>
+        <a class="showthelink"  href="published/index.html?fj=scanifelse.json&qn=If else in C" target="_blank">Interactive If Else in C</a>
     </div>
 
     <!-- ******************Branding ********************************** -->
@@ -246,7 +246,7 @@
     <!-- ******************Branding ********************************** -->
     <!-- <script src="https://varanasi-software-junction.github.io/picnic/js/hello.js"></script>-->
     <script>
-        // const melbl=document.getElementById("memsg");
+        const melbl=document.getElementById("memsg");
 
         // Placeholder search functionality
         const lblCount=document.getElementById("lblCount");
@@ -263,28 +263,53 @@
                     // console.log("Show");
                     //quizLinks[i].style.display="block";
                     quizLinks[i].classList.remove("hidethelink");
+                    quizLinks[i].classList.add("showthelink");
                 } else {
                     // quizLinks[i].style.display="none";
+                    quizLinks[i].classList.remove("showthelink");
                     quizLinks[i].classList.add("hidethelink");
                     // console.log("Hide");
                 }
                 console.log(quizLinks[i].classList);
             }
             lblCount.innerHTML=`Found:${count}`;
-            // memsg.innerHTML=lblCount.innerHTML;
+             memsg.innerHTML=lblCount.innerHTML;
             // memsg.style.display="block";
         }
         filterQuizzes();
     </script>
     <style>
         .hidethelink {
-            display: none !important;
-            
+            /* display: none !important; */
+            animation-name: hidinglink;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
 
             /* visibility: hidden; */
             /* opacity: 0; */
             /* width: 0%; */
 
+        }
+        @keyframes hidinglink {
+            0%{opacity: 1;}
+            100%{opacity: 0;display: none;!important}
+        }
+
+
+        .showthelink {
+            /* display: none !important; */
+            animation-name: showinglink;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+
+            /* visibility: hidden; */
+            /* opacity: 0; */
+            /* width: 0%; */
+
+        }
+        @keyframes showinglink {
+            0%{opacity: 0;}
+            100%{opacity: 1;display: block;!important}
         }
     </style>
 
