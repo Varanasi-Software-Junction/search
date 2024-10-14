@@ -68,6 +68,8 @@
       <li><a href="runtimeselection.html" target="vsj1">Customizing the speaker</a></li>
       <li><a href="speechfunctions.html" target="vsj2">Check out the Features</a></li>
       <li><a href="https://caniuse.com/?search=speechSynthesis" target="_blank">Check availability across browsers</a></li>
+     <li><a href="https://github.com/Varanasi-Software-Junction/Programming-is-a-Picnic./tree/main/speechsynthesizer" target="_blank">Code on Github</a></li>
+    
     </ul>
   </div>
   
@@ -276,7 +278,7 @@ function cancelSpeech() {
     function sayHello()
     {
       const greeting=getGreeting();
-      const hello = new SpeechSynthesisUtterance(`${greeting}, and welcome to this page on Specch Synthesis. Please contact us on Whatsapp if you want to learn this technology.`);
+      const hello = new SpeechSynthesisUtterance(`Hello and ${greeting}, and welcome to this page on Speech Synthesis and check out the details of this valuable new technology. Please contact us on Whatsapp if you want to learn this technology.`);
        
       window.speechSynthesis.speak(hello);
     }
