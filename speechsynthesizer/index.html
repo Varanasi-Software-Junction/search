@@ -6,6 +6,7 @@
   <meta name="description" content="Learn how to use the SpeechSynthesis API to integrate speech functionality into your website. A step-by-step guide with examples.">
   <link rel="Icon" type="image/x-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglwaii2_xBr47JtUxESk3iekPLl1TSI5B6RuwqNOs_8zk9iGlLqw3d_WprAhKKp3m9F1eO4XBh_JfU_jj6Ad759bHWsqU0evz1SdsG_XBJPc7nXmkbGHO2glvshLTd0fOaKlIGfEVHlEeltJcg2Azc70rVoswRtvH-QiohpHrAuuPEE1uwA9CToBM9foE/s16000/me.jpg">
   <title>Using Speech Synthesizer in HTML</title>
+  <script src="../vsj.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -274,7 +275,8 @@ function cancelSpeech() {
     }
     function sayHello()
     {
-      const hello = new SpeechSynthesisUtterance("Hi there! I'm Champak, known online as Varanasi Software Junction. Welcome to my page on speech synthesizers. Let's explore this fascinating technology together. If you have any questions or want to chat further, feel free to contact me on WhatsApp at [91-9335874326].");
+      const greeting=getGreeting();
+      const hello = new SpeechSynthesisUtterance(`${greeting}, and welcome to this page on Specch Synthesis. Please contact us on Whatsapp if you want to learn this technology.`);
        
       window.speechSynthesis.speak(hello);
     }
