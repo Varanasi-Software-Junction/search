@@ -3,9 +3,10 @@ const bot = new RiveScript();
 
 // Function to load brain files and handle setup
 async function loadBot() {
+    console.log("One");
     try {
-        await bot.loadFile("brain.rive"); // Load the brain file asynchronously
-        bot.sortReplies(); // Sort replies after loading the brain file
+        await bot.loadFile("chat.rive"); // Load the brain file asynchronously
+        await bot.sortReplies(); // Sort replies after loading the brain file
         console.log("RiveScript is ready and sorted!");
     } catch (err) {
         console.error("Error loading RiveScript files:", err);
@@ -20,9 +21,9 @@ function sendMessage() {
     const userInput = document.getElementById('userInput').value.trim();
     if (userInput) {
         appendMessage('You', userInput); // Display user message
-        bot.reply("local-user", userInput).then(function(reply) { // Get bot's reply
+        bot.reply("local-user", userInput).then(function (reply) { // Get bot's reply
             appendMessage('Bot', reply);
-        }).catch(function(err) {
+        }).catch(function (err) {
             appendMessage('Bot', "Sorry, I couldn't understand that.");
         });
         document.getElementById('userInput').value = ''; // Clear input field
