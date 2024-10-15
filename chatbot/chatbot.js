@@ -1,25 +1,32 @@
-// Array of predefined responses
-const responses = {
-    "hello": "Hi! How can I assist you today?",
-    "how are you": "I'm a bot, but I'm doing great! How about you?",
-    "bye": "Goodbye! Have a great day!",
-    "default": "Sorry, I don't understand that. Can you rephrase?"
-};
+// Initialize the RiveScript bot
+const bot = new RiveScript();
 
-// Function to send user message
-function sendMessage() {
-    const userInput = document.getElementById('userInput').value.trim().toLowerCase();
-    if (userInput) {
-        appendMessage('You', userInput); // Display user message
-        generateResponse(userInput);      // Generate bot response
-        document.getElementById('userInput').value = ''; // Clear input field
+// Function to load brain files and handle setup
+async function loadBot() {
+    try {
+        await bot.loadFile("brain.rive"); // Load the brain file asynchronously
+        bot.sortReplies(); // Sort replies after loading the brain file
+        console.log("RiveScript is ready and sorted!");
+    } catch (err) {
+        console.error("Error loading RiveScript files:", err);
     }
 }
 
-// Function to generate a bot response
-function generateResponse(userInput) {
-    const botResponse = responses[userInput] || responses['default'];
-    appendMessage('Bot', botResponse); // Display bot message
+// Call the loadBot function to load and initialize the bot
+loadBot();
+
+// Function to send user message
+function sendMessage() {
+    const userInput = document.getElementById('userInput').value.trim();
+    if (userInput) {
+        appendMessage('You', userInput); // Display user message
+        bot.reply("local-user", userInput).then(function(reply) { // Get bot's reply
+            appendMessage('Bot', reply);
+        }).catch(function(err) {
+            appendMessage('Bot', "Sorry, I couldn't understand that.");
+        });
+        document.getElementById('userInput').value = ''; // Clear input field
+    }
 }
 
 // Function to append a message to the chat container
