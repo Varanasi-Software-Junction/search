@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Arrays in C - Matrix Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #004080;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+        code {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            display: block;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .code-block {
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .copy-button:hover {
+            background-color: #0059b3;
+        }
+        .question {
+            background-color: #eef4f7;
+            padding: 15px;
+            border-left: 4px solid #004080;
+            margin: 20px 0;
+        }
+        .view-answer-button {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #004080;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .view-answer-button:hover {
+            background-color: #0059b3;
+        }
+        .answer {
+            display: none;
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin-top: 10px;
+            border-left: 4px solid #004080;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Understanding 2D Arrays in C</h1>
+
+        <h2>Introduction</h2>
+        <p>A 2D array in C is essentially an array of arrays. It can be visualized as a matrix with rows and columns. Here’s a simple syntax for declaring a 2D array:</p>
+
+        <div class="code-block">
+            <code>
+                // Declaring a 2D array in C
+                int matrix[3][3];  // A 3x3 matrix
+            </code>
+            <button class="copy-button">Copy</button>
+        </div>
+
+        <h2>Declaring 2D Arrays</h2>
+        <h3>1. Standard Declaration</h3>
+        <p>You can declare a 2D array with specific dimensions:</p>
+        <div class="code-block">
+            <code>
+                int arr[3][4];  // A 2D array with 3 rows and 4 columns
+            </code>
+            <button class="copy-button">Copy</button>
+        </div>
+
+        <h3>2. Initialization at Declaration</h3>
+        <p>You can also initialize a 2D array when declaring it:</p>
+        <div class="code-block">
+            <code>
+                int arr[2][3] = {{1, 2, 3}, {4, 5, 6}};  // Initialized 2D array
+            </code>
+            <button class="copy-button">Copy</button>
+        </div>
+
+        <h3>3. Using VLA (Variable Length Arrays)</h3>
+        <p>C allows the use of variable length arrays:</p>
+        <div class="code-block">
+            <code>
+                int rows = 3, cols = 4;<br>
+                int arr[rows][cols];  // VLA
+            </code>
+            <button class="copy-button">Copy</button>
+        </div>
+
+        <h3>4. Dynamic Memory Allocation</h3>
+        <p>2D arrays can also be created using dynamic memory allocation:</p>
+        <div class="code-block">
+            <code>
+                int **arr;<br>
+                arr = malloc(rows * sizeof(int*));<br>
+                for (int i = 0; i &lt; rows; i++) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;arr[i] = malloc(cols * sizeof(int));<br>
+                }
+            </code>
+            <button class="copy-button">Copy</button>
+        </div>
+
+        <h2>Matrix Operations</h2>
+        <h3>1. Matrix Addition</h3>
+        <p>Matrix addition involves adding corresponding elements of two matrices of the same size.</p>
+
+        <div class="code-block">
+            <code>
+                #include &lt;stdio.h&gt;
+
+                int main() {
+                    int A[2][2] = {{1, 2}, {3, 4}};
+                    int B[2][2] = {{5, 6}, {7, 8}};
+                    int C[2][2];  // Resultant matrix
+
+                    // Performing matrix addition
+                    for (int i = 0; i &lt; 2; i++) {
+                        for (int j = 0; j &lt; 2; j++) {
+                            C[i][j] = A[i][j] + B[i][j];
+                        }
+                    }
+
+                    // Printing the result
+                    printf("Resultant Matrix C:\\n");
+                    for (int i = 0; i &lt; 2; i++) {
+                        for (int j = 0; j &lt; 2; j++) {
+                            printf("%d ", C[i][j]);
+                        }
+                        printf("\\n");
+                    }
+
+                    return 0;
+                }
+            </code>
+            <button class="copy-button">Copy</button>
+        </div>
+
+        <h3>2. Matrix Multiplication</h3>
+        <p>Matrix multiplication involves multiplying rows of the first matrix with columns of the second matrix. The number of columns in the first matrix should match the number of rows in the second matrix.</p>
+
+        <div class="code-block">
+            <code>
+                #include &lt;stdio.h&gt;
+
+                int main() {
+                    int A[2][2] = {{1, 2}, {3, 4}};
+                    int B[2][2] = {{5, 6}, {7, 8}};
+                    int C[2][2] = {0};  // Resultant matrix
+
+                    // Performing matrix multiplication
+                    for (int i = 0; i &lt; 2; i++) {
+                        for (int j = 0; j &lt; 2; j++) {
+                            for (int k = 0; k &lt; 2; k++) {
+                                C[i][j] += A[i][k] * B[k][j];
+                            }
+                        }
+                    }
+
+                    // Printing the result
+                    printf("Resultant Matrix C:\\n");
+                    for (int i = 0; i &lt; 2; i++) {
+                        for (int j = 0; j &lt; 2; j++) {
+                            printf("%d ", C[i][j]);
+                        }
+                        printf("\\n");
+                    }
+
+                    return 0;
+                }
+            </code>
+            <button class="copy-button">Copy</button>
+        </div>
+
+        <h2>Passing 2D Arrays to Functions</h2>
+        <h3>1. Passing a 2D Array</h3>
+        <p>When passing a 2D array to a function, you must specify the number of columns:</p>
+        <div class="code-block">
+            <code>
+                #include &lt;stdio.h&gt;
+
+                void printMatrix(int arr[2][3]) {<br>
+                    for (int i = 0; i &lt; 2; i++) {<br>
+                        for (int j = 0; j &lt; 3; j++) {<br>
+                            printf("%d ", arr[i][j]);<br>
+                        }<br>
+                        printf("\\n");<br>
+                    }<br>
+                }
+
+                int main() {<br>
+                    int matrix[2][3] = {{1, 2, 3}, {4, 5, 6}};<br>
+                    printMatrix(matrix);<br>
+                    return 0;<br>
+                }
+            </code>
+            <button class="copy-button">Copy</button>
+        </div>
+
+        <h3>2. Passing a 2D Array Using Pointers</h3>
+        <p>You can also pass a 2D array as a pointer:</p>
+        <div class="code-block">
+            <code>
+                #include &lt;stdio.h&gt;
+
+                void printMatrix(int (*arr)[3], int rows) {<br>
+                    for (int i = 0; i &lt; rows; i++) {<br>
+                        for (int j = 0; j &lt; 3; j++) {<br>
+                            printf("%d ", arr[i][j]);<br>
+                        }<br>
+                        printf("\\n");<br>
+                    }<br>
+                }
+
+                int main() {<br>
+                    int matrix[2][3] = {{1, 2, 3}, {4, 5, 6}};<br>
+                    printMatrix(matrix, 2);<br>
+                    return 0;<br>
+                }
+            </code>
+            <button class="copy-button">Copy</button>
+        </div>
+
+        <h2>Test Questions</h2>
+
+        <div class="question">
+            <p><strong>Question 1:</strong> What will be the output of the following code snippet?</p>
+            <div class="code-block">
+                <code>
+                    int A[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};<br>
+                    printf("%d", A[1][2]);
+                </code>
+                <button class="copy-button">Copy</button>
+            </div>
+            <button class="view-answer-button">View Answer</button>
+            <div class="answer">
+                <p><strong>Answer:</strong> The output will be 6, as A[1][2] refers to the element in the second row and third column, which is 6.</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 2:</strong> How would you declare a 2D array with 5 rows and 4 columns?</p>
+            <button class="view-answer-button">View Answer</button>
+            <div class="answer">
+                <p><strong>Answer:</strong> <code>int matrix[5][4];</code></p>
+            </div>
+        </div>
+
+        <h2>Coding Assignments</h2>
+
+        <div class="question">
+            <p><strong>Assignment 1:</strong> Write a program to calculate the transpose of a 3x3 matrix.</p>
+            <button class="view-answer-button">View Answer</button>
+            <div class="answer">
+                <p><strong>Solution:</strong></p>
+                <div class="code-block">
+                    <code>
+                        #include &lt;stdio.h&gt;
+
+                        int main() {<br>
+                            int A[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};<br>
+                            int transpose[3][3];
+
+                            // Calculating transpose
+                            for (int i = 0; i &lt; 3; i++) {<br>
+                                for (int j = 0; j &lt; 3; j++) {<br>
+                                    transpose[j][i] = A[i][j];<br>
+                                }<br>
+                            }
+
+                            // Printing the transpose
+                            printf("Transpose of Matrix A:\\n");
+                            for (int i = 0; i &lt; 3; i++) {<br>
+                                for (int j = 0; j &lt; 3; j++) {<br>
+                                    printf("%d ", transpose[i][j]);<br>
+                                }<br>
+                                printf("\\n");<br>
+                            }
+
+                            return 0;<br>
+                        }
+                    </code>
+                    <button class="copy-button">Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Assignment 2:</strong> Implement a program to calculate the determinant of a 2x2 matrix.</p>
+            <button class="view-answer-button">View Answer</button>
+            <div class="answer">
+                <p><strong>Solution:</strong></p>
+                <div class="code-block">
+                    <code>
+                        #include &lt;stdio.h&gt;
+
+                        int main() {<br>
+                            int A[2][2] = {{1, 2}, {3, 4}};<br>
+                            int determinant;
+
+                            // Calculating determinant
+                            determinant = A[0][0] * A[1][1] - A[0][1] * A[1][0];
+
+                            // Printing the determinant
+                            printf("Determinant of the matrix: %d\\n", determinant);
+
+                            return 0;<br>
+                        }
+                    </code>
+                    <button class="copy-button">Copy</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // JavaScript for Copy Button Functionality
+        document.querySelectorAll('.copy-button').forEach((button) => {
+            button.addEventListener('click', function() {
+                const codeBlock = this.previousElementSibling;
+                const tempTextarea = document.createElement('textarea');
+                tempTextarea.value = codeBlock.textContent;
+                document.body.appendChild(tempTextarea);
+                tempTextarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempTextarea);
+                this.textContent = 'Copied!';
+                setTimeout(() => {
+                    this.textContent = 'Copy';
+                }, 2000);
+            });
+        });
+
+        // JavaScript for "View Answer" Button Functionality
+        document.querySelectorAll('.view-answer-button').forEach((button) => {
+            button.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+            });
+        });
+    </script>
+
+</body>
+</html>
