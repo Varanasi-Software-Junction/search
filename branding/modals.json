@@ -1,0 +1,50 @@
+[
+    {
+      "type": "yearly",
+      "day": 18,
+      "month": 10,
+      "title": "Happy Anniversary!",
+      "image": "me.jpg",
+      "text": "It's our special day! Celebrate with us.",
+      "link": {
+        "url": "https://example.com/celebrate",
+        "caption": "Join the Celebration"
+      },
+      "button": {
+        "url": "https://example.com/action",
+        "caption": "Take Action"
+      }
+    },
+    {
+      "type": "one-time",
+      "day": 25,
+      "month": 10,
+      "year": 2024,
+      "title": "Special Offer",
+      "image": "me.jpg",
+      "text": "One-time special offer just for you!",
+      "link": {
+        "url": "https://example.com/offer",
+        "caption": "Grab the Offer"
+      },
+      "button": {
+        "url": "https://example.com/buy-now",
+        "caption": "Buy Now"
+      }
+    },
+    {
+      "type": "random",
+      "title": "Welcome Back!",
+      "image": "me.jpg",
+      "text": "We missed you! Explore our latest offerings.",
+      "link": {
+        "url": "https://example.com/explore",
+        "caption": "Explore Now"
+      },
+      "button": {
+        "url": "https://example.com/shop",
+        "caption": "Shop Now"
+      }
+    }
+  ]
+  
