@@ -2,7 +2,7 @@
     {
         "type": "yearly",
         "title": "Bubble Sort in C",
-        "image": "me.jpg",
+        "image": "https://varanasi-software-junction.github.io/Programming-is-a-Picnic./branding/me.jpg",
         "text": "Learn how to implement Bubble Sort in C.",
         "link": {
             "caption": "View Full Code",
@@ -17,7 +17,7 @@
     {
         "type": "one-time",
         "title": "Quick Sort in C",
-        "image": "me.jpg",
+        "image": "https://varanasi-software-junction.github.io/Programming-is-a-Picnic./branding/me.jpg",
         "text": "Master Quick Sort with this example.",
         "link": {
             "caption": "View Full Code",
@@ -32,7 +32,7 @@
     {
         "type": "random",
         "title": "Insertion Sort in C",
-        "image": "me.jpg",
+        "image": "https://varanasi-software-junction.github.io/Programming-is-a-Picnic./branding/me.jpg",
         "text": "Understand Insertion Sort through this code.",
         "link": {
             "caption": "View Full Code",

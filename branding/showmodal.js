@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const MODAL_SHOW_TIME = 15000; // Time before modal shows (in milliseconds)
-    const WHATSAPP_NUMBER = "1234567890"; // Your WhatsApp number
+    const MODAL_SHOW_TIME = 100; // Time before modal shows (in milliseconds)
+    const WHATSAPP_NUMBER = "919335874326"; // Your WhatsApp number
 
     // Check if modal was already shown
     if (localStorage.getItem("modalShown")) {
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Load modal data from JSON and show the appropriate modal
     function fetchModals() {
-        fetch('modals.json')
+        fetch('https://varanasi-software-junction.github.io/Programming-is-a-Picnic./branding/modals.json')
             .then(response => response.json())
             .then(modals => {
                 const today = new Date();
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cursor: pointer;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
+            z-index: 10000;
             transition: background-color 0.3s ease;
         }
         .xzymmymode-toggle-button:hover {
