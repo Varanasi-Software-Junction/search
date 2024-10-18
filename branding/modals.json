@@ -1,66 +1,46 @@
 [
     {
         "type": "yearly",
-        "day": 5,
-        "month": 10,
-        "title": "Happy Birthday!",
+        "title": "Bubble Sort in C",
         "image": "me.jpg",
-        "text": "Wishing you all the best!",
+        "text": "Learn how to implement Bubble Sort in C.",
         "link": {
-            "url": "https://example.com",
-            "caption": "Check out my birthday wishes!"
-        },
-        "button": {
-            "caption": "Contact via WhatsApp",
-            "url": "https://wa.me/1234567890"
+            "caption": "View Full Code",
+            "url": "https://github.com/username/sorting-algorithms"
         },
         "code": [
             {
-                "language": "C",
-                "code": "#include <stdio.h>\nint main() {\n   printf(\"Happy Birthday!\\n\");\n   return 0;\n}"
+                "code": "#include <stdio.h>\nvoid bubbleSort(int arr[], int n) {\n    for (int i = 0; i < n-1; i++)\n        for (int j = 0; j < n-i-1; j++)\n            if (arr[j] > arr[j+1]) {\n                // swap arr[j] and arr[j+1]\n                int temp = arr[j];\n                arr[j] = arr[j+1];\n                arr[j+1] = temp;\n            }\n}\n"
             }
         ]
     },
     {
         "type": "one-time",
-        "day": 25,
-        "month": 12,
-        "year": 2024,
-        "title": "Merry Christmas!",
+        "title": "Quick Sort in C",
         "image": "me.jpg",
-        "text": "Wishing you a joyful holiday season.",
+        "text": "Master Quick Sort with this example.",
         "link": {
-            "url": "https://example.com",
-            "caption": "Discover our Christmas specials!"
-        },
-        "button": {
-            "caption": "Contact via WhatsApp",
-            "url": "https://wa.me/1234567890"
+            "caption": "View Full Code",
+            "url": "https://github.com/username/sorting-algorithms"
         },
         "code": [
             {
-                "language": "C",
-                "code": "#include <stdio.h>\nint main() {\n   printf(\"Merry Christmas!\\n\");\n   return 0;\n}"
+                "code": "#include <stdio.h>\nvoid quickSort(int arr[], int low, int high) {\n    // Quick sort implementation here\n}\n"
             }
         ]
     },
     {
         "type": "random",
-        "title": "New Year Wishes!",
+        "title": "Insertion Sort in C",
         "image": "me.jpg",
-        "text": "Cheers to a new year filled with new opportunities!",
+        "text": "Understand Insertion Sort through this code.",
         "link": {
-            "url": "https://example.com",
-            "caption": "View New Year offers!"
-        },
-        "button": {
-            "caption": "Contact via WhatsApp",
-            "url": "https://wa.me/1234567890"
+            "caption": "View Full Code",
+            "url": "https://github.com/username/sorting-algorithms"
         },
         "code": [
             {
-                "language": "C",
-                "code": "#include <stdio.h>\nint main() {\n   printf(\"Happy New Year!\\n\");\n   return 0;\n}"
+                "code": "#include <stdio.h>\nvoid insertionSort(int arr[], int n) {\n    // Insertion sort implementation here\n}\n"
             }
         ]
     }

@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to show the modal with code display
     function showModal(modalData) {
-        // Check if modalData has code, fallback to an empty array if not
         const codeBlocks = modalData.code && Array.isArray(modalData.code) && modalData.code.length > 0 ? 
             modalData.code.map(codeItem => `
                 <div class="xzymmymode-code-block">
@@ -145,8 +144,8 @@ document.addEventListener("DOMContentLoaded", function () {
             background: white;
             padding: 20px;
             border-radius: 10px;
-            width: 80%;
-            max-width: 600px;
+            width: 90%; /* Reduced width */
+            max-width: 500px; /* Maximum width for smaller modals */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             position: relative;
             opacity: 1;
@@ -161,9 +160,11 @@ document.addEventListener("DOMContentLoaded", function () {
             font-size: 24px;
         }
         .xzymmymode-image {
-            max-width: 100%;
-            height: auto;
+            max-width: 100%; /* Keep image responsive */
+            height: auto; /* Maintain aspect ratio */
             border-radius: 5px;
+            max-height: 300px; /* Limit height of the image */
+            object-fit: cover; /* Crop if necessary */
         }
         .xzymmymode-code-container {
             margin-top: 20px;
