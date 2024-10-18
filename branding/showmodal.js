@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return randomModals[Math.floor(Math.random() * randomModals.length)];
     }
 
-    // Function to show the modal
+    // Function to show the modal with animation
     function showModal(modalData) {
         const modalHTML = `
         <div id="customModal" class="xzymmymode-overlay">
@@ -63,6 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>`;
 
         document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+        // Add animation
+        const modal = document.getElementById("customModal");
+        modal.style.opacity = 0;
+        modal.style.transition = "opacity 0.5s";
+        setTimeout(() => {
+            modal.style.opacity = 1;
+        }, 10); // Slight delay to trigger CSS transition
 
         // Event listener for close button
         document.getElementById("closeModal").addEventListener("click", closeModal);
@@ -82,7 +90,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Close modal and remove from DOM
     function closeModal() {
         const modal = document.getElementById("customModal");
-        if (modal) modal.remove();
+        if (modal) {
+            modal.style.opacity = 0; // Fade out
+            setTimeout(() => {
+                modal.remove();
+            }, 500); // Wait for fade out to finish
+        }
     }
 
     // Add toggle button for modal at the top of the page
@@ -116,6 +129,7 @@ const modalStyles = `
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    opacity: 0; /* Start hidden for animation */
 }
 
 /* Modal Content */
