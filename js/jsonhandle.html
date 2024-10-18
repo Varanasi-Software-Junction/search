@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive JSON Processing with State Save/Recover</title>
+    <title>Interactive JSON Processing with Save/Recover Options</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -75,12 +75,46 @@
         .state-controls {
             margin-top: 20px;
         }
+        .how-to-use {
+            background-color: #e0f7fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .toggle-button {
+            background-color: #00838f;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .toggle-button:hover {
+            background-color: #006064;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>Interactive JSON Processing in JavaScript</h1>
+
+    <button id="toggleHowToUseBtn" class="toggle-button">Show Instructions</button>
+
+    <div class="how-to-use" id="howToUseSection">
+        <h2>How to Use this Page</h2>
+        <p>This page helps you interact with and process JSON data in various ways:</p>
+        <ul>
+            <li><strong>Load JSON from a File:</strong> Upload a JSON file from your computer to analyze its contents.</li>
+            <li><strong>Analyze JSON from a URL:</strong> Enter a URL that returns a JSON response to fetch and analyze the data.</li>
+            <li><strong>Analyze JSON from Text:</strong> Paste or write JSON directly into the textarea, and then analyze or extract the keys from the JSON.</li>
+            <li><strong>Save State:</strong> You can save the current state of the page (URL, JSON text, etc.) to a file or browser local storage, and recover it later.</li>
+            <li><strong>Copy to Clipboard:</strong> Use the "Copy to Clipboard" buttons to quickly copy parsed JSON or extracted keys.</li>
+            <li><strong>Save JSON to File:</strong> Download the JSON from the textarea as a `.json` file.</li>
+        </ul>
+        <p>Click "Hide Instructions" to collapse this section.</p>
+    </div>
 
     <h2>1. Load JSON from a File</h2>
     <input type="file" id="fileInput" accept=".json">
@@ -93,7 +127,7 @@
 
     <h2>3. Analyze JSON from Text</h2>
     <p>Write or paste your JSON below, and click "Analyze JSON" to see the parsed data, "Extract Keys" to retrieve all keys, or "Save to File" to download the JSON.</p>
-    <textarea id="jsonTextarea" placeholder='{"name": "Champak Roy", "profession":"Author", "city": "Varanasi"}'></textarea>
+    <textarea id="jsonTextarea" placeholder=='{"name": "Champak Roy", "profession":"Author", "city": "Varanasi"}'></textarea>
     <button id="analyzeJsonBtn">Analyze JSON</button>
     <button id="extractKeysBtn">Extract Keys</button>
     <button id="saveJsonBtn">Save to File</button>
@@ -120,7 +154,21 @@
 </div>
 
 <script>
-    // Function to load JSON from file
+    // Toggle How to Use section
+    const toggleHowToUseBtn = document.getElementById('toggleHowToUseBtn');
+    const howToUseSection = document.getElementById('howToUseSection');
+
+    toggleHowToUseBtn.addEventListener('click', function() {
+        if (howToUseSection.style.display === 'none' || howToUseSection.style.display === '') {
+            howToUseSection.style.display = 'block';
+            toggleHowToUseBtn.textContent = 'Hide Instructions';
+        } else {
+            howToUseSection.style.display = 'none';
+            toggleHowToUseBtn.textContent = 'Show Instructions';
+        }
+    });
+
+    // Load JSON from file
     document.getElementById('fileInput').addEventListener('change', function(event) {
         const file = event.target.files[0];
         if (file && file.type === 'application/json') {
@@ -175,62 +223,34 @@
 
         try {
             const parsedData = JSON.parse(jsonText);
-            const keys = getAllKeys(parsedData);
-            const keysResultElement = document.getElementById('jsonKeysResult');
-
-            // Clear previous results
-            keysResultElement.innerHTML = '';
-
-            // Display all keys in the list
+            const keys = Object.keys(parsedData);
+            const keyList = document.getElementById('jsonKeysResult');
+            keyList.innerHTML = ''; // Clear existing keys
             keys.forEach(key => {
                 const li = document.createElement('li');
                 li.textContent = key;
-                keysResultElement.appendChild(li);
+                keyList.appendChild(li);
             });
         } catch (error) {
-            document.getElementById('textareaJsonResult').textContent = 'Invalid JSON: ' + error.message;
+            alert('Invalid JSON: ' + error.message);
         }
     });
 
-    // Utility function to recursively extract all keys from a JSON object
-    function getAllKeys(obj, parent = '') {
-        let keys = [];
-
-        for (let key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                const fullKey = parent ? `${parent}.${key}` : key;
-                keys.push(fullKey);
-
-                // If the value is an object or array, recursively get keys
-                if (typeof obj[key] === 'object' && obj[key] !== null) {
-                    keys = keys.concat(getAllKeys(obj[key], fullKey));
-                }
-            }
-        }
-
-        return keys;
-    }
-
-    // Save JSON to file
+    // Save JSON from textarea to file
     document.getElementById('saveJsonBtn').addEventListener('click', () => {
         const jsonText = document.getElementById('jsonTextarea').value;
-
-        try {
-            const blob = new Blob([jsonText], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'data.json';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        } catch (error) {
-            alert('Failed to save the file: ' + error.message);
-        }
+        const blob = new Blob([jsonText], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
     });
 
-    // Save the entire state to a JSON file
+    // Save current state (URL, textarea content) to a file
     document.getElementById('saveStateBtn').addEventListener('click', () => {
         const state = {
             jsonUrl: document.getElementById('jsonUrl').value,
