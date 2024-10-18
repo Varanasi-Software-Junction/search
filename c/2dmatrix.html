@@ -171,29 +171,27 @@
             <button class="copy-button">Copy</button>
         </div>
 
-        <h3>2. Matrix Multiplication</h3>
-        <p>Matrix multiplication involves multiplying rows of the first matrix with columns of the second matrix. The number of columns in the first matrix should match the number of rows in the second matrix.</p>
+        <h3>2. Matrix Subtraction</h3>
+        <p>Matrix subtraction involves subtracting corresponding elements of two matrices of the same size.</p>
 
         <div class="code-block">
             <code>
                 #include &lt;stdio.h&gt;
 
                 int main() {
-                    int A[2][2] = {{1, 2}, {3, 4}};
-                    int B[2][2] = {{5, 6}, {7, 8}};
-                    int C[2][2] = {0};  // Resultant matrix
+                    int A[2][2] = {{5, 6}, {7, 8}};
+                    int B[2][2] = {{1, 2}, {3, 4}};
+                    int C[2][2];  // Resultant matrix
 
-                    // Performing matrix multiplication
+                    // Performing matrix subtraction
                     for (int i = 0; i &lt; 2; i++) {
                         for (int j = 0; j &lt; 2; j++) {
-                            for (int k = 0; k &lt; 2; k++) {
-                                C[i][j] += A[i][k] * B[k][j];
-                            }
+                            C[i][j] = A[i][j] - B[i][j];
                         }
                     }
 
                     // Printing the result
-                    printf("Resultant Matrix C:\\n");
+                    printf("Resultant Matrix C after subtraction:\\n");
                     for (int i = 0; i &lt; 2; i++) {
                         for (int j = 0; j &lt; 2; j++) {
                             printf("%d ", C[i][j]);
@@ -207,50 +205,97 @@
             <button class="copy-button">Copy</button>
         </div>
 
-        <h2>Passing 2D Arrays to Functions</h2>
-        <h3>1. Passing a 2D Array</h3>
-        <p>When passing a 2D array to a function, you must specify the number of columns:</p>
+        <h3>3. Checking for Equality</h3>
+        <p>This example checks whether two matrices are equal or not.</p>
+
         <div class="code-block">
             <code>
                 #include &lt;stdio.h&gt;
 
-                void printMatrix(int arr[2][3]) {<br>
-                    for (int i = 0; i &lt; 2; i++) {<br>
-                        for (int j = 0; j &lt; 3; j++) {<br>
-                            printf("%d ", arr[i][j]);<br>
-                        }<br>
-                        printf("\\n");<br>
-                    }<br>
-                }
+                int main() {
+                    int A[2][2] = {{1, 2}, {3, 4}};
+                    int B[2][2] = {{1, 2}, {3, 4}};
+                    int equal = 1;  // Assume matrices are equal
 
-                int main() {<br>
-                    int matrix[2][3] = {{1, 2, 3}, {4, 5, 6}};<br>
-                    printMatrix(matrix);<br>
-                    return 0;<br>
+                    // Check for equality
+                    for (int i = 0; i &lt; 2; i++) {
+                        for (int j = 0; j &lt; 2; j++) {
+                            if (A[i][j] != B[i][j]) {
+                                equal = 0;  // Set to false if any element is not equal
+                                break;
+                            }
+                        }
+                    }
+
+                    // Output result
+                    if (equal) {
+                        printf("Matrices are equal.\\n");
+                    } else {
+                        printf("Matrices are not equal.\\n");
+                    }
+
+                    return 0;
                 }
             </code>
             <button class="copy-button">Copy</button>
         </div>
 
-        <h3>2. Passing a 2D Array Using Pointers</h3>
-        <p>You can also pass a 2D array as a pointer:</p>
+        <h3>4. Transposing a Matrix</h3>
+        <p>Transposing a matrix involves swapping rows and columns.</p>
+
         <div class="code-block">
             <code>
                 #include &lt;stdio.h&gt;
 
-                void printMatrix(int (*arr)[3], int rows) {<br>
-                    for (int i = 0; i &lt; rows; i++) {<br>
-                        for (int j = 0; j &lt; 3; j++) {<br>
-                            printf("%d ", arr[i][j]);<br>
-                        }<br>
-                        printf("\\n");<br>
-                    }<br>
-                }
+                int main() {
+                    int A[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+                    int transpose[3][3];
 
-                int main() {<br>
-                    int matrix[2][3] = {{1, 2, 3}, {4, 5, 6}};<br>
-                    printMatrix(matrix, 2);<br>
-                    return 0;<br>
+                    // Calculating transpose
+                    for (int i = 0; i &lt; 3; i++) {
+                        for (int j = 0; j &lt; 3; j++) {
+                            transpose[j][i] = A[i][j];
+                        }
+                    }
+
+                    // Printing the transpose
+                    printf("Transpose of Matrix A:\\n");
+                    for (int i = 0; i &lt; 3; i++) {
+                        for (int j = 0; j &lt; 3; j++) {
+                            printf("%d ", transpose[i][j]);
+                        }
+                        printf("\\n");
+                    }
+
+                    return 0;
+                }
+            </code>
+            <button class="copy-button">Copy</button>
+        </div>
+
+        <h3>5. Solving Simultaneous Equations</h3>
+        <p>We can use matrices to solve simultaneous equations. Here's an example using Cramer's rule for two equations:</p>
+
+        <div class="code-block">
+            <code>
+                #include &lt;stdio.h&gt;
+
+                int main() {
+                    float a[2][2] = {{2, 3}, {1, 2}};
+                    float b[2] = {8, 5};
+                    float determinant, x, y;
+
+                    // Calculate determinant
+                    determinant = a[0][0] * a[1][1] - a[0][1] * a[1][0];
+
+                    // Using Cramer's Rule
+                    x = (b[0] * a[1][1] - b[1] * a[0][1]) / determinant;
+                    y = (a[0][0] * b[1] - a[1][0] * b[0]) / determinant;
+
+                    // Output results
+                    printf("Solution: x = %.2f, y = %.2f\\n", x, y);
+
+                    return 0;
                 }
             </code>
             <button class="copy-button">Copy</button>
@@ -292,27 +337,27 @@
                     <code>
                         #include &lt;stdio.h&gt;
 
-                        int main() {<br>
-                            int A[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};<br>
+                        int main() {
+                            int A[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
                             int transpose[3][3];
 
                             // Calculating transpose
-                            for (int i = 0; i &lt; 3; i++) {<br>
-                                for (int j = 0; j &lt; 3; j++) {<br>
-                                    transpose[j][i] = A[i][j];<br>
-                                }<br>
+                            for (int i = 0; i &lt; 3; i++) {
+                                for (int j = 0; j &lt; 3; j++) {
+                                    transpose[j][i] = A[i][j];
+                                }
                             }
 
                             // Printing the transpose
                             printf("Transpose of Matrix A:\\n");
-                            for (int i = 0; i &lt; 3; i++) {<br>
-                                for (int j = 0; j &lt; 3; j++) {<br>
-                                    printf("%d ", transpose[i][j]);<br>
-                                }<br>
-                                printf("\\n");<br>
+                            for (int i = 0; i &lt; 3; i++) {
+                                for (int j = 0; j &lt; 3; j++) {
+                                    printf("%d ", transpose[i][j]);
+                                }
+                                printf("\\n");
                             }
 
-                            return 0;<br>
+                            return 0;
                         }
                     </code>
                     <button class="copy-button">Copy</button>
@@ -329,8 +374,8 @@
                     <code>
                         #include &lt;stdio.h&gt;
 
-                        int main() {<br>
-                            int A[2][2] = {{1, 2}, {3, 4}};<br>
+                        int main() {
+                            int A[2][2] = {{1, 2}, {3, 4}};
                             int determinant;
 
                             // Calculating determinant
@@ -339,7 +384,45 @@
                             // Printing the determinant
                             printf("Determinant of the matrix: %d\\n", determinant);
 
-                            return 0;<br>
+                            return 0;
+                        }
+                    </code>
+                    <button class="copy-button">Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Assignment 3:</strong> Write a program to subtract two 3x3 matrices.</p>
+            <button class="view-answer-button">View Answer</button>
+            <div class="answer">
+                <p><strong>Solution:</strong></p>
+                <div class="code-block">
+                    <code>
+                        #include &lt;stdio.h&gt;
+
+                        int main() {
+                            int A[3][3] = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+                            int B[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+                            int C[3][3];  // Resultant matrix
+
+                            // Performing matrix subtraction
+                            for (int i = 0; i &lt; 3; i++) {
+                                for (int j = 0; j &lt; 3; j++) {
+                                    C[i][j] = A[i][j] - B[i][j];
+                                }
+                            }
+
+                            // Printing the result
+                            printf("Resultant Matrix C after subtraction:\\n");
+                            for (int i = 0; i &lt; 3; i++) {
+                                for (int j = 0; j &lt; 3; j++) {
+                                    printf("%d ", C[i][j]);
+                                }
+                                printf("\\n");
+                            }
+
+                            return 0;
                         }
                     </code>
                     <button class="copy-button">Copy</button>
