@@ -141,17 +141,20 @@ document.addEventListener("DOMContentLoaded", function () {
             z-index: 1000;
         }
         .xzymmymode-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%; /* Reduced width */
-            max-width: 500px; /* Maximum width for smaller modals */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            position: relative;
-            opacity: 1;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            transform: translateY(-20px);
-        }
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Reduced width */
+    max-width: 500px; /* Maximum width for smaller modals */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(-20px);
+    max-height: 90vh; /* This limits the modal height to 90% of the viewport height */
+    overflow-y: auto; /* This adds scrolling if content exceeds the modal height */
+}
+
         .xzymmymode-close {
             position: absolute;
             top: 10px;
