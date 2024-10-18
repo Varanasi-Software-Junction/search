@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive JSON Processing</title>
+    <title>Interactive JSON Processing with State Save/Recover</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -72,6 +72,9 @@
         .copy-button:hover {
             background-color: #003399;
         }
+        .state-controls {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -90,7 +93,7 @@
 
     <h2>3. Analyze JSON from Text</h2>
     <p>Write or paste your JSON below, and click "Analyze JSON" to see the parsed data, "Extract Keys" to retrieve all keys, or "Save to File" to download the JSON.</p>
-    <textarea id="jsonTextarea" placeholder='{"name": "John Doe", "age": 30, "city": "New York"}'></textarea>
+    <textarea id="jsonTextarea" placeholder='{"name": "Champak Roy", "profession":"Author", "city": "Varanasi"}'></textarea>
     <button id="analyzeJsonBtn">Analyze JSON</button>
     <button id="extractKeysBtn">Extract Keys</button>
     <button id="saveJsonBtn">Save to File</button>
@@ -105,6 +108,14 @@
         <h3>Extracted JSON Keys</h3>
         <ul id="jsonKeysResult" class="key-list"></ul>
         <div class="copy-button" id="copyExtractedKeys">Copy Extracted Keys</div>
+    </div>
+
+    <div class="state-controls">
+        <h2>4. Save and Recover State</h2>
+        <button id="saveStateBtn">Save State to Disk</button>
+        <button id="loadStateBtn">Recover State from Disk</button>
+        <button id="saveStateToLocalStorageBtn">Save State to LocalStorage</button>
+        <button id="loadStateFromLocalStorageBtn">Reload from LocalStorage</button>
     </div>
 </div>
 
@@ -219,19 +230,74 @@
         }
     });
 
-    // Copy parsed JSON to clipboard
-    document.getElementById('copyParsedJson').addEventListener('click', () => {
-        const parsedJsonText = document.getElementById('textareaJsonResult').textContent;
-        copyToClipboard(parsedJsonText);
+    // Save the entire state to a JSON file
+    document.getElementById('saveStateBtn').addEventListener('click', () => {
+        const state = {
+            jsonUrl: document.getElementById('jsonUrl').value,
+            jsonText: document.getElementById('jsonTextarea').value,
+            timestamp: new Date().toLocaleString()
+        };
+
+        const blob = new Blob([JSON.stringify(state, null, 4)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'state.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
     });
 
-    // Copy extracted keys to clipboard
-    document.getElementById('copyExtractedKeys').addEventListener('click', () => {
-        const keys = Array.from(document.querySelectorAll('#jsonKeysResult li')).map(li => li.textContent).join('\n');
-        copyToClipboard(keys);
+    // Recover state from a JSON file
+    document.getElementById('loadStateBtn').addEventListener('click', () => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.json';
+        input.addEventListener('change', event => {
+            const file = event.target.files[0];
+            if (file && file.type === 'application/json') {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const state = JSON.parse(e.target.result);
+                    document.getElementById('jsonUrl').value = state.jsonUrl || '';
+                    document.getElementById('jsonTextarea').value = state.jsonText || '';
+                    alert('State restored from: ' + state.timestamp);
+                };
+                reader.readAsText(file);
+            } else {
+                alert('Please upload a valid JSON file.');
+            }
+        });
+        input.click();
     });
 
-    // Utility function to copy text to clipboard
+    // Save the current state to localStorage
+    document.getElementById('saveStateToLocalStorageBtn').addEventListener('click', () => {
+        const state = {
+            jsonUrl: document.getElementById('jsonUrl').value,
+            jsonText: document.getElementById('jsonTextarea').value,
+            timestamp: new Date().toLocaleString()
+        };
+
+        localStorage.setItem('jsonState', JSON.stringify(state));
+        alert('State saved to localStorage.');
+    });
+
+    // Reload the state from localStorage
+    document.getElementById('loadStateFromLocalStorageBtn').addEventListener('click', () => {
+        const state = JSON.parse(localStorage.getItem('jsonState'));
+
+        if (state) {
+            document.getElementById('jsonUrl').value = state.jsonUrl || '';
+            document.getElementById('jsonTextarea').value = state.jsonText || '';
+            alert('State restored from: ' + state.timestamp);
+        } else {
+            alert('No saved state found in localStorage.');
+        }
+    });
+
+    // Copy to clipboard function
     function copyToClipboard(text) {
         const tempTextArea = document.createElement('textarea');
         tempTextArea.value = text;
@@ -241,6 +307,31 @@
         document.body.removeChild(tempTextArea);
         alert('Copied to clipboard');
     }
+
+    // Copy parsed JSON data to clipboard
+    document.getElementById('copyParsedJson').addEventListener('click', () => {
+        const jsonText = document.getElementById('textareaJsonResult').textContent;
+        copyToClipboard(jsonText);
+    });
+
+    // Copy extracted keys to clipboard
+    document.getElementById('copyExtractedKeys').addEventListener('click', () => {
+        const keys = Array.from(document.getElementById('jsonKeysResult').children)
+            .map(li => li.textContent)
+            .join('\n');
+        copyToClipboard(keys);
+    });
+
+    // Save state to localStorage when the page is unloaded
+    window.addEventListener('beforeunload', () => {
+        const state = {
+            jsonUrl: document.getElementById('jsonUrl').value,
+            jsonText: document.getElementById('jsonTextarea').value,
+            timestamp: new Date().toLocaleString()
+        };
+        localStorage.setItem('jsonState', JSON.stringify(state));
+    });
+
 </script>
 
 </body>
