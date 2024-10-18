@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive JSON Processing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #0044cc;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        textarea {
+            resize: vertical;
+            height: 150px;
+        }
+        button {
+            background-color: #0044cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003399;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .key-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .key-list li {
+            background-color: #e0e7ff;
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Interactive JSON Processing in JavaScript</h1>
+
+    <h2>1. Analyze JSON from a URL</h2>
+    <p>Enter a URL that returns a JSON response and click "Fetch and Analyze".</p>
+    <input type="text" id="jsonUrl" placeholder="Enter URL...">
+    <button id="fetchJsonBtn">Fetch and Analyze</button>
+
+    <div class="result">
+        <h3>Fetched JSON Data</h3>
+        <pre id="urlJsonResult">Result will be displayed here...</pre>
+    </div>
+
+    <hr>
+
+    <h2>2. Analyze JSON from Text</h2>
+    <p>Write or paste your JSON below, and click "Analyze JSON" to see the parsed data, or "Extract Keys" to retrieve all keys from the JSON object.</p>
+    <textarea id="jsonTextarea" placeholder='{"name": "John Doe", "age": 30, "city": "New York"}'></textarea>
+    <button id="analyzeJsonBtn">Analyze JSON</button>
+    <button id="extractKeysBtn">Extract Keys</button>
+
+    <div class="result">
+        <h3>Parsed JSON Data</h3>
+        <pre id="textareaJsonResult">Result will be displayed here...</pre>
+    </div>
+
+    <div class="result">
+        <h3>Extracted JSON Keys</h3>
+        <ul id="jsonKeysResult" class="key-list"></ul>
+    </div>
+</div>
+
+<script>
+    // Fetch and analyze JSON from a URL
+    document.getElementById('fetchJsonBtn').addEventListener('click', () => {
+        const url = document.getElementById('jsonUrl').value;
+        if (!url) {
+            alert('Please enter a valid URL');
+            return;
+        }
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('urlJsonResult').textContent = JSON.stringify(data, null, 4);
+            })
+            .catch(error => {
+                document.getElementById('urlJsonResult').textContent = 'Error fetching data: ' + error;
+            });
+    });
+
+    // Analyze JSON from textarea input
+    document.getElementById('analyzeJsonBtn').addEventListener('click', () => {
+        const jsonText = document.getElementById('jsonTextarea').value;
+
+        try {
+            const parsedData = JSON.parse(jsonText);
+            document.getElementById('textareaJsonResult').textContent = JSON.stringify(parsedData, null, 4);
+        } catch (error) {
+            document.getElementById('textareaJsonResult').textContent = 'Invalid JSON: ' + error.message;
+        }
+    });
+
+    // Extract all keys from the parsed JSON
+    document.getElementById('extractKeysBtn').addEventListener('click', () => {
+        const jsonText = document.getElementById('jsonTextarea').value;
+
+        try {
+            const parsedData = JSON.parse(jsonText);
+            const keys = getAllKeys(parsedData);
+            const keysResultElement = document.getElementById('jsonKeysResult');
+
+            // Clear previous results
+            keysResultElement.innerHTML = '';
+
+            // Display all keys in the list
+            keys.forEach(key => {
+                const li = document.createElement('li');
+                li.textContent = key;
+                keysResultElement.appendChild(li);
+            });
+        } catch (error) {
+            document.getElementById('textareaJsonResult').textContent = 'Invalid JSON: ' + error.message;
+        }
+    });
+
+    // Utility function to recursively extract all keys from a JSON object
+    function getAllKeys(obj, parent = '') {
+        let keys = [];
+
+        for (let key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                const fullKey = parent ? `${parent}.${key}` : key;
+                keys.push(fullKey);
+
+                // If the value is an object or array, recursively get keys
+                if (typeof obj[key] === 'object' && obj[key] !== null) {
+                    keys = keys.concat(getAllKeys(obj[key], fullKey));
+                }
+            }
+        }
+
+        return keys;
+    }
+</script>
+
+</body>
+</html>
