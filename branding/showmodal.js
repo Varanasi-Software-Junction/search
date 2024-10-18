@@ -1,18 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const MODAL_SHOW_TIME = 15000; // 15 seconds delay
+    const MODAL_SHOW_TIME = 15000; // Time before modal shows (in milliseconds)
+    const WHATSAPP_NUMBER = "1234567890"; // Your WhatsApp number
 
-    // Check localStorage to see if modal was already shown
+    // Check if modal was already shown
     if (localStorage.getItem("modalShown")) {
-        // Add the modal button at the top-right on page load
-        addModalToggleButton();
+        addModalToggleButton(); // Show button immediately if modal has been shown
     } else {
-        // Wait 15 seconds and show modal if not shown
+        // Wait for the specified time and show the modal
         setTimeout(() => {
             fetchModals();
         }, MODAL_SHOW_TIME);
     }
 
-    // Load modal data from JSON and show appropriate modal
+    // Load modal data from JSON and show the appropriate modal
     function fetchModals() {
         fetch('modals.json')
             .then(response => response.json())
@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (modalToShow) {
                     showModal(modalToShow);
                 }
-            });
+            })
+            .catch(error => console.error("Error loading modals:", error));
     }
 
     // Find relevant modal based on date or fallback to random
@@ -48,8 +49,17 @@ document.addEventListener("DOMContentLoaded", function () {
         return randomModals[Math.floor(Math.random() * randomModals.length)];
     }
 
-    // Function to show the modal with animation
+    // Function to show the modal with code display
     function showModal(modalData) {
+        // Check if modalData has code, fallback to an empty array if not
+        const codeBlocks = modalData.code && Array.isArray(modalData.code) && modalData.code.length > 0 ? 
+            modalData.code.map(codeItem => `
+                <div class="xzymmymode-code-block">
+                    <pre><code>${codeItem.code}</code></pre>
+                    <button class="xzymmymode-copy-button" onclick="copyToClipboard(\`${codeItem.code}\`)">Copy</button>
+                </div>
+            `).join('') : '<p>No code available.</p>'; // Fallback message if no code
+
         const modalHTML = `
         <div id="customModal" class="xzymmymode-overlay">
             <div class="xzymmymode-content">
@@ -58,178 +68,161 @@ document.addEventListener("DOMContentLoaded", function () {
                 <img src="${modalData.image}" alt="${modalData.title}" class="xzymmymode-image">
                 <p>${modalData.text}</p>
                 <a href="${modalData.link.url}" target="_blank">${modalData.link.caption}</a>
-                <button id="modalActionBtn" class="xzymmymode-button">${modalData.button.caption}</button>
+                <button class="xzymmymode-button" onclick="window.location.href='https://wa.me/${WHATSAPP_NUMBER}'">Contact via WhatsApp</button>
+                <div class="xzymmymode-code-container">${codeBlocks}</div>
             </div>
         </div>`;
 
-        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        const modalElement = document.createElement("div");
+        modalElement.innerHTML = modalHTML;
+        document.body.appendChild(modalElement);
 
-        // Add animation
+        // Fade-in animation
         const modal = document.getElementById("customModal");
-        modal.style.opacity = 0;
-        modal.style.transition = "opacity 0.5s";
+        modal.style.opacity = '0';
         setTimeout(() => {
-            modal.style.opacity = 1;
-        }, 10); // Slight delay to trigger CSS transition
+            modal.style.opacity = '1';
+            modalElement.querySelector('.xzymmymode-content').style.transform = 'translateY(0)';
+        }, 0);
 
-        // Event listener for close button
-        document.getElementById("closeModal").addEventListener("click", closeModal);
+        // Close modal and show button
+        document.getElementById("closeModal").onclick = function () {
+            fadeOutModal(modal, () => addModalToggleButton());
+        };
 
-        // Event listener for action button
-        document.getElementById("modalActionBtn").addEventListener("click", function() {
-            window.open(modalData.button.url, '_blank');
-        });
-
-        // Mark modal as shown in localStorage
-        localStorage.setItem("modalShown", true);
-
-        // Add button to top of page to allow showing modal again
-        addModalToggleButton();
+        localStorage.setItem("modalShown", true); // Mark modal as shown
     }
 
-    // Close modal and remove from DOM
-    function closeModal() {
-        const modal = document.getElementById("customModal");
-        if (modal) {
-            modal.style.opacity = 0; // Fade out
-            setTimeout(() => {
-                modal.remove();
-            }, 500); // Wait for fade out to finish
+    // Fade out modal
+    function fadeOutModal(modal, callback) {
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.remove();
+            callback(); // Call the callback after modal is removed
+        }, 300); // Match this with the CSS transition duration
+    }
+
+    // Add toggle button for showing the modal again
+    function addModalToggleButton() {
+        const existingButton = document.querySelector('.xzymmymode-toggle-button');
+        if (!existingButton) { // Only add button if it doesn't already exist
+            const toggleButton = document.createElement("button");
+            toggleButton.textContent = "Show Modal Again";
+            toggleButton.className = "xzymmymode-toggle-button";
+            toggleButton.onclick = () => {
+                fetchModals();
+            };
+            document.body.appendChild(toggleButton);
         }
     }
 
-    // Add toggle button for modal at the top of the page
-    function addModalToggleButton() {
-        // Prevent adding duplicate buttons
-        if (document.getElementById("showModalAgain")) return;
-
-        const toggleButtonHTML = '<button id="showModalAgain" style="position:fixed;top:10px;right:10px;z-index:1001;" class="xzymmymode-button">Show Modal</button>';
-        document.body.insertAdjacentHTML('beforeend', toggleButtonHTML);
-
-        document.getElementById("showModalAgain").addEventListener("click", function () {
-            fetchModals();
+    // Copy to clipboard function
+    window.copyToClipboard = function (text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Code copied to clipboard!");
+        }, () => {
+            alert("Failed to copy code.");
         });
-    }
+    };
+
+    // Inject CSS into the head
+    const styleElement = document.createElement("style");
+    styleElement.textContent = `
+        .xzymmymode-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+        .xzymmymode-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            opacity: 1;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform: translateY(-20px);
+        }
+        .xzymmymode-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .xzymmymode-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .xzymmymode-code-container {
+            margin-top: 20px;
+            overflow: auto;
+            max-height: 200px; /* Set height for scrolling */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .xzymmymode-code-block {
+            font-family: 'Courier New', Courier, monospace; /* Different font for code */
+            position: relative;
+        }
+        .xzymmymode-copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .xzymmymode-copy-button:hover {
+            background-color: #0056b3;
+        }
+        .xzymmymode-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        .xzymmymode-button:hover {
+            background-color: #218838;
+        }
+        .xzymmymode-toggle-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ffc107;
+            color: #333;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        .xzymmymode-toggle-button:hover {
+            background-color: #e0a800;
+        }
+    `;
+    document.head.appendChild(styleElement);
 });
-
-// Modal CSS (Injected into the document)
-const modalStyles = `
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;500&display=swap');
-
-/* Modal Overlay */
-.xzymmymode-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    opacity: 0; /* Start hidden for animation */
-}
-
-/* Modal Content */
-.xzymmymode-content {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    position: relative;
-    width: 80%;
-    max-width: 500px;
-    font-family: 'Poppins', sans-serif;
-}
-
-/* Close Button */
-.xzymmymode-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 25px;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-.xzymmymode-close:hover {
-    color: #ff0000;
-}
-
-/* Modal Heading */
-.xzymmymode-content h2 {
-    font-size: 26px;
-    margin-bottom: 20px;
-    color: #333;
-    font-weight: 600;
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Modal Image */
-.xzymmymode-image {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
-}
-.xzymmymode-image:hover {
-    transform: scale(1.05);
-}
-
-/* Modal Text */
-.xzymmymode-content p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-/* Modal Links */
-.xzymmymode-content a {
-    display: inline-block;
-    text-decoration: none;
-    color: #007BFF;
-    font-weight: bold;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-.xzymmymode-content a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-/* Modal Button */
-.xzymmymode-button {
-    padding: 12px 25px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.xzymmymode-button:hover {
-    background-color: #218838;
-    transform: translateY(-3px);
-}
-
-/* Media Queries */
-@media (max-width: 600px) {
-    .xzymmymode-content {
-        width: 95%;
-    }
-}
-`;
-
-// Inject CSS into the head
-const styleElement = document.createElement("style");
-styleElement.textContent = modalStyles;
-document.head.appendChild(styleElement);

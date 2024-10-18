@@ -2,48 +2,66 @@
     {
         "type": "yearly",
         "day": 5,
-        "month": 11,
-        "title": "Bubble Sort in C",
-        "text": "Learn how to implement Bubble Sort in C programming language. This sorting algorithm repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.",
+        "month": 10,
+        "title": "Happy Birthday!",
+        "image": "me.jpg",
+        "text": "Wishing you all the best!",
         "link": {
-            "url": "https://github.com/your-repo/sorting-algorithms#bubble-sort",
-            "caption": "View Code on GitHub"
+            "url": "https://example.com",
+            "caption": "Check out my birthday wishes!"
         },
         "button": {
-            "caption": "Contact on WhatsApp",
-            "url": "https://wa.me/your-number"
+            "caption": "Contact via WhatsApp",
+            "url": "https://wa.me/1234567890"
         },
-        "image": "me.jpg"
+        "code": [
+            {
+                "language": "C",
+                "code": "#include <stdio.h>\nint main() {\n   printf(\"Happy Birthday!\\n\");\n   return 0;\n}"
+            }
+        ]
     },
     {
         "type": "one-time",
-        "day": 10,
+        "day": 25,
         "month": 12,
         "year": 2024,
-        "title": "Quick Sort in C",
-        "text": "Implement Quick Sort, one of the most efficient sorting algorithms, in C. It employs a divide-and-conquer strategy to sort elements.",
+        "title": "Merry Christmas!",
+        "image": "me.jpg",
+        "text": "Wishing you a joyful holiday season.",
         "link": {
-            "url": "https://github.com/your-repo/sorting-algorithms#quick-sort",
-            "caption": "View Code on GitHub"
+            "url": "https://example.com",
+            "caption": "Discover our Christmas specials!"
         },
         "button": {
-            "caption": "Contact on WhatsApp",
-            "url": "https://wa.me/your-number"
+            "caption": "Contact via WhatsApp",
+            "url": "https://wa.me/1234567890"
         },
-        "image": "me.jpg"
+        "code": [
+            {
+                "language": "C",
+                "code": "#include <stdio.h>\nint main() {\n   printf(\"Merry Christmas!\\n\");\n   return 0;\n}"
+            }
+        ]
     },
     {
         "type": "random",
-        "title": "Insertion Sort in C",
-        "text": "Master Insertion Sort with this sample code in C. This algorithm builds the final sorted array one item at a time.",
+        "title": "New Year Wishes!",
+        "image": "me.jpg",
+        "text": "Cheers to a new year filled with new opportunities!",
         "link": {
-            "url": "https://github.com/your-repo/sorting-algorithms#insertion-sort",
-            "caption": "View Code on GitHub"
+            "url": "https://example.com",
+            "caption": "View New Year offers!"
         },
         "button": {
-            "caption": "Contact on WhatsApp",
-            "url": "https://wa.me/your-number"
+            "caption": "Contact via WhatsApp",
+            "url": "https://wa.me/1234567890"
         },
-        "image": "me.jpg"
+        "code": [
+            {
+                "language": "C",
+                "code": "#include <stdio.h>\nint main() {\n   printf(\"Happy New Year!\\n\");\n   return 0;\n}"
+            }
+        ]
     }
 ]
