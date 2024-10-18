@@ -60,6 +60,18 @@
             padding: 8px;
             border-radius: 4px;
         }
+        .copy-button {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 5px 10px;
+            background-color: #0044cc;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .copy-button:hover {
+            background-color: #003399;
+        }
     </style>
 </head>
 <body>
@@ -67,36 +79,50 @@
 <div class="container">
     <h1>Interactive JSON Processing in JavaScript</h1>
 
-    <h2>1. Analyze JSON from a URL</h2>
+    <h2>1. Load JSON from a File</h2>
+    <input type="file" id="fileInput" accept=".json">
+    <button id="loadJsonBtn">Load JSON</button>
+
+    <h2>2. Analyze JSON from a URL</h2>
     <p>Enter a URL that returns a JSON response and click "Fetch and Analyze".</p>
     <input type="text" id="jsonUrl" placeholder="Enter URL...">
     <button id="fetchJsonBtn">Fetch and Analyze</button>
 
-    <div class="result">
-        <h3>Fetched JSON Data</h3>
-        <pre id="urlJsonResult">Result will be displayed here...</pre>
-    </div>
-
-    <hr>
-
-    <h2>2. Analyze JSON from Text</h2>
-    <p>Write or paste your JSON below, and click "Analyze JSON" to see the parsed data, or "Extract Keys" to retrieve all keys from the JSON object.</p>
+    <h2>3. Analyze JSON from Text</h2>
+    <p>Write or paste your JSON below, and click "Analyze JSON" to see the parsed data, "Extract Keys" to retrieve all keys, or "Save to File" to download the JSON.</p>
     <textarea id="jsonTextarea" placeholder='{"name": "John Doe", "age": 30, "city": "New York"}'></textarea>
     <button id="analyzeJsonBtn">Analyze JSON</button>
     <button id="extractKeysBtn">Extract Keys</button>
+    <button id="saveJsonBtn">Save to File</button>
 
     <div class="result">
         <h3>Parsed JSON Data</h3>
         <pre id="textareaJsonResult">Result will be displayed here...</pre>
+        <div class="copy-button" id="copyParsedJson">Copy Parsed JSON</div>
     </div>
 
     <div class="result">
         <h3>Extracted JSON Keys</h3>
         <ul id="jsonKeysResult" class="key-list"></ul>
+        <div class="copy-button" id="copyExtractedKeys">Copy Extracted Keys</div>
     </div>
 </div>
 
 <script>
+    // Function to load JSON from file
+    document.getElementById('fileInput').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file && file.type === 'application/json') {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('jsonTextarea').value = e.target.result;
+            };
+            reader.readAsText(file);
+        } else {
+            alert('Please upload a valid JSON file.');
+        }
+    });
+
     // Fetch and analyze JSON from a URL
     document.getElementById('fetchJsonBtn').addEventListener('click', () => {
         const url = document.getElementById('jsonUrl').value;
@@ -113,10 +139,10 @@
                 return response.json();
             })
             .then(data => {
-                document.getElementById('urlJsonResult').textContent = JSON.stringify(data, null, 4);
+                document.getElementById('textareaJsonResult').textContent = JSON.stringify(data, null, 4);
             })
             .catch(error => {
-                document.getElementById('urlJsonResult').textContent = 'Error fetching data: ' + error;
+                document.getElementById('textareaJsonResult').textContent = 'Error fetching data: ' + error;
             });
     });
 
@@ -172,6 +198,48 @@
         }
 
         return keys;
+    }
+
+    // Save JSON to file
+    document.getElementById('saveJsonBtn').addEventListener('click', () => {
+        const jsonText = document.getElementById('jsonTextarea').value;
+
+        try {
+            const blob = new Blob([jsonText], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'data.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        } catch (error) {
+            alert('Failed to save the file: ' + error.message);
+        }
+    });
+
+    // Copy parsed JSON to clipboard
+    document.getElementById('copyParsedJson').addEventListener('click', () => {
+        const parsedJsonText = document.getElementById('textareaJsonResult').textContent;
+        copyToClipboard(parsedJsonText);
+    });
+
+    // Copy extracted keys to clipboard
+    document.getElementById('copyExtractedKeys').addEventListener('click', () => {
+        const keys = Array.from(document.querySelectorAll('#jsonKeysResult li')).map(li => li.textContent).join('\n');
+        copyToClipboard(keys);
+    });
+
+    // Utility function to copy text to clipboard
+    function copyToClipboard(text) {
+        const tempTextArea = document.createElement('textarea');
+        tempTextArea.value = text;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempTextArea);
+        alert('Copied to clipboard');
     }
 </script>
 
