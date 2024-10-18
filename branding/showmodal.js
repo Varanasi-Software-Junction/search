@@ -101,6 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Modal CSS (Injected into the document)
 const modalStyles = `
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;500&display=swap');
+
 /* Modal Overlay */
 .xzymmymode-overlay {
     position: fixed;
@@ -108,7 +111,7 @@ const modalStyles = `
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,24 +121,26 @@ const modalStyles = `
 /* Modal Content */
 .xzymmymode-content {
     background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     text-align: center;
     position: relative;
     width: 80%;
     max-width: 500px;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Close Button */
 .xzymmymode-close {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 15px;
     font-size: 25px;
     font-weight: bold;
     color: #333;
     cursor: pointer;
+    transition: color 0.3s ease;
 }
 .xzymmymode-close:hover {
     color: #ff0000;
@@ -143,18 +148,24 @@ const modalStyles = `
 
 /* Modal Heading */
 .xzymmymode-content h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
+    font-size: 26px;
+    margin-bottom: 20px;
     color: #333;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Modal Image */
 .xzymmymode-image {
     width: 100%;
-    max-width: 300px; /* Control max width */
+    max-width: 250px;
     height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
     margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+.xzymmymode-image:hover {
+    transform: scale(1.05);
 }
 
 /* Modal Text */
@@ -170,24 +181,30 @@ const modalStyles = `
     text-decoration: none;
     color: #007BFF;
     font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 16px;
+    transition: color 0.3s ease;
 }
 .xzymmymode-content a:hover {
     color: #0056b3;
+    text-decoration: underline;
 }
 
 /* Modal Button */
 .xzymmymode-button {
-    padding: 10px 20px;
+    padding: 12px 25px;
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .xzymmymode-button:hover {
     background-color: #218838;
+    transform: translateY(-3px);
 }
 
 /* Media Queries */
