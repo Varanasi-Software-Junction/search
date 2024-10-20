@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to show the modal with code display
     function showModal(modalData) {
-        const codeBlocks = modalData.code && Array.isArray(modalData.code) && modalData.code.length > 0 ? 
+        const codeBlocks = modalData.code && Array.isArray(modalData.code) && modalData.code.length > 0 ?
             modalData.code.map(codeItem => `
                 <div class="xzymmymode-code-block">
                     <pre><code>${codeItem.code}</code></pre>
@@ -88,8 +88,12 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("closeModal").onclick = function () {
             fadeOutModal(modal, () => addModalToggleButton());
         };
-
+        const td = new Date();
         localStorage.setItem("modalShown", true); // Mark modal as shown
+        const dateobj = `{"day":${td.getDay()}, "month": ${td.getMonth()+1}, "year":${td.getFullYear()}`;
+    
+
+        localStorage.setItem("modalShownTime", dateobj);
     }
 
     // Fade out modal
@@ -127,106 +131,106 @@ document.addEventListener("DOMContentLoaded", function () {
     // Inject CSS into the head
     const styleElement = document.createElement("style");
     styleElement.textContent = `
-        .xzymmymode-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.3s ease;
-            z-index: 1000;
+    .xzymmymode - overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify- content: center;
+align - items: center;
+transition: opacity 0.3s ease;
+z - index: 1000;
         }
-        .xzymmymode-content {
+        .xzymmymode - content {
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    width: 90%; /* Reduced width */
-    max-width: 500px; /* Maximum width for smaller modals */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border - radius: 10px;
+    width: 90 %; /* Reduced width */
+    max - width: 500px; /* Maximum width for smaller modals */
+    box - shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     opacity: 1;
     transition: transform 0.3s ease, opacity 0.3s ease;
     transform: translateY(-20px);
-    max-height: 90vh; /* This limits the modal height to 90% of the viewport height */
-    overflow-y: auto; /* This adds scrolling if content exceeds the modal height */
+    max - height: 90vh; /* This limits the modal height to 90% of the viewport height */
+    overflow - y: auto; /* This adds scrolling if content exceeds the modal height */
 }
 
-        .xzymmymode-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 24px;
-        }
-        .xzymmymode-image {
-            max-width: 100%; /* Keep image responsive */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 5px;
-            max-height: 300px; /* Limit height of the image */
-            object-fit: cover; /* Crop if necessary */
-        }
-        .xzymmymode-code-container {
-            margin-top: 20px;
-            overflow: auto;
-            max-height: 200px; /* Set height for scrolling */
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-        .xzymmymode-code-block {
-            font-family: 'Courier New', Courier, monospace; /* Different font for code */
-            position: relative;
-        }
-        .xzymmymode-copy-button {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .xzymmymode-copy-button:hover {
-            background-color: #0056b3;
-        }
-        .xzymmymode-button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-        .xzymmymode-button:hover {
-            background-color: #218838;
-        }
-        .xzymmymode-toggle-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #ffc107;
-            color: #333;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            z-index: 10000;
-            transition: background-color 0.3s ease;
-        }
-        .xzymmymode-toggle-button:hover {
-            background-color: #e0a800;
-        }
-    `;
+        .xzymmymode - close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font - size: 24px;
+}
+        .xzymmymode - image {
+    max - width: 100 %; /* Keep image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border - radius: 5px;
+    max - height: 300px; /* Limit height of the image */
+    object - fit: cover; /* Crop if necessary */
+}
+        .xzymmymode - code - container {
+    margin - top: 20px;
+    overflow: auto;
+    max - height: 200px; /* Set height for scrolling */
+    border: 1px solid #ddd;
+    border - radius: 5px;
+    padding: 10px;
+    background - color: #f9f9f9;
+}
+        .xzymmymode - code - block {
+    font - family: 'Courier New', Courier, monospace; /* Different font for code */
+    position: relative;
+}
+        .xzymmymode - copy - button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    background - color: #007bff;
+    color: white;
+    border: none;
+    border - radius: 5px;
+    cursor: pointer;
+    transition: background - color 0.3s ease;
+}
+        .xzymmymode - copy - button:hover {
+    background - color: #0056b3;
+}
+        .xzymmymode - button {
+    background - color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border - radius: 5px;
+    transition: background - color 0.3s ease;
+    margin - top: 10px;
+}
+        .xzymmymode - button:hover {
+    background - color: #218838;
+}
+        .xzymmymode - toggle - button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background - color: #ffc107;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border - radius: 5px;
+    box - shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z - index: 10000;
+    transition: background - color 0.3s ease;
+}
+        .xzymmymode - toggle - button:hover {
+    background - color: #e0a800;
+}
+`;
     document.head.appendChild(styleElement);
 });
