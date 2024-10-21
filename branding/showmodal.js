@@ -1,9 +1,22 @@
+const d=document.getElementById("d");
+        function getDateofToday()
+        {
+const tt=new Date();
+        let todaydate=`${tt.getDate()}-${tt.getMonth()+1}-${tt.getFullYear()}`;
+        // d.innerHTML=todaydate;
+        return todaydate.trim();
+        }
+
 document.addEventListener("DOMContentLoaded", function () {
     const MODAL_SHOW_TIME = 100; // Time before modal shows (in milliseconds)
     const WHATSAPP_NUMBER = "919335874326"; // Your WhatsApp number
 
     // Check if modal was already shown
     if (localStorage.getItem("modalShown")) {
+        let storeddate=localStorage.getItem('modalShown');
+        let tday=getDateofToday();
+        console.log(storeddate,tday);
+        console.log(storeddate!=tday);
         addModalToggleButton(); // Show button immediately if modal has been shown
     } else {
         // Wait for the specified time and show the modal
@@ -89,7 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
             fadeOutModal(modal, () => addModalToggleButton());
         };
 
-        localStorage.setItem("modalShown", true); // Mark modal as shown
+
+        localStorage.setItem("modalShown", getDateofToday()); // Mark modal as shown
     }
 
     // Fade out modal
