@@ -54,6 +54,13 @@
             font-size: 0.9em;
             color: #555;
         }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -64,68 +71,69 @@
         <h2>Popular State Management Systems</h2>
         <ul>
             <li>
-                <strong>1. setState</strong>
+                <strong>1. <a href="https://flutter.dev/docs/development/ui/interactive#setstate" target="_blank">setState</a></strong>
                 <div class="description">The simplest form of state management in Flutter. It is used to rebuild a widget when its state changes but is limited to local state within a single widget. Best suited for small apps or simple UI updates.</div>
             </li>
             <li>
-                <strong>2. InheritedWidget & InheritedModel</strong>
+                <strong>2. <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html" target="_blank">InheritedWidget & InheritedModel</a></strong>
                 <div class="description">These allow state to be passed down the widget tree. They provide a low-level API to efficiently share state across multiple widgets, but can become cumbersome in large apps.</div>
             </li>
             <li>
-                <strong>3. Provider</strong>
+                <strong>3. <a href="https://pub.dev/packages/provider" target="_blank">Provider</a></strong>
                 <div class="description">An officially recommended package built on top of InheritedWidget. It simplifies the process of managing and passing state throughout the widget tree and is widely used for its ease of use and flexibility.</div>
             </li>
             <li>
-                <strong>4. Riverpod</strong>
+                <strong>4. <a href="https://riverpod.dev/" target="_blank">Riverpod</a></strong>
                 <div class="description">A modern, robust alternative to Provider that emphasizes safety and flexibility. Riverpod does not rely on the widget tree, making it a great choice for scalable applications with complex state requirements.</div>
             </li>
             <li>
-                <strong>5. Bloc (Business Logic Component)</strong>
+                <strong>5. <a href="https://bloclibrary.dev/#/" target="_blank">Bloc (Business Logic Component)</a></strong>
                 <div class="description">Bloc separates business logic from UI and utilizes streams for managing state. It is a popular choice for larger applications where maintaining a clear separation of concerns is essential.</div>
             </li>
             <li>
-                <strong>6. GetX</strong>
+                <strong>6. <a href="https://pub.dev/packages/get" target="_blank">GetX</a></strong>
                 <div class="description">A lightweight and efficient state management solution that combines reactive programming, dependency injection, and routing. GetX is designed for high performance and is suitable for both small and medium-sized apps.</div>
             </li>
             <li>
-                <strong>7. MobX</strong>
+                <strong>7. <a href="https://pub.dev/packages/mobx" target="_blank">MobX</a></strong>
                 <div class="description">MobX leverages reactive programming principles to manage state. It tracks changes in observables, automatically updating the UI when data changes, making it ideal for apps that benefit from real-time data updates.</div>
             </li>
             <li>
-                <strong>8. Redux</strong>
+                <strong>8. <a href="https://pub.dev/packages/redux" target="_blank">Redux</a></strong>
                 <div class="description">A predictable state container inspired by the Redux architecture in JavaScript. It follows a unidirectional data flow, making it suitable for large and complex applications that require strict state management.</div>
             </li>
             <li>
-                <strong>9. ScopedModel</strong>
+                <strong>9. <a href="https://pub.dev/packages/scoped_model" target="_blank">ScopedModel</a></strong>
                 <div class="description">A lightweight state management solution that has largely been replaced by Provider. ScopedModel is still useful for small apps where simple state management is sufficient.</div>
             </li>
             <li>
-                <strong>10. StatesRebuilder</strong>
+                <strong>10. <a href="https://pub.dev/packages/states_rebuilder" target="_blank">StatesRebuilder</a></strong>
                 <div class="description">Focuses on performance and reactivity, StatesRebuilder is designed to rebuild only the necessary parts of the UI, making it a great choice for applications that prioritize efficiency.</div>
             </li>
             <li>
-                <strong>11. Flutter Hooks</strong>
+                <strong>11. <a href="https://pub.dev/packages/flutter_hooks" target="_blank">Flutter Hooks</a></strong>
                 <div class="description">Inspired by React Hooks, Flutter Hooks allows developers to reuse stateful logic across widgets, making it easier to manage complex state scenarios in a more declarative manner.</div>
             </li>
             <li>
-                <strong>12. Binder</strong>
+                <strong>12. <a href="https://pub.dev/packages/binder" target="_blank">Binder</a></strong>
                 <div class="description">A modular and reactive state management library that simplifies managing state dependencies, making it suitable for apps needing a clean and efficient approach to state handling.</div>
             </li>
             <li>
-                <strong>13. Cubit</strong>
+                <strong>13. <a href="https://bloclibrary.dev/#/cubit" target="_blank">Cubit</a></strong>
                 <div class="description">Part of the Bloc package, Cubit offers a simpler API for managing state without the complexity of streams. It is ideal for medium-sized applications that require straightforward state management.</div>
             </li>
             <li>
-                <strong>14. Recoil</strong>
+                <strong>14. <a href="https://pub.dev/packages/recoil" target="_blank">Recoil</a></strong>
                 <div class="description">A state management library inspired by Facebook's Recoil for React, allowing for shared state management with minimal overhead. It is useful for applications needing global state without excessive boilerplate code.</div>
             </li>
             <li>
-                <strong>15. Momentum</strong>
+                <strong>15. <a href="https://pub.dev/packages/momentum" target="_blank">Momentum</a></strong>
                 <div class="description">Momentum provides a balance between simplicity and scalability, making it suitable for applications that require efficient state management without compromising performance.</div>
             </li>
         </ul>
     </div>
     <footer>
+       
         
       <!-- ******************Branding ********************************** -->
       <div class='flip-container'>
