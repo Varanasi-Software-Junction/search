@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,8 @@
             background-color: #f4f4f4;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             color: #333;
         }
 
@@ -66,9 +68,11 @@
             font-size: 24px;
             transition: transform 0.5s ease;
         }
+    </style>
 
-        /* Default animation */
-        @keyframes defaultAnimation {
+    <style id="mystyle">
+/* Default animation */
+@keyframes defaultAnimation {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); background-color: #0056b3; }
             100% { transform: scale(1); }
@@ -80,14 +84,28 @@
 
     </style>
 </head>
+
 <body>
 
     <h1>Live CSS Animation Preview</h1>
     <div class="container">
 
-        <h2>Enter CSS Animation</h2>
+        <h2>Enter CSS Animation<br>
+        <pre><code>Use the .animated class only</code></pre></h2>
         <div class="textarea-container">
-            <textarea id="animationInput" placeholder="Enter your CSS animation here. Example: @keyframes myAnimation { 0% { transform: scale(1); } 100% { transform: scale(1.5); } } .card { animation: myAnimation 3s infinite; }"></textarea>
+            <textarea id="animationInput"
+                placeholder="Enter your CSS animation here.
+                 Example: 
+                 /* Default animation */
+        @keyframes defaultAnimation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); background-color: #0056b3; }
+            100% { transform: scale(1); }
+        }
+
+        .animated {
+            animation: defaultAnimation 2s infinite;
+        }"></textarea>
         </div>
 
         <button onclick="applyAnimation()">Apply Animation</button>
@@ -108,17 +126,22 @@
             const card = document.getElementById('animatedCard');
 
             // Clear existing styles on the card
-            card.removeAttribute('style');
+            // card.removeAttribute('style');
             card.classList.remove('animated');
 
             // Create a new style element
-            const styleElement = document.createElement('style');
-            styleElement.innerHTML = animationCode;
+            const styleElement = document.getElementById("mystyle");
+            
+            styleElement.innerText="";
+            styleElement.innerText = animationCode;
+            console.log(styleElement.innerText);
 
             // Append the new styles to the head of the document
-            document.head.appendChild(styleElement);
+            // document.head.appendChild(styleElement);
+            card.classList.add("animated");
         }
     </script>
 
 </body>
+
 </html>
