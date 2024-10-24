@@ -68,71 +68,9 @@
     <div id="summary" class="summary"></div>
 
     <script>
-        const quizData = [
-            {
-                question: "What is a token in C?",
-                options: ["Smallest individual unit", "A program", "A function", "A compiler"],
-                correct: 0,
-                explanation: "In C programming, a token is the smallest individual unit that has meaning."
-            },
-            {
-                question: "Which is a valid identifier?",
-                options: ["2variable", "_myVar", "char", "#define"],
-                correct: 1,
-                explanation: "Identifiers in C can start with an underscore or a letter."
-            },
-            {
-                question: "Which of the following is a high-level language?",
-                options: ["Assembly language", "Machine language", "C", "Binary language"],
-                correct: 2,
-                explanation: "C is a high-level language that abstracts hardware details from the programmer."
-            },
-            {
-                question: "What is the output of the following code?\n printf(\"%d\", 2 + 3);",
-                options: ["5", "23", "2", "Error"],
-                correct: 0,
-                explanation: "The expression 2 + 3 evaluates to 5."
-            },
-            {
-                question: "Which of these is NOT a data type in C?",
-                options: ["int", "float", "string", "char"],
-                correct: 2,
-                explanation: "C does not have a 'string' data type, though strings can be represented as arrays of characters."
-            },
-            {
-                question: "Which operator is used to take input in C?",
-                options: ["printf()", "scanf()", "getchar()", "putchar()"],
-                correct: 1,
-                explanation: "scanf() is used to take input from the user in C."
-            },
-            {
-                question: "Which of these is a literal?",
-                options: ["25", "int", "main()", "return"],
-                correct: 0,
-                explanation: "A literal is a constant value, such as 25."
-            },
-            {
-                question: "What does the main function return?",
-                options: ["Nothing", "void", "An integer", "A character"],
-                correct: 2,
-                explanation: "The main function in C typically returns an integer (0 for success)."
-            },
-            {
-                question: "Which of the following is a compiler?",
-                options: ["Python", "GCC", "IntelliJ", "Notepad++"],
-                correct: 1,
-                explanation: "GCC is a popular compiler for C programs."
-            },
-            {
-                question: "What is the purpose of the preprocessor directive #include <stdio.h>?",
-                options: ["Defines the main function", "Includes a standard I/O library", "Starts a loop", "Allocates memory"],
-                correct: 1,
-                explanation: "#include <stdio.h> includes the standard I/O library in a C program."
-            }
-            // Add more questions here
-        ];
-
+        let quizData = [];
         let currentQuestionIndex = 0;
+        let currentQno = 1; // New counter for the question number
         let score = 0;
         let totalQuestions = 10;
         let attemptedQuestions = [];
@@ -141,6 +79,27 @@
         const resultsContainer = document.getElementById('results');
         const summaryContainer = document.getElementById('summary');
         const submitButton = document.getElementById('submit-btn');
+
+        // Function to load the quiz questions from the JSON file
+        async function loadQuizData() {
+            try {
+                const response = await fetch('questions.json'); // Fetch questions from the JSON file
+                const data = await response.json();
+                quizData = shuffleArray(data); // Shuffle the questions
+                loadQuestion();
+            } catch (error) {
+                console.error('Error loading quiz data:', error);
+            }
+        }
+
+        // Function to shuffle array (randomize questions)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
 
         function loadQuestion() {
             if (currentQuestionIndex < totalQuestions) {
@@ -151,7 +110,7 @@
 
                 quizContainer.innerHTML = `
                     <div class="question">
-                        <h2>Question ${currentQuestionIndex + 1}:</h2>
+                        <h2>Question ${currentQno}:</h2> <!-- Display dynamic question number -->
                         <p>${questionData.question}</p>
                     </div>
                     <div class="options">
@@ -160,6 +119,8 @@
                         `).join('')}
                     </div>
                 `;
+
+                currentQno++; // Increment the question number after each question is loaded
             } else {
                 showResults();
             }
@@ -178,7 +139,7 @@
 
             // Record the attempt
             let attempt = {
-                questionNo: currentQuestionIndex + 1,
+                questionNo: currentQno - 1, // Display the dynamically generated question number
                 question: currentQuestion.question,
                 options: currentQuestion.options,
                 correctOption: currentQuestion.options[currentQuestion.correct],
@@ -250,7 +211,8 @@
         }
 
         // Initialize quiz
-        loadQuestion();
+        loadQuizData();
+
     </script>
 
 </body>
