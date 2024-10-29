@@ -88,8 +88,15 @@
 </div>
 
 <script>
-    async function fetchWeather() {
-        const city = document.getElementById("city").value.trim();
+function getTheWeather() 
+{
+    const city = document.getElementById("city").value.trim();
+    await(fetchWeather(city));
+    // const city = document.getElementById("city").value.trim();
+
+}   
+    async function fetchWeather(city) {
+        
         const resultDiv = document.getElementById("result");
         const errorDiv = document.getElementById("error");
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch JSON Example</title>
+</head>
+
+<body>
+
+    <h1>Fetch JSON Example</h1>
+    <button onclick="fetchData()">Fetch Data</button>
+
+    <div id="output"></div>
+
+    <script>
+        function fetchJson(url) {
+            return fetch(url)
+                .then(function (response) {
+                    console.log(response.status);
+                    if (!response.ok) {
+                        throw new Error("HTTP error! Status: " + response.status);
+                    }
+                    return response.json();
+                })
+                .then(function (data) {
+                    const returndata=`{"data":${JSON.stringify(data)},"result","success"}`;
+                    return returndata;
+                })
+                .catch(function (error) {
+                    return `"{"error":"${error.Error}","result":"failed"}`;
+                });
+        }
+
+        function fetchData() {
+            const city = "varanasi";
+            //   const url = 'https://jsonplaceholder.typicode.com/posts/1';
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4a1f8a61b74546825af1e0be106e797b&units=metric`;
+            fetchJson(url)
+                .then(function (result) {
+                    document.getElementById('output').innerText = JSON.stringify(result, null, 2);
+                })
+                .catch(function (error) {
+                    document.getElementById('output').innerText = error;
+                });
+        }
+    </script>
+
+</body>
+
+</html>
