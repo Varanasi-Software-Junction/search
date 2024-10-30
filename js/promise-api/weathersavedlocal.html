@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
             height: 100vh;
             margin: 0;
         }
+
         .container {
             background-color: #ffffff;
             max-width: 600px;
@@ -24,16 +26,19 @@
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+
         h1 {
             color: #1e3a8a;
             margin-bottom: 20px;
         }
+
         label {
             display: block;
             font-size: 1.1em;
             color: #1e3a8a;
             margin-bottom: 10px;
         }
+
         input[type="text"] {
             width: 100%;
             padding: 12px;
@@ -44,9 +49,11 @@
             outline: none;
             transition: border-color 0.3s;
         }
+
         input[type="text"]:focus {
             border-color: #1e3a8a;
         }
+
         button {
             background-color: #1e3a8a;
             color: white;
@@ -57,92 +64,98 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         button:hover {
             background-color: #164a8a;
         }
-        .result, .error {
+
+        .result,
+        .error {
             margin-top: 20px;
             padding: 15px;
             border-radius: 5px;
         }
+
         .result {
             background-color: #e5f0ff;
             color: #1e3a8a;
         }
+
         .error {
             background-color: #ffebee;
             color: #b71c1c;
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Weather Search</h1>
-    <label for="city">Enter City Name:</label>
-    <input type="text" id="city" placeholder="e.g., New York" />
-    <button onclick="fetchWeather()">Get Weather</button>
+    <div class="container">
+        <h1>Weather Search</h1>
+        <label for="city">Enter City Name:</label>
+        <input type="text" id="city" placeholder="e.g., New York" />
+        <button onclick="fetchWeather()">Get Weather</button>
 
-    <div id="result" class="result"></div>
-    <div id="error" class="error"></div>
-</div>
+        <div id="result" class="result"></div>
+        <div id="error" class="error"></div>
+    </div>
 
-<script>
-function getTheWeather() 
-{
-    const city = document.getElementById("city").value.trim();
-    await(fetchWeather(city));
-    // const city = document.getElementById("city").value.trim();
+    <script>
+        function getTheWeather() {
+            const city = document.getElementById("city").value.trim();
+            await(fetchWeather(city));
+            // const city = document.getElementById("city").value.trim();
 
-}   
-    async function fetchWeather(city) {
-        
-        const resultDiv = document.getElementById("result");
-        const errorDiv = document.getElementById("error");
-
-        // Clear previous messages
-        resultDiv.innerHTML = '';
-        errorDiv.innerHTML = '';
-
-        // Validate input
-        if (!city) {
-            errorDiv.textContent = "Please enter a valid city name.";
-            return;
         }
+        async function fetchWeather(city) {
 
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4a1f8a61b74546825af1e0be106e797b&units=metric`;
-        const localData = localStorage.getItem(url);
-        alert(url);
+            const resultDiv = document.getElementById("result");
+            const errorDiv = document.getElementById("error");
 
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error("Failed to fetch data.");
+            // Clear previous messages
+            resultDiv.innerHTML = '';
+            errorDiv.innerHTML = '';
+
+            // Validate input
+            if (!city) {
+                errorDiv.textContent = "Please enter a valid city name.";
+                return;
             }
-            const data = await response.json();
-            const dateTime = new Date().toLocaleString();
 
-            // Save the fetched data to localStorage
-            localStorage.setItem(url, JSON.stringify({ data, dateTime }));
-            displayData(data, dateTime);
-        } catch (error) {
-            if (localData) {
-                const { data, dateTime } = JSON.parse(localData);
-                errorDiv.textContent = "Could not fetch latest data; displaying saved data.";
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4a1f8a61b74546825af1e0be106e797b&units=metric`;
+            const localData = localStorage.getItem(url);
+            alert(url);
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error("Failed to fetch data.");
+                }
+                const data = await response.json();
+                const dateTime = new Date().toLocaleString();
+
+                // Save the fetched data to localStorage
+                localStorage.setItem(url, JSON.stringify({ data, dateTime }));
                 displayData(data, dateTime);
-            } else {
-                errorDiv.textContent = "City not found or data unavailable.";
+            } catch (error) {
+                if (localData) {
+                    const { data, dateTime } = JSON.parse(localData);
+                    errorDiv.textContent = "Could not fetch latest data; displaying saved data.";
+                    displayData(data, dateTime);
+                } else {
+                    errorDiv.textContent = "City not found or data unavailable.";
+                }
             }
         }
-    }
 
-    function displayData(data, dateTime) {
-        const resultDiv = document.getElementById("result");
-        data=JSON.stringify(data);
-        resultDiv.innerHTML =data;
-        
-    }
-</script>
+        function displayData(data, dateTime) {
+            const resultDiv = document.getElementById("result");
+            data = JSON.stringify(data);
+            resultDiv.innerHTML = data;
+
+        }
+    </script>
 
 </body>
+
 </html>

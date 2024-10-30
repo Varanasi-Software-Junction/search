@@ -10,12 +10,16 @@
 <body>
 
     <h1>Fetch JSON Example</h1>
+    City:<input type="text" id="txtcity">
+    <br>
     <button onclick="fetchData()">Fetch Data</button>
 
     <div id="output"></div>
 
     <script>
-        function fetchJson(url) {
+        const txtcity=document.getElementById("txtcity");
+        function fetchJsonFromUrl(url) {
+            //Takes a URL as input and returns the downloaded JSON, or error as the case masybe
             return fetch(url)
                 .then(function (response) {
                     console.log(response.status);
@@ -26,6 +30,8 @@
                 })
                 .then(function (data) {
                     const returndata=`{"data":${JSON.stringify(data)},"result","success"}`;
+
+                    //Return the whole data as json and add a result attribute with success or failed as value
                     return returndata;
                 })
                 .catch(function (error) {
@@ -34,11 +40,22 @@
         }
 
         function fetchData() {
-            const city = "varanasi";
-            //   const url = 'https://jsonplaceholder.typicode.com/posts/1';
+            const city = txtcity.value.trim().toLowerCase();
+            
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4a1f8a61b74546825af1e0be106e797b&units=metric`;
-            fetchJson(url)
+            // alert(url);
+            fetchJsonFromUrl(url)
                 .then(function (result) {
+                    // const state=JSON.parse(  result);
+                    document.writeln(result);
+                    alert(state);
+                    const dateTime = new Date().toLocaleString();
+                    
+                    const saveddata=`{"data":{"datetime":${dateTime},"result":"${result}"}`;
+
+                    alert(saveddata);
+                    localStorage.setItem(url,saveddata);
+
                     document.getElementById('output').innerText = JSON.stringify(result, null, 2);
                 })
                 .catch(function (error) {
