@@ -21,15 +21,15 @@ whatsappButton.innerHTML = `
 `;
 document.body.appendChild(whatsappButton);
 
-// Add CSS styles with a professional font
+// Add CSS styles with the "Lora" font for the local divs
 const style = document.createElement('style');
 style.innerHTML = `
     /* Import Google Font */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap');
 
-    /* Apply font to the entire body */
-    body {
-        font-family: 'Roboto', sans-serif;
+    /* Apply font only to flip-container and whatsapp-button */
+    .flip-container, .whatsapp-button {
+        font-family: 'Lora', serif;
     }
 
     /* 3D Flipping Image Section */
@@ -89,7 +89,7 @@ style.innerHTML = `
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         cursor: pointer;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Lora', serif;
     }
 
     /* WhatsApp Icon */
