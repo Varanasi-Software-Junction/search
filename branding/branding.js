@@ -30,7 +30,7 @@ style.innerHTML = `
     /* Apply font only to flip-container and whatsapp-button */
     .flip-container, .whatsapp-button {
         font-family: 'Lora', serif;
-        fonr-size:700px;
+        font-size:700px;
     }
 
     /* 3D Flipping Image Section */
