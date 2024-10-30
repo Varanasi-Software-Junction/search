@@ -1,5 +1,11 @@
 // branding.js
 
+// Add the Google Font link to the document head
+const fontLink = document.createElement('link');
+fontLink.href = 'https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap';
+fontLink.rel = 'stylesheet';
+document.head.appendChild(fontLink);
+
 // Add the 3D Flipping Image Section
 const flipContainer = document.createElement('div');
 flipContainer.className = 'flip-container';
@@ -24,13 +30,9 @@ document.body.appendChild(whatsappButton);
 // Add CSS styles with the "Lora" font for the local divs
 const style = document.createElement('style');
 style.innerHTML = `
-    /* Import Google Font */
-    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap');
-
     /* Apply font only to flip-container and whatsapp-button */
     .flip-container, .whatsapp-button {
         font-family: 'Lora', serif;
-        font-size:700px;
     }
 
     /* 3D Flipping Image Section */
