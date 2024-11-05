@@ -1,6 +1,6 @@
 let items = []; // Declare 'items' globally
 
-window.onload = function() {
+window.onload = function () {
     loadItemsFromJSON();
 };
 

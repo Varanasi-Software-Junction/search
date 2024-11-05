@@ -5,7 +5,7 @@ const fontLink = document.createElement('link');
 fontLink.href = 'https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap';
 fontLink.rel = 'stylesheet';
 document.head.appendChild(fontLink);
-alert(fontLink);
+// alert(fontLink);
 // Add the 3D Flipping Image Section
 const flipContainer = document.createElement('div');
 flipContainer.className = 'flip-container';
