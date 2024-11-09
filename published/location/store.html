@@ -7,9 +7,11 @@
 </head>
 <body>
     <h1>Tracking Your Location</h1>
-    <p>Current location is being saved every minute.</p>
+    <p id="counter">Current location is being saved every minute.</p>
 
     <script>
+        let counter=0;
+        const pcounter=document.getElementById("pcounter");
         function saveLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
@@ -20,8 +22,10 @@
                     };
                     let savedLocations = JSON.parse(localStorage.getItem('locations')) || [];
                     savedLocations.push(locationData);
+                    counter++;
                     localStorage.setItem('locations', JSON.stringify(savedLocations));
                     console.log('Location saved:', locationData);
+                    pcounter.innerHTML=`${counter} : ${JSON.stringify(locationData)}`;
                 }, (error) => {
                     console.error('Error getting location:', error);
                 });
