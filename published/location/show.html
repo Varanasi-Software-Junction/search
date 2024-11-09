@@ -25,7 +25,7 @@
         function playbackLocations() {
             const savedLocations = JSON.parse(localStorage.getItem('locations')) || [];
             if (savedLocations.length === 0) {
-                alert('No locations available for playback.');
+                console.log('No locations available for playback.');
                 return;
             }
 
@@ -33,11 +33,11 @@
             const playbackInterval = setInterval(() => {
                 if (index < savedLocations.length) {
                     console.log('Playing back:', savedLocations[index]);
-                    alert(`Playback: Latitude: ${savedLocations[index].latitude}, Longitude: ${savedLocations[index].longitude}`);
+                    console.log(`Playback: Latitude: ${savedLocations[index].latitude}, Longitude: ${savedLocations[index].longitude}`);
                     index++;
                 } else {
                     clearInterval(playbackInterval);
-                    alert('Playback finished.');
+                    console.log('Playback finished.');
                 }
             }, 1000); // Adjust the speed of playback (e.g., 1 second per location)
         }
