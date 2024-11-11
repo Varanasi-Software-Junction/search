@@ -1,10 +1,10 @@
 let selectedVoice = null;
 let voices = [];
 
-// Initialize voices and load saved voice on page load
+// Initialize voices, add voice selection elements, and load saved voice on page load
 document.addEventListener("DOMContentLoaded", () => {
-  loadVoices();
-  loadSavedVoice();
+  addVoiceSelectionElements();
+  loadVoices(); // Load voices and set up voice selection
 });
 
 // Load voices and populate dropdown
@@ -14,9 +14,11 @@ function loadVoices() {
     return;
   }
 
+  // Load voices after they are available, then set the saved voice if any
   speechSynthesis.onvoiceschanged = () => {
     voices = speechSynthesis.getVoices();
     populateVoiceList();
+    loadSavedVoice(); // Load saved voice once voices are loaded
   };
 }
 
@@ -38,17 +40,27 @@ function saveSelectedVoice() {
   const voiceSelect = document.getElementById("voiceSelect");
   const selectedIndex = voiceSelect.value;
   selectedVoice = voices[selectedIndex];
-  localStorage.setItem("selectedVoice", JSON.stringify(selectedVoice));
+  localStorage.setItem("selectedVoice", JSON.stringify({ name: selectedVoice.name, lang: selectedVoice.lang }));
   alert("Voice selection saved!");
 }
 
-// Load the saved voice from localStorage
+// Load the saved voice from localStorage and set the dropdown accordingly
 function loadSavedVoice() {
-  const savedVoice = JSON.parse(localStorage.getItem("selectedVoice"));
-  if (savedVoice) {
-    selectedVoice = voices.find(
-      (voice) => voice.name === savedVoice.name && voice.lang === savedVoice.lang
-    );
+  const savedVoiceData = JSON.parse(localStorage.getItem("selectedVoice"));
+  if (savedVoiceData) {
+    selectedVoice = voices.find(voice => voice.name === savedVoiceData.name && voice.lang === savedVoiceData.lang);
+    if (selectedVoice) {
+      setSelectedVoiceInDropdown(); // Set dropdown to saved voice
+    }
+  }
+}
+
+// Set the dropdown to display the saved or selected voice
+function setSelectedVoiceInDropdown() {
+  const voiceSelect = document.getElementById("voiceSelect");
+  const selectedIndex = voices.findIndex(voice => voice === selectedVoice);
+  if (selectedIndex !== -1) {
+    voiceSelect.value = selectedIndex;
   }
 }
 
@@ -70,6 +82,21 @@ function speak(text) {
   } else {
     console.log("Speech synthesis not supported in this browser.");
   }
+}
+
+// Function to add voice selection elements to the page
+function addVoiceSelectionElements() {
+  const container = document.createElement("div");
+  container.innerHTML = `
+    <button onclick="showVoiceSelection()">Select Voice</button>
+    <div id="voiceSelectionContainer" style="display: none;">
+      <label for="voiceSelect">Choose a speaker:</label>
+      <select id="voiceSelect"></select>
+      <button onclick="saveSelectedVoice()">Save Voice Selection</button>
+    </div>
+  `;
+
+  document.body.appendChild(container);
 }
 
 // Show the voice selection container
