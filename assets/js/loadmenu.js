@@ -1,6 +1,8 @@
 // Load links dynamically from JSON
 async function loadLinks() {
-    const response = await fetch('assets/linksjson/mainlinks.json'); // Fetch the JSON file
+    const urlParams = new URLSearchParams(window.location.search);
+const link = `${urlParams.get('menu')}.json`; // 'shoes'
+    const response = await fetch(link); // Fetch the JSON file
     const data = await response.json(); // Parse the JSON file
 
     const quizList = document.getElementById("quiz-list"); // Get the container for the links
