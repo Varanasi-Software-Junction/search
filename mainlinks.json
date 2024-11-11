@@ -1,0 +1,30 @@
+[
+    {
+        "title": "Algorithms and Programs",
+        "url": "published/dsa/index.html"
+    },
+    {
+        "title": "Data Structures and Algorithms in Dart, Flutter Programming",
+        "url": "flutter/dsa/index.html"
+    },
+    {
+        "title": "C Printf Basics Quiz",
+        "url": "published/index.html?fj=printf.json&qn=A%20Quiz%20on%20Printf"
+    },
+    {
+        "title": "C Printf and Scanf Basics Quiz",
+        "url": "published/index.html?fj=scanprint.json&qn=A%20Quiz%20on%20Printf"
+    },
+    {
+        "title": "Django Authentication Walkthrough",
+        "url": "django/multipleusrtypesdjango.html"
+    },
+    {
+        "title": "If Else in C",
+        "url": "published/index.html?fj=ifelse.json&qn=If%20else%20in%20C"
+    },
+    {
+        "title": "Interactive If Else in C",
+        "url": "published/index.html?fj=scanifelse.json&qn=If%20else%20in%20C"
+    }
+]

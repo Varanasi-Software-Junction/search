@@ -1,30 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programmers Picnic</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Champak Roy: Algorithms, Coding, Testing and more</title>
+    <link rel="icon" type="image/x-icon" href="me.jpg">
+    <link rel="stylesheet" href="branding/greentheme.css">
 </head>
+
 <body>
-    <div class="container">
-        <!-- Search Field -->
-        <input type="text" id="searchField" placeholder="Search..." class="search-box" onkeyup="filterItems()">
 
-        <!-- Items List -->
-        <div id="itemsContainer" class="items-container">
-            <!-- Items will be dynamically added here -->
-        </div>
+    <header>
+        <h1>Programming Encyclopaedia</h1>
+    </header>
 
-        <!-- Contact Me on WhatsApp -->
-        <div class="contact-whatsapp">
-            <a href="https://wa.me/yourphonenumber" target="_blank">
-                <img src="whatsapp-icon.svg" alt="WhatsApp" class="whatsapp-icon">
-                Contact Me on WhatsApp
-            </a>
-        </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Quizzes</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+    </nav>
+
+    <div id="search-bar">
+        <input type="text" placeholder="Search programs..." id="quizSearch" onkeyup="filterQuizzes()">
+        <br><label id="lblCount"></label>
     </div>
 
-    <script src="script.js"></script>
+    <div id="quiz-list">
+        
+        
+        <!-- Add more links as needed -->
+
+
+    </div>
+
+    <!-- ******************Branding ********************************** -->
+    
+   
+
+
+    
+
+    <!-- ******************Branding ********************************** -->
+    <!-- <script src="https://varanasi-software-junction.github.io/picnic/js/hello.js"></script>-->
+    <script>
+        const melbl = document.getElementById("memsg");
+
+        // Placeholder search functionality
+        const lblCount = document.getElementById("lblCount");
+
+        function filterQuizzes() {
+            let count = 0;
+            let input = document.getElementById('quizSearch').value.toLowerCase();
+            let quizLinks = document.getElementById('quiz-list').getElementsByTagName('a');
+
+            for (let i = 0; i < quizLinks.length; i++) {
+                let quizText = quizLinks[i].innerText.toLowerCase();
+                if (quizText.includes(input)) {
+                    count++;
+                    // console.log("Show");
+                    //quizLinks[i].style.display="block";
+                    quizLinks[i].classList.remove("hidethelink");
+                    quizLinks[i].classList.add("showthelink");
+                } else {
+                    // quizLinks[i].style.display="none";
+                    quizLinks[i].classList.remove("showthelink");
+                    quizLinks[i].classList.add("hidethelink");
+                    // console.log("Hide");
+                }
+                console.log(quizLinks[i].classList);
+            }
+            lblCount.innerHTML = `Found:${count}`;
+            memsg.innerHTML = lblCount.innerHTML;
+            // memsg.style.display="block";
+        }
+        filterQuizzes();
+    </script>
+    <style>
+        .hidethelink {
+            /* display: none !important; */
+            animation-name: hidinglink;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+
+            /* visibility: hidden; */
+            /* opacity: 0; */
+            /* width: 0%; */
+
+        }
+
+        @keyframes hidinglink {
+            0% {
+                opacity: 1;
+
+            }
+
+            100% {
+                opacity: 0;
+                display: none;
+
+                !important
+            }
+        }
+
+
+        .showthelink {
+            /* display: none !important; */
+            animation-name: showinglink;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+
+            /* visibility: hidden; */
+            /* opacity: 0; */
+            /* width: 0%; */
+
+        }
+
+        @keyframes showinglink {
+            0% {
+                opacity: 0;
+
+
+            }
+
+            100% {
+                opacity: 1;
+                display: block;
+
+                !important
+            }
+        }
+    </style>
+    
+    <script>
+        // Load links dynamically from JSON
+        async function loadLinks() {
+            const response = await fetch('mainlinks.json'); // Fetch the JSON file
+            const data = await response.json(); // Parse the JSON file
+        
+            const quizList = document.getElementById("quiz-list"); // Get the container for the links
+            data.forEach(item => {
+                const link = document.createElement("a"); // Create a new <a> element
+                link.classList.add("showthelink"); // Add the showthelink class
+                link.href = item.url; // Set the href attribute to the URL from JSON
+                link.target = "_blank"; // Open link in a new tab
+                link.textContent = item.title; // Set the text to the title from JSON
+                quizList.appendChild(link); // Append the link to the quiz list
+            });
+        }
+        
+        loadLinks();
+        
+        // Initialize the search functionality
+        filterQuizzes();
+        
+            </script>
+
+
+
+    <script src="https://varanasi-software-junction.github.io/Programming-is-a-Picnic./branding/branding.js"></script>
+    <script src="showmodal.js"></script>
+    
 </body>
+
 </html>
