@@ -1,7 +1,7 @@
 // Load links dynamically from JSON
 async function loadLinks() {
     const urlParams = new URLSearchParams(window.location.search);
-const link = `${urlParams.get('menu')}.json`; // 'shoes'
+const link = `${urlParams.get('menu')}.json`; // Menu file
     const response = await fetch(link); // Fetch the JSON file
     const data = await response.json(); // Parse the JSON file
 
