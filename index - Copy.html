@@ -28,10 +28,6 @@
     </div>
 
     <div id="quiz-list">
-        
-        
-        <!-- Add more links as needed -->
-
 
     </div>
 
@@ -75,7 +71,7 @@
             memsg.innerHTML = lblCount.innerHTML;
             // memsg.style.display="block";
         }
-        filterQuizzes();
+        //filterQuizzes();
     </script>
     <style>
         .hidethelink {
@@ -133,10 +129,12 @@
         }
     </style>
     
+
+ 
     <script>
         // Load links dynamically from JSON
         async function loadLinks() {
-            const response = await fetch('mainlinks.json'); // Fetch the JSON file
+            const response = await fetch('assets/linksjson/mainlinks.json'); // Fetch the JSON file
             const data = await response.json(); // Parse the JSON file
         
             const quizList = document.getElementById("quiz-list"); // Get the container for the links
@@ -161,7 +159,6 @@
 
     <script src="https://varanasi-software-junction.github.io/Programming-is-a-Picnic./branding/branding.js"></script>
     <script src="showmodal.js"></script>
-    
 </body>
 
 </html>
