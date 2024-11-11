@@ -28,86 +28,6 @@
     </div>
 
     <div id="quiz-list">
-        <a class="showthelink" href="published/dsa/index.html" target="_blank">Algorithms and Programs</a>
-
-        <a class="showthelink" href="flutter/dsa/index.html" target="_blank">Data Structures and Algorithms in Dart,
-            Flutter Programming</a>
-        <a class="showthelink" href="published/index.html?fj=printf.json&qn=A%20Quiz%20on%20Printf" target="_blank">C
-            Printf Basics Quiz</a>
-        <a class="showthelink" href="published/index.html?fj=scanprint.json&qn=A%20Quiz%20on%20Printf" target="_blank">C
-            Printf and Scanf
-            Basics Quiz</a>
-        <a class="showthelink" href="django/multipleusrtypesdjango.html" target="_blank">Django Authentication
-            Walkthrough</a>
-        <!-- Add more links as needed -->
-        <!--   -->
-        <a class="showthelink" href="published/index.html?fj=ifelse.json&qn=If else in C" target="_blank">If Else in
-            C</a>
-
-        <a class="showthelink" href="published/index.html?fj=scanifelse.json&qn=If else in C"
-            target="_blank">Interactive If Else in C</a>
-
-        <a class="showthelink" href="speechsynthesizer/index.html" target="_blank">Speech Synthesizer</a>
-        <a class="showthelink" href="c/its.html" target="_blank">If else ternary and switch</a>
-        <a class="showthelink" href="c/ifelseternaryswitch.html" target="_blank">If else ternary and switch questions
-            and answers</a>
-
-        <a class="showthelink" href="php/usngcurl.html" target="_blank">Using cURl for calling APIs in Php</a>
-
-        <a class="showthelink" href="c/2dmatrix.html" target="_blank">2d arrays and matrices in C</a>
-
-        <a class="showthelink" href="js/valueselectors.html" target="_blank">Selectors in JavaScript</a>
-
-
-        <a class="showthelink" href="js/jsonhandle.html" target="_blank">JSON handling in JavaScript</a>
-
-        <a class="showthelink" href="published/python/foldersandfilesindjango.html" target="_blank">Folders and Files in
-            DJango</a>
-        <a class="showthelink" href="pandas/pandasquerying1.html" target="_blank">Pandas Querying 1</a>
-
-        <a class="showthelink" href="pandas/pandasquerying2.html" target="_blank">Pandas Querying 2</a>
-
-
-        <a class="showthelink" href="js/promise-api/explain.html" target="_blank">Explaining Promise</a>
-
-        <a class="showthelink" href="js/promise-api/swapi.html" target="_blank">Calling the SWAPI API</a>
-
-        <a class="showthelink" href="js/promise-api/jsonparsing.html" target="_blank">Parsing of JSON in detail</a>
-
-        <a class="showthelink" href="js/promise-api/morepromises.html" target="_blank">Promises in detail</a>
-
-
-        <a class="showthelink" href="flutter/dsa/statemanagement.html" target="_blank">State Management in Flutter</a>
-
-        <a class="showthelink" href="flutter/dsa/swapisimple.html" target="_blank">Api call using setState</a>
-
-        <a class="showthelink" href="transitions.html" target="_blank">Transitions in Animation</a>
-
-        
-        <a class="showthelink" href="animations.html" target="_blank">Animations</a>
-        
-        <a class="showthelink" href="animation-demo.html" target="_blank">Animation Demo</a>
-
-        <a class="showthelink" href="c/clessons.html" target="_blank">C Lessons</a>
-        <a class="showthelink" href="c/lesson1.html" target="_blank">Basics of C</a>
-        <a class="showthelink" href="c/test1.html" target="_blank">Test on C Basics</a>
-
-        <a class="showthelink" href="flutter/filesandfolders.html" target="_blank">Files and Folders in Flutter</a>
-        <a class="showthelink" href="flutter/testing.html" target="_blank">Testing on Flutter</a>
-        <a class="showthelink" href="flutter/fluttercommands.html" target="_blank">Flutterand Dart Commands</a>
-
-        <a class="showthelink" href="js/quizapp.html" target="_blank">Quiz App layout.Javascript</a>
-        
-        <a class="showthelink" href="published/python/swapi.html" target="_blank">Swapi using Python</a>
-
-        
-        <a class="showthelink" href="published/css-variables.html" target="_blank">Variables in CSS</a>
-        <a class="showthelink" href="js/react/native/index.html" target="_blank">Starting React Native</a>
-
-
-        <a class="showthelink" href="published/location/index.html" target="_blank">Geolocation and Maps</a>
-
-        <a class="showthelink" href="published/location/localitiesvisited.html" target="_blank">Check Visited Localities</a>
 
     </div>
 
@@ -151,7 +71,7 @@
             memsg.innerHTML = lblCount.innerHTML;
             // memsg.style.display="block";
         }
-        filterQuizzes();
+        //filterQuizzes();
     </script>
     <style>
         .hidethelink {
@@ -209,6 +129,34 @@
         }
     </style>
     
+
+ 
+    <script>
+        // Load links dynamically from JSON
+        async function loadLinks() {
+            const response = await fetch('mainlinks.json'); // Fetch the JSON file
+            const data = await response.json(); // Parse the JSON file
+        
+            const quizList = document.getElementById("quiz-list"); // Get the container for the links
+            data.forEach(item => {
+                const link = document.createElement("a"); // Create a new <a> element
+                link.classList.add("showthelink"); // Add the showthelink class
+                link.href = item.url; // Set the href attribute to the URL from JSON
+                link.target = "_blank"; // Open link in a new tab
+                link.textContent = item.title; // Set the text to the title from JSON
+                quizList.appendChild(link); // Append the link to the quiz list
+            });
+        }
+        
+        loadLinks();
+        
+        // Initialize the search functionality
+        filterQuizzes();
+        
+            </script>
+
+
+
     <script src="https://varanasi-software-junction.github.io/Programming-is-a-Picnic./branding/branding.js"></script>
     <script src="showmodal.js"></script>
 </body>
