@@ -25,11 +25,8 @@
             width: 80%;
             margin: 20px auto;
         }
-        h2 {
+        h2, h3 {
             color: #007BFF;
-            font-size: 1.8em;
-            border-bottom: 2px solid #007BFF;
-            padding-bottom: 10px;
         }
         ul {
             list-style-type: none;
@@ -46,18 +43,25 @@
             margin: 20px 0;
             border-radius: 5px;
         }
-        .project h3 {
-            color: #0056b3;
-        }
-        .roadmap, .project-list {
+        .roadmap, .project-list, .timetable {
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 20px;
             margin-bottom: 30px;
         }
-        .roadmap ul, .project-list ul {
-            margin-top: 10px;
+        .timetable table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .timetable th, .timetable td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .timetable th {
+            background-color: #007BFF;
+            color: white;
         }
         footer {
             background-color: #007BFF;
@@ -74,97 +78,134 @@
 
 <header>
     <h1>Front-End Developer Learning Path</h1>
-    <p>A Project-Based Approach to Master HTML, CSS, and JavaScript</p>
+    <p>A Step-by-Step Journey with Projects and Skills Development</p>
 </header>
 
 <div class="container">
-    <section class="roadmap">
-        <h2>Final Projects</h2>
-        <ul>
-            <li class="project"><h3>1. Portfolio Website</h3>Objective: Create a responsive personal portfolio website with multiple pages.</li>
-            <li class="project"><h3>2. Recipe Book</h3>Objective: Develop a recipe app where users can view, search, and add recipes.</li>
-            <li class="project"><h3>3. Interactive Quiz App</h3>Objective: Build a quiz app that tracks score, displays results, and provides interactivity.</li>
-            <li class="project"><h3>4. E-commerce Product Gallery</h3>Objective: Create a product gallery with features like sorting, filtering, and modal displays.</li>
-            <li class="project"><h3>5. Weather Dashboard</h3>Objective: Develop a dashboard that fetches weather data using an API and displays it in a user-friendly layout.</li>
-        </ul>
+    <section class="project-list">
+        <h2>Final Projects with Detailed Requirements</h2>
+
+        <div class="project">
+            <h3>1. Portfolio Website</h3>
+            <p><strong>Objective:</strong> Build a responsive personal website to showcase your profile, projects, and contact details.</p>
+            <ul>
+                <li>Use HTML for structure, including semantic elements like header, nav, section, and footer.</li>
+                <li>Apply CSS for responsive styling, including Flexbox and Grid layouts.</li>
+                <li>JavaScript for interactivity: Smooth scrolling, form validation for the contact form, and modal popup for project details.</li>
+                <li><strong>Key Components:</strong> Home, About, Projects, and Contact sections.</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <h3>2. Recipe Book</h3>
+            <p><strong>Objective:</strong> Create an interactive recipe book app where users can add, search, and save recipes.</p>
+            <ul>
+                <li>Use HTML forms for adding new recipes, with inputs for ingredients and instructions.</li>
+                <li>Style with CSS for a clean layout and to make the recipe cards visually appealing.</li>
+                <li>JavaScript for handling recipe storage, search functionality, and data persistence with local storage.</li>
+                <li><strong>Key Components:</strong> Recipe list, add recipe form, and search functionality.</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <h3>3. Interactive Quiz App</h3>
+            <p><strong>Objective:</strong> Build a dynamic quiz application that displays questions, tracks scores, and shows results.</p>
+            <ul>
+                <li>HTML structure for questions and answer options.</li>
+                <li>CSS styling to make the quiz visually engaging with transitions and animations.</li>
+                <li>JavaScript for quiz logic, scoring, and displaying results after completion.</li>
+                <li><strong>Key Components:</strong> Question display, scoring system, and final results page.</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <h3>4. E-commerce Product Gallery</h3>
+            <p><strong>Objective:</strong> Develop a product gallery with sorting, filtering, and product details modal.</p>
+            <ul>
+                <li>HTML structure for product cards with images, names, and prices.</li>
+                <li>CSS Flexbox and Grid for responsive layout and styling.</li>
+                <li>JavaScript for filtering, sorting, and displaying product details in a modal.</li>
+                <li><strong>Key Components:</strong> Product grid, filter options, and product details modal.</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <h3>5. Weather Dashboard</h3>
+            <p><strong>Objective:</strong> Create a weather dashboard that fetches real-time data from a weather API.</p>
+            <ul>
+                <li>Use HTML to structure the search bar and weather display areas.</li>
+                <li>CSS to style the dashboard with responsive, card-based layouts.</li>
+                <li>JavaScript to fetch data using the Fetch API, handle asynchronous calls, and display weather details.</li>
+                <li><strong>Key Components:</strong> Search bar, weather display for current and forecast data, and search history.</li>
+            </ul>
+        </div>
     </section>
 
     <section class="roadmap">
-        <h2>Roadmap to Complete Projects</h2>
-        <h3>Stage 1: HTML Basics for Structure</h3>
+        <h2>Roadmap and Stages of Learning</h2>
         <ul>
-            <li>HTML tags and elements, document structure, headings, paragraphs, links, lists, forms.</li>
-            <li>Application: Create basic pages with headers, footers, and content sections.</li>
-            <li>Mini Assignment: Build a single-page layout for the Portfolio Website.</li>
+            <li><strong>Stage 1:</strong> HTML Basics - Document structure, headings, paragraphs, links, lists, forms.</li>
+            <li><strong>Stage 2:</strong> CSS Fundamentals - Styling, fonts, colors, backgrounds, and box model.</li>
+            <li><strong>Stage 3:</strong> Layouts with Flexbox & Grid - Responsive layouts for Portfolio and Recipe Book.</li>
+            <li><strong>Stage 4:</strong> Forms and Validation - HTML forms and JavaScript for validation in Portfolio.</li>
+            <li><strong>Stage 5:</strong> JavaScript Basics - Variables, functions, loops, and conditionals.</li>
+            <li><strong>Stage 6:</strong> DOM Manipulation & Events - Interactive content for Quiz App and Recipe Book.</li>
+            <li><strong>Stage 7:</strong> Advanced JavaScript - ES6+ features for efficient code in Weather Dashboard.</li>
+            <li><strong>Stage 8:</strong> APIs & Fetch - Fetch weather data in Weather Dashboard and product data in E-commerce Gallery.</li>
+            <li><strong>Stage 9:</strong> Local Storage - Data persistence for Recipe Book and Weather Dashboard.</li>
+            <li><strong>Stage 10:</strong> Responsive Design - Media queries for making all projects responsive.</li>
         </ul>
+    </section>
 
-        <h3>Stage 2: CSS Fundamentals for Styling</h3>
-        <ul>
-            <li>Selectors, colors, backgrounds, fonts, text styling, CSS box model.</li>
-            <li>Application: Style headers, sections, and footers.</li>
-            <li>Mini Assignment: Apply basic styling to the Portfolio Website.</li>
-        </ul>
-
-        <h3>Stage 3: Layout with Flexbox and Grid</h3>
-        <ul>
-            <li>Flexbox properties and CSS Grid for complex layouts.</li>
-            <li>Application: Use Flexbox and Grid to organize the Recipe Book and E-commerce Gallery.</li>
-            <li>Mini Assignment: Create a responsive layout for the Recipe Book.</li>
-        </ul>
-
-        <h3>Stage 4: Forms and Input Validation</h3>
-        <ul>
-            <li>HTML form elements, JavaScript validation, form submission handling.</li>
-            <li>Application: Add forms to Portfolio Website (Contact form) and Recipe Book (Add Recipe form).</li>
-            <li>Mini Assignment: Implement form validation in the Portfolio Website.</li>
-        </ul>
-
-        <h3>Stage 5: JavaScript Fundamentals</h3>
-        <ul>
-            <li>Variables, data types, operators, functions, conditionals, loops.</li>
-            <li>Application: Add interactive elements to the Portfolio Website and Recipe Book.</li>
-            <li>Mini Assignment: Add a simple greeting to the Portfolio Website.</li>
-        </ul>
-
-        <h3>Stage 6: DOM Manipulation and Event Handling</h3>
-        <ul>
-            <li>DOM methods, event handling, dynamic content updates.</li>
-            <li>Application: Use JavaScript to handle events and update the DOM dynamically in the Quiz App and Recipe Book.</li>
-            <li>Mini Assignment: Add event listeners in the Recipe Book.</li>
-        </ul>
-
-        <h3>Stage 7: Advanced JavaScript (ES6+)</h3>
-        <ul>
-            <li>Arrow functions, template literals, promises, async/await.</li>
-            <li>Application: Write modern JavaScript for dynamic functionality in Weather Dashboard and E-commerce Gallery.</li>
-            <li>Mini Assignment: Use ES6+ syntax in the Quiz App.</li>
-        </ul>
-
-        <h3>Stage 8: Working with APIs</h3>
-        <ul>
-            <li>Fetch API, promises, async/await.</li>
-            <li>Application: Fetch weather data in Weather Dashboard, build search functionality in E-commerce Gallery.</li>
-            <li>Mini Assignment: Use Fetch API to retrieve and display data.</li>
-        </ul>
-
-        <h3>Stage 9: Local Storage and Data Persistence</h3>
-        <ul>
-            <li>Local storage, JSON methods.</li>
-            <li>Application: Save and load user data in Recipe Book and Weather Dashboard.</li>
-            <li>Mini Assignment: Implement search history for Weather Dashboard using local storage.</li>
-        </ul>
-
-        <h3>Stage 10: Responsive Design with Media Queries</h3>
-        <ul>
-            <li>Media queries, breakpoints, responsive units.</li>
-            <li>Application: Make each project responsive across devices.</li>
-            <li>Mini Assignment: Ensure all projects are fully responsive.</li>
-        </ul>
+    <section class="timetable">
+        <h2>Timetable</h2>
+        <table>
+            <tr>
+                <th>Week</th>
+                <th>Focus</th>
+                <th>Tasks</th>
+            </tr>
+            <tr>
+                <td>1-2</td>
+                <td>HTML & CSS Basics</td>
+                <td>Learn HTML structure, basic CSS styling, and start Portfolio Website layout.</td>
+            </tr>
+            <tr>
+                <td>3-4</td>
+                <td>Responsive Layouts with Flexbox & Grid</td>
+                <td>Complete responsive design for Portfolio Website and begin Recipe Book layout.</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>JavaScript Basics</td>
+                <td>Introduction to JavaScript, variables, functions, and simple DOM manipulation.</td>
+            </tr>
+            <tr>
+                <td>6-7</td>
+                <td>DOM Manipulation & Events</td>
+                <td>Build interactivity in Recipe Book and start Interactive Quiz App.</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Advanced JavaScript & APIs</td>
+                <td>Implement Fetch API for Weather Dashboard and async JavaScript for data handling.</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Local Storage & Data Persistence</td>
+                <td>Add data persistence in Recipe Book and search history in Weather Dashboard.</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Finalizing Projects & Responsive Design</td>
+                <td>Ensure all projects are fully responsive and complete remaining project features.</td>
+            </tr>
+        </table>
     </section>
 </div>
 
 <footer>
-    <p>&copy; 2024 Front-End Developer Path. All Rights Reserved.</p>
+    <p>&copy; Champak Roy Front-End Developer Path. All Rights Reserved.</p>
 </footer>
 
 </body>
