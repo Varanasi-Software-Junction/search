@@ -148,7 +148,12 @@
       "url": "published/location/index.html"
   },
   {
-      "title": "Check Visited Localities",
+      "title": "Check Visited Localities1",
       "url": "published/location/localitiesvisited.html"
+  }
+  ,
+  {
+      "title": "Check Visited Localities2",
+      "url": "published/location/localitiesvisitedoc.html"
   }
 ]
