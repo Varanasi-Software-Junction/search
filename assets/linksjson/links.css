@@ -1,0 +1,55 @@
+
+        .hidethelink {
+            /* display: none !important; */
+            animation-name: hidinglink;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+
+            /* visibility: hidden; */
+            /* opacity: 0; */
+            /* width: 0%; */
+
+        }
+
+        @keyframes hidinglink {
+            0% {
+                opacity: 1;
+
+            }
+
+            100% {
+                opacity: 0;
+                display: none;
+
+                !important
+            }
+        }
+
+
+        .showthelink {
+            /* display: none !important; */
+            animation-name: showinglink;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+
+            /* visibility: hidden; */
+            /* opacity: 0; */
+            /* width: 0%; */
+
+        }
+
+        @keyframes showinglink {
+            0% {
+                opacity: 0;
+
+
+            }
+
+            100% {
+                opacity: 1;
+                display: block;
+
+                !important
+            }
+        }
+    
