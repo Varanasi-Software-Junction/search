@@ -164,6 +164,16 @@
   ,
   {
       "title": "Html Tables",
-      "url": "table.html"
+      "url": "syllabus/htmlsyllabus.html"
+  }
+  ,
+  {
+      "title": "Angular Syllabus",
+      "url": "syllabus/angular.html"
+  }
+  ,
+  {
+      "title": "Angular Routes",
+      "url": "angularroutes.html"
   }
 ]
