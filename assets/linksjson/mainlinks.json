@@ -161,4 +161,9 @@
       "title": "Html Syllabus",
       "url": "syllabus/htmlsyllabus.html"
   }
+  ,
+  {
+      "title": "Html Tables",
+      "url": "table.html"
+  }
 ]

@@ -1,4 +1,5 @@
 const d=document.getElementById("d");
+let toggleButton;
         function getDateofToday()
         {
 const tt=new Date();
@@ -27,6 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Load modal data from JSON and show the appropriate modal
     function fetchModals() {
+        if(toggleButton.textContent=="Show Modal Again")
+            toggleButton.textContent=="Hide Modal"
+        else
+        toggleButton.textContent=="Show Modal Again";
+
         fetch('https://varanasi-software-junction.github.io/Programming-is-a-Picnic./branding/modals.json')
             .then(response => response.json())
             .then(modals => {
@@ -119,9 +125,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function addModalToggleButton() {
         const existingButton = document.querySelector('.xzymmymode-toggle-button');
         if (!existingButton) { // Only add button if it doesn't already exist
-            const toggleButton = document.createElement("button");
+             toggleButton = document.createElement("button");
             toggleButton.textContent = "Show Modal Again";
             toggleButton.className = "xzymmymode-toggle-button";
+
             toggleButton.onclick = () => {
                 fetchModals();
             };
