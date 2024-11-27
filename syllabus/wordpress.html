@@ -53,46 +53,43 @@
   <header>
     <h1>WordPress Learning Syllabus</h1>
   </header>
-  <main>
-    <h2>1. Basics of WordPress</h2>
-    <ul>
-      <li>Introduction to WordPress: Overview and applications.</li>
-      <li>Setting up a local environment and installing WordPress.</li>
-      <li>Content Management: Posts, Pages, Categories, Tags, and Media Library.</li>
-      <li>Settings, Configurations, Security, and Backup.</li>
-    </ul>
-
-    <h2>2. Working with Themes</h2>
-    <ul>
-      <li>Theme Basics: Installing and activating themes.</li>
-      <li>Customization: WordPress Customizer, widgets, menus, and template hierarchy.</li>
-      <li>Creating Your Own Theme: Structure, templates, and styles.</li>
-      <li>Advanced Development: Custom templates, features, and optimizations.</li>
-    </ul>
-
-    <h2>3. Plugins in WordPress</h2>
-    <ul>
-      <li>Plugin Basics: Installing, activating, and managing plugins.</li>
-      <li>Creating Your Own Plugin: Hooks, actions, filters, and shortcodes.</li>
-      <li>Advanced Development: Database interactions, AJAX, and localization.</li>
-    </ul>
-
-    <h2>4. API Calling and Creation</h2>
-    <ul>
-      <li>Understanding APIs: REST vs. GraphQL, WordPress REST API.</li>
-      <li>API Calling: Fetching weather data using public APIs.</li>
-      <li>Creating Custom APIs: Custom endpoints for the latest posts.</li>
-    </ul>
-
-    <h2>5. Project Work</h2>
-    <ul>
-      <li>Build a portfolio site using a custom theme.</li>
-      <li>Create a plugin for specific functionality.</li>
-      <li>Implement a live weather widget using an API.</li>
-    </ul>
+  <main id="syllabus-container">
+    <!-- Content will be dynamically loaded here -->
   </main>
   <footer>
-    <p>Happy Learning! | Powered by WordPress</p>
+    <p>Happy Learning</p>
   </footer>
+
+  <script>
+    // Fetch the syllabus from the JSON file
+    fetch('wordpress.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('syllabus-container');
+
+        // Iterate through each category in the JSON
+        for (const key in data) {
+          if (data.hasOwnProperty(key)) {
+            const section = data[key];
+            
+            // Create a section title
+            const title = document.createElement('h2');
+            title.textContent = section.title;
+            container.appendChild(title);
+
+            // Create a list of topics
+            const list = document.createElement('ul');
+            section.topics.forEach(topic => {
+              const listItem = document.createElement('li');
+              listItem.textContent = topic;
+              list.appendChild(listItem);
+            });
+
+            container.appendChild(list);
+          }
+        }
+      })
+      .catch(error => console.error('Error loading syllabus:', error));
+  </script>
 </body>
 </html>
