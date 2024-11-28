@@ -76,6 +76,14 @@
             const title = document.createElement('h2');
             title.textContent = section.title;
             container.appendChild(title);
+            const url=document.createElement("a");
+            url.textContent=title.textContent;
+            url.href=section.url;
+            // url.textContent=section.url;
+            url.target="vsj";
+            container.appendChild(url);
+            // alert(url);
+            
 
             // Create a list of topics
             const list = document.createElement('ul');
