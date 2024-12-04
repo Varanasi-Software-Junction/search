@@ -186,4 +186,9 @@
       "title": "Wordpress Syllabus",
       "url": "syllabus/wordpress.html"
   }
+  ,
+  {
+      "title": "Algorithms",
+      "url": "algorithms/"
+  }
 ]
