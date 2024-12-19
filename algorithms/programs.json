@@ -1,15 +1,30 @@
 {
-    "programs": [
-      {
-        "algorithm": "Divide and Conquer",
-        "program": "Quicksort",
-        "file": "quicksort.json"
-      },
-      {
-        "algorithm": "Dynamic Programming",
-        "program": "Knapsack Problem",
-        "file": "knapsack.json"
-      }
-    ]
-  }
-  
+  "programs": [
+    {
+      "algorithm": "Divide and Conquer",
+      "program": "Quicksort",
+      "file": "quicksort.json"
+    },
+    {
+      "algorithm": "Divide and Conquer",
+      "program": "Binary Search",
+      "file": "binarysearch.json"
+    },
+    {
+      "algorithm": "Dynamic Programming",
+      "program": "Knapsack Problem",
+      "file": "knapsack.json"
+    },
+    {
+      "algorithm": "Sorting and Searching",
+      "program": "Quicksort",
+      "file": "quicksort.json"
+    }
+    ,
+    {
+      "algorithm": "Sorting and Searching",
+      "program": "Selection Sort",
+      "file": "selectionsort.json"
+    }
+  ]
+}
