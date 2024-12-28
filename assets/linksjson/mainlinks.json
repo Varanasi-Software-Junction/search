@@ -191,4 +191,10 @@
       "title": "Algorithms",
       "url": "algorithms/"
   }
+ ,
+  {
+      "title": "QR Codes",
+      "url": "qrcodes/"
+  }
+  
 ]
