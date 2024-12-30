@@ -196,5 +196,10 @@
       "title": "QR Codes",
       "url": "qrcodes/"
   }
+  ,
+  {
+      "title": "Mouse Positions",
+      "url": "whiteboard/mousetrack.html"
+  }
   
 ]
