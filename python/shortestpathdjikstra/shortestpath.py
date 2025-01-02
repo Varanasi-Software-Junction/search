@@ -22,8 +22,28 @@ def printAll(dist):
         print()
 
 
+def findSmallestLocation(dist, used):
+    n = len(dist)
+    minpos = 0
+    min = infinity
+    for i in range(1, n+1):
+        if dist[0][i-1]<=0:
+            continue
+        if i in used:
+            continue
+        print(dist[0][i-1] < min,dist[0][i-1] , min)
+        if (dist[0][i-1] < min) and (i not in used):
+            minpos = i
+            min = dist[0][i-1]
+    if minpos+1 in used:
+        return None
+    return minpos
+
+
 infinity = 100
 samelocation = 0
 distances = [[samelocation, 10, infinity, 5, infinity], [infinity, samelocation, 2, infinity,
                                                          infinity], [infinity, 4, samelocation, 3, 9], [2, 7, infinity, samelocation, infinity], [1, 2, 3, 4, samelocation]]
 printAll(distances)
+minpos = findSmallestLocation(distances, [4 ])
+print(minpos)
