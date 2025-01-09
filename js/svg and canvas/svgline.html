@@ -2,13 +2,14 @@
 <html>
 
 <head>
-    <title>Dynamic Line Drawing</title>
+    <title>Dynamic Line Drawing svg</title>
+    <script src="https://varanasi-software-junction.github.io/Programming-is-a-Picnic./js/codeviewer/showCode.js" defer></script>
 </head>
 
 <body>
     <input type="text" id="coordinates" placeholder="Enter coordinates (e.g., 10,20,50,80)">
     <button onclick="drawLines()">Draw Lines</button>
-    <svg id="svgCanvas" width="400" height="300"></svg>
+    <svg style="border-style: ridge;" id="svgCanvas" width="400" height="300"></svg>
     <script>
         function drawLines() {
             const coordinatesInput = document.getElementById("coordinates");

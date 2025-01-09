@@ -194,5 +194,9 @@
     {
         "title": "Using Clipboard",
         "url": "js/codeviewer/index.html"
+    },
+    {
+        "title": "SVG Lines",
+        "url": "js/svg%20and%20canvas/svgline.html"
     }
 ]
