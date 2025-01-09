@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         navigator.clipboard.writeText(textArea.value);
         // const text = await navigator.clipboard.readText();
         // textarea.value = text;
-        navigator.clipboard.
+        // navigator.clipboard.
             alert("Page code copied to clipboard!");
     });
 });
