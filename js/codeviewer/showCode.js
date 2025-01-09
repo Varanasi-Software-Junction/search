@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Copy the code to clipboard on copy button click
     copyButton.addEventListener("click", function () {
         textArea.select();
-        alert(textArea.value);
+        // alert(textArea.value);
         navigator.clipboard.writeText(textArea.value);
         // const text = await navigator.clipboard.readText();
         // textarea.value = text;
