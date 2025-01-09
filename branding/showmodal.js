@@ -28,22 +28,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Load modal data from JSON and show the appropriate modal
     function fetchModals() {
-        if(toggleButton.textContent=="Show Modal Again")
-            toggleButton.textContent=="Hide Modal"
-        else
-        toggleButton.textContent=="Show Modal Again";
+    //     if(toggleButton.textContent=="Show Modal Again")
+    //         toggleButton.textContent=="Hide Modal"
+    //     else
+    //     toggleButton.textContent=="Show Modal Again";
 
-        fetch('https://varanasi-software-junction.github.io/Programming-is-a-Picnic./branding/modals.json')
-            .then(response => response.json())
-            .then(modals => {
-                const today = new Date();
-                let modalToShow = findRelevantModal(modals, today);
+    //     fetch('https://varanasi-software-junction.github.io/Programming-is-a-Picnic./branding/modals.json')
+    //         .then(response => response.json())
+    //         .then(modals => {
+    //             const today = new Date();
+    //             let modalToShow = findRelevantModal(modals, today);
 
-                if (modalToShow) {
-                    showModal(modalToShow);
-                }
-            })
-            .catch(error => console.error("Error loading modals:", error));
+    //             if (modalToShow) {
+    //                 showModal(modalToShow);
+    //             }
+    //         })
+    //         .catch(error => console.error("Error loading modals:", error));
+    // }
+    alert("Modal");
     }
 
     // Find relevant modal based on date or fallback to random
