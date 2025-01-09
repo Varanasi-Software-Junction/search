@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //         })
     //         .catch(error => console.error("Error loading modals:", error));
     // }
-    alert("Modal");
+    // alert("Modal");
     }
 
     // Find relevant modal based on date or fallback to random
