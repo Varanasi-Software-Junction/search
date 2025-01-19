@@ -118,6 +118,7 @@
       <h2>Animation Demo</h2>
       <div class="box" id="animatedBox"></div>
       <div class="message" id="message">Animation status will appear here...</div>
+      <button class="btn" onclick="restartAnimation()">Restart Animation</button>
     </div>
 
     <!-- Editor Section -->
@@ -200,6 +201,40 @@ box.addEventListener('animationend', () => {
       scriptTag.innerHTML = jsCode;
       document.body.appendChild(scriptTag);
     }
+
+    // Function to restart the animation
+    function restartAnimation() {
+      const box = document.getElementById('animatedBox');
+      box.style.animation = 'none'; // Remove the animation
+      void box.offsetWidth; // Trigger reflow to restart the animation
+      box.style.animation = ''; // Reapply the animation
+      box.className = 'box'; // Ensure the default class is re-added
+    }
+  </script>
+  <script>
+let iterationcount=0;
+const box = document.querySelector('.box');
+const message = document.getElementById('message');
+
+// Handle animationstart
+box.addEventListener('animationstart', () => {
+  message.textContent = 'Animation Started! 🚀';
+  message.style.color = 'red';
+});
+
+// Handle animationiteration
+box.addEventListener('animationiteration', () => {
+  iterationcount+=1;
+  message.textContent = `Animation Iteration Completed  ${iterationcount} times`;
+  message.style.color = 'blue';
+});
+
+// Handle animationend
+box.addEventListener('animationend', () => {
+  message.textContent = 'Animation Completed! 🎉';
+  message.style.color = 'green';
+});
+
   </script>
 </body>
 </html>

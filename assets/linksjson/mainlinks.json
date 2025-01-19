@@ -215,5 +215,13 @@
     ,
     {  "title": "Animation Events",
         "url": "published/animation/animationwithevents.html"
+    },
+    {
+        "title": "Ternary in Java",
+        "url": "published/java/ternary.html"
+    }
+    ,
+    {  "title": "Switch in Java",
+        "url": "published/java/switch.html"
     }
 ]
