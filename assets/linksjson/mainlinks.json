@@ -199,4 +199,13 @@
         "title": "SVG Lines",
         "url": "js/svg%20and%20canvas/svgline.html"
     }
+    ,
+    {
+        "title": "Booleans in Java",
+        "url": "published/java/booleans.html"
+    }
+    ,
+    {  "title": "If else in Java",
+        "url": "published/java/ifelse.html"
+    }
 ]
