@@ -208,4 +208,12 @@
     {  "title": "If else in Java",
         "url": "published/java/ifelse.html"
     }
+    ,
+    {  "title": "Assembly Simulator",
+        "url": "published/assembly/assemblyrun.html"
+    }
+    ,
+    {  "title": "Animation Events",
+        "url": "published/animation/animationwithevents.html"
+    }
 ]
