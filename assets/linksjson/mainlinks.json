@@ -224,4 +224,14 @@
     {  "title": "Switch in Java",
         "url": "published/java/switch.html"
     }
+
+    ,
+    {
+        "title": "For loops in Java",
+        "url": "published/java/forloops.html"
+    }
+    ,
+    {  "title": "While loops in Java",
+        "url": "published/java/whileloopdowhileloop.html"
+    }
 ]

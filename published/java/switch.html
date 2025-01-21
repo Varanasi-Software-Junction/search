@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn and explore the Switch statement in Java with syntax, examples, and unsolved problems.">
   <title>Switch Statement in Java</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-KOtw6xPd2CTwUqGchjjJ1rNJgeMhLoAeIT2S9gj7EILMtJejGr9z0QONptsvLuqUByWxEOD7HV34F5LBdBAFpA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -24,7 +26,7 @@
       margin: 20px auto;
       max-width: 800px;
       background: #ffffff;
-      border-radius: 8px;
+      border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       overflow: hidden;
     }
@@ -39,6 +41,7 @@
       border-left: 4px solid #003366;
       padding: 10px;
       overflow-x: auto;
+      border-radius: 5px;
     }
     ul {
       margin: 10px 0;
@@ -46,11 +49,17 @@
     }
     li {
       margin: 5px 0;
+      transition: background-color 0.3s ease;
+    }
+    li:hover {
+      background-color: #e6f7ff;
+      cursor: pointer;
     }
     .problems {
       background-color: #f9f9f9;
       padding: 10px;
       border-left: 4px solid #006699;
+      border-radius: 5px;
     }
     footer {
       text-align: center;
@@ -59,6 +68,30 @@
       padding: 10px;
       font-size: 14px;
       margin-top: 20px;
+    }
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .btn-back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #003366;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+    .btn-back-to-top:hover {
+      background-color: #005599;
     }
   </style>
 </head>
@@ -72,7 +105,7 @@
       <p>The <code>switch</code> statement in Java allows you to execute one out of multiple possible blocks of code based on the value of a given expression. It is often used to simplify complex if-else conditions.</p>
 
       <h2>Syntax of the Switch Statement</h2>
-      <pre>
+      <pre class="language-java"><code>
 switch (expression) {
   case value1:
     // code to be executed if expression == value1
@@ -84,7 +117,7 @@ switch (expression) {
   default:
     // code to be executed if expression doesn't match any case
 }
-      </pre>
+      </code></pre>
       <p><strong>Key Points:</strong></p>
       <ul>
         <li>The expression in a switch statement can be an integer, character, byte, or string (since Java 7).</li>
@@ -96,7 +129,7 @@ switch (expression) {
       <h2>Examples of the Switch Statement</h2>
 
       <h3>1. Basic Example</h3>
-      <pre>
+      <pre class="language-java"><code>
 int day = 3;
 String dayName;
 switch (day) {
@@ -125,112 +158,11 @@ switch (day) {
     dayName = "Invalid day";
 }
 System.out.println(dayName);
-      </pre>
+      </code></pre>
       <p><strong>Output:</strong></p>
-      <pre>Wednesday</pre>
+      <pre class="language-plaintext"><code>Wednesday</code></pre>
 
-      <h3>2. Using String with Switch (Java 7 and above)</h3>
-      <pre>
-String month = "April";
-String season;
-switch (month) {
-  case "December":
-  case "January":
-  case "February":
-    season = "Winter";
-    break;
-  case "March":
-  case "April":
-  case "May":
-    season = "Spring";
-    break;
-  case "June":
-  case "July":
-  case "August":
-    season = "Summer";
-    break;
-  case "September":
-  case "October":
-  case "November":
-    season = "Autumn";
-    break;
-  default:
-    season = "Invalid month";
-}
-System.out.println(season);
-      </pre>
-      <p><strong>Output:</strong></p>
-      <pre>Spring</pre>
-
-      <h3>3. Switch with Multiple Case Values</h3>
-      <pre>
-int number = 2;
-String result;
-switch (number) {
-  case 1:
-  case 2:
-  case 3:
-    result = "Low";
-    break;
-  case 4:
-  case 5:
-  case 6:
-    result = "Medium";
-    break;
-  default:
-    result = "High";
-}
-System.out.println(result);
-      </pre>
-      <p><strong>Output:</strong></p>
-      <pre>Low</pre>
-
-      <h2>Common Examples of the Switch Statement</h2>
-
-      <h3>Example 1: Convert a Grade to a Message</h3>
-      <pre>
-char grade = 'B';
-String message;
-switch (grade) {
-  case 'A':
-    message = "Excellent!";
-    break;
-  case 'B':
-    message = "Good!";
-    break;
-  case 'C':
-    message = "Fair!";
-    break;
-  case 'D':
-    message = "Poor!";
-    break;
-  default:
-    message = "Invalid grade";
-}
-System.out.println(message);
-      </pre>
-
-      <h3>Example 2: Determine the Type of Triangle Based on Angles</h3>
-      <pre>
-int angle1 = 60, angle2 = 60, angle3 = 60;
-String triangleType;
-switch (angle1 + angle2 + angle3) {
-  case 180:
-    if (angle1 == 90 || angle2 == 90 || angle3 == 90) {
-      triangleType = "Right triangle";
-    } else if (angle1 < 90 && angle2 < 90 && angle3 < 90) {
-      triangleType = "Acute triangle";
-    } else {
-      triangleType = "Obtuse triangle";
-    }
-    break;
-  default:
-    triangleType = "Invalid triangle";
-}
-System.out.println(triangleType);
-      </pre>
-
-      <h2>Unsolved Problems</h2>
+      <h3>Unsolved Problems</h3>
       <div class="problems">
         <ol>
           <li>Write a program that uses a switch statement to determine the name of the day of the week based on an input number (1-7).</li>
@@ -243,7 +175,14 @@ System.out.println(triangleType);
     </div>
   </main>
   <footer>
-    © 2025 Champak Roy | All Rights Reserved
+    © 2025 Champak Roy | All Rights Reserved | <a href="#top">Back to Top</a>
   </footer>
+  <button class="btn-back-to-top" onclick="scrollToTop()">↑ Top</button>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-ybR2oD/xOr2v9J6s4obPKL9ujfuhtjWxwCGHVf4BbZWNOcxrAunFHQGG5AyOIkRzHM1WxUscbDBArJMsCrNoRg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
