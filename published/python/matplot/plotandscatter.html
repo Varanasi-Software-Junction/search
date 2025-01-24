@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matplotlib Lesson: plot() and scatter()</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f8fb;
+            color: #333;
+        }
+        header {
+            background-color: #003f88;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #003f88;
+            margin-top: 20px;
+        }
+        pre {
+            background: #eaf2f8;
+            padding: 15px;
+            border-left: 4px solid #003f88;
+            overflow-x: auto;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        code {
+            color: #d6336c;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #003f88;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #eaf2f8;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Getting Started with Matplotlib</h1>
+    </header>
+
+    <main>
+        <h2>Introduction</h2>
+        <p>Matplotlib is a powerful library in Python for creating visualizations. Two commonly used functions for plotting are:</p>
+        <ul>
+            <li><strong><code>plot()</code></strong>: Used for creating line plots (connecting data points with lines).</li>
+            <li><strong><code>scatter()</code></strong>: Used for creating scatter plots (points without lines).</li>
+        </ul>
+
+        <h2>1. Setting Up Matplotlib</h2>
+        <p>Before we start, ensure you have Matplotlib installed. You can install it with:</p>
+        <pre><code>pip install matplotlib</code></pre>
+        <p>Import Matplotlib in your Python script:</p>
+        <pre><code>import matplotlib.pyplot as plt</code></pre>
+
+        <h2>2. <code>plot()</code> Function</h2>
+        <p>The <code>plot()</code> function is used for creating line plots. A line plot connects data points with lines, making it ideal for visualizing trends.</p>
+
+        <h3>Syntax:</h3>
+        <pre><code>plt.plot(x, y, format, **kwargs)</code></pre>
+        <p><strong>Example:</strong></p>
+        <pre><code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+
+plt.plot(x, y, 'g--', linewidth=2, label='y = 2x')
+plt.title("Line Plot Example")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre>
+
+        <h2>3. <code>scatter()</code> Function</h2>
+        <p>The <code>scatter()</code> function creates scatter plots by plotting individual points. It's useful for visualizing distributions or relationships.</p>
+
+        <h3>Syntax:</h3>
+        <pre><code>plt.scatter(x, y, c=None, s=None, **kwargs)</code></pre>
+        <p><strong>Example:</strong></p>
+        <pre><code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+
+plt.scatter(x, y, c='blue', s=100, label='Data Points')
+plt.title("Scatter Plot Example")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre>
+
+        <h2>4. Combining <code>plot()</code> and <code>scatter()</code></h2>
+        <p>You can combine line plots and scatter plots for better visualization:</p>
+        <pre><code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+
+plt.plot(x, y, 'r--', linewidth=2, label='Line')
+plt.scatter(x, y, c='blue', s=100, label='Points')
+plt.title("Combined Plot Example")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre>
+
+        <h2>5. Practice Exercise</h2>
+        <p>Try these exercises:</p>
+        <ol>
+            <li>Create a line plot for <code>y = x^2</code> using the <code>plot()</code> function.</li>
+            <li>Create a scatter plot for <code>x = [1, 2, 3, 4, 5]</code> and <code>y = [5, 3, 6, 2, 8]</code>.</li>
+            <li>Combine the above into a single plot with a line and scatter points.</li>
+        </ol>
+
+        <h2>Summary</h2>
+        <p>Use <code>plot()</code> for line plots and <code>scatter()</code> for scatter plots. Customize your plots with labels, legends, grid lines, and styling options. Combine both functions for enhanced visualizations.</p>
+    </main>
+
+    <footer>
+        <p>Created by Champak Roy | </p>
+    </footer>
+</body>
+</html>

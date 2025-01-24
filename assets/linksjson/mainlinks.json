@@ -234,4 +234,8 @@
     {  "title": "While loops in Java",
         "url": "published/java/whileloopdowhileloop.html"
     }
+    ,
+    {  "title": "Simple plotting in Python using Matplotlib",
+        "url": "published/python/matplot/plotandscatter.html"
+    }
 ]
