@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patterns</title>
     <style>
+        .container
+        {
+            display: flex;
+            flex-direction: column;
+        }
+        .item
+        {
+            display: flex;
+        }
         .code {
             width: 100%;
             margin-left: 30px;
@@ -34,11 +43,9 @@
 </head>
 
 <body>
-    <pre id="pr" class="vsjcard">
+   <h1>Patterns Drawing using Javascript</h1>
 
-      </pre>
-
-    <textarea onkeyup="transferCode()" onchange="transferCode()" class="code" id="txtCode" rows="10"
+    <textarea class="code" id="txtCode" rows="10"
         cols="30"></textarea><br>
     <button onclick="runTheCode()" type="button">Draw</button>
     <br>
@@ -52,18 +59,13 @@
         const ctx = canvas.getContext("2d");
         let currentx = 10;
         let currenty = 10;
-        function transferCode() {
-            let newcode = ` <code class="language-css"><!--
-        -->${txtcode.value}<!--
-        --></code>`;
-            document.getElementById("pr").innerHTML = newcode;
-        }
+       
 
         function asc(ch) {
             return ch.charCodeAt(0);
         }
         function chr(n) {
-            // n="" + n;
+            
             return String.fromCharCode(n);
         }
         function fPrint(text) {
