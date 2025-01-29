@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
     copyButton.style.margin = "10px";
     copyButton.style.padding = "10px";
     copyButton.style.cursor = "pointer";
-    copyButton.style.display = "none"; // Hidden by default
+    copyButton.style.display = "none"; 
+    copyButton.style.zIndex = "9999";// Hidden by default
+
 
     // Append elements to the body
     document.body.appendChild(button);
