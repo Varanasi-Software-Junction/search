@@ -242,4 +242,8 @@
     {  "title": "If else, ternary, switch quiz Java",
         "url": "published/java/tests/if else ternary switch.html"
     }
+    ,
+    {  "title": "SQL Assignments",
+        "url": "published/sql/sqlassignment.html"
+    }
 ]
