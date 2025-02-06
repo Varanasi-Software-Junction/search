@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swipe Detection</title>
     <script>
+        class consolee{
+             log(params) {
+                alert(params);
+            }
+        }
+        window.console=consolee;
         let startX, startY, endX, endY;
 
         document.addEventListener("touchstart", (event) => {
             startX = event.touches[0].clientX;
             startY = event.touches[0].clientY;
+            console.log(console);
         });
 
         document.addEventListener("touchend", (event) => {
@@ -40,5 +47,11 @@
 </head>
 <body>
     <h2>Swipe in Any Direction</h2>
+    <div>
+How it works
+
+
+    </div>
+    <script src="https://varanasi-software-junction.github.io/Programming-is-a-Picnic./js/codeviewer/showCode.js"></script>
 </body>
 </html>

@@ -198,52 +198,58 @@
     {
         "title": "SVG Lines",
         "url": "js/svg%20and%20canvas/svgline.html"
-    }
-    ,
+    },
     {
         "title": "Booleans in Java",
         "url": "published/java/booleans.html"
-    }
-    ,
-    {  "title": "If else in Java",
+    },
+    {
+        "title": "If else in Java",
         "url": "published/java/ifelse.html"
-    }
-    ,
-    {  "title": "Assembly Simulator",
+    },
+    {
+        "title": "Assembly Simulator",
         "url": "published/assembly/assemblyrun.html"
-    }
-    ,
-    {  "title": "Animation Events",
+    },
+    {
+        "title": "Animation Events",
         "url": "published/animation/animationwithevents.html"
     },
     {
         "title": "Ternary in Java",
         "url": "published/java/ternary.html"
-    }
-    ,
-    {  "title": "Switch in Java",
+    },
+    {
+        "title": "Switch in Java",
         "url": "published/java/switch.html"
-    }
-
-    ,
+    },
     {
         "title": "For loops in Java",
         "url": "published/java/forloops.html"
-    }
-    ,
-    {  "title": "While loops in Java",
+    },
+    {
+        "title": "While loops in Java",
         "url": "published/java/whileloopdowhileloop.html"
-    }
-    ,
-    {  "title": "Simple plotting in Python using Matplotlib",
+    },
+    {
+        "title": "Simple plotting in Python using Matplotlib",
         "url": "published/python/matplot/plotandscatter.html"
-    }
-    ,
-    {  "title": "If else, ternary, switch quiz Java",
+    },
+    {
+        "title": "If else, ternary, switch quiz Java",
         "url": "published/java/tests/if else ternary switch.html"
+    },
+    {
+        "title": "SQL Assignments",
+        "url": "published/sql/sqlassignment.html"
+    },
+    {
+        "title": "Java OOPs Quiz",
+        "url": "published/java/tests/java oops.html"
     }
     ,
-    {  "title": "SQL Assignments",
-        "url": "published/sql/sqlassignment.html"
+    {
+        "title": "Java Output Quiz",
+        "url": "published/java/tests/code output.html"
     }
 ]
