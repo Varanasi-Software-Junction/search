@@ -252,4 +252,10 @@
         "title": "Java Output Quiz",
         "url": "published/java/tests/code output.html"
     }
+   ,
+    {
+        "title": "JSON handling in JavaScript",
+        "url": "js/jsonhandle.html"
+    }
+    
 ]
