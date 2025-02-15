@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +10,19 @@
             text-align: center;
             background-color: #f4f4f4;
         }
+
         canvas {
             border: 2px solid black;
             background-color: white;
-            cursor: crosshair;
+            cursor:url('cursor.cur');;
         }
+
         .toolbar {
             margin: 10px;
         }
     </style>
 </head>
+
 <body>
     <h2>Simple Whiteboard</h2>
     <div class="toolbar">
@@ -53,7 +57,7 @@
             ctx.lineWidth = sizePicker.value;
             ctx.lineCap = "round";
             ctx.strokeStyle = colorPicker.value;
-            
+
             ctx.lineTo(e.offsetX, e.offsetY);
             ctx.stroke();
             ctx.beginPath();
@@ -70,4 +74,5 @@
         }
     </script>
 </body>
+
 </html>

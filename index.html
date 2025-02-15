@@ -7,13 +7,14 @@
     <title>Champak Roy: Algorithms, Coding, Testing and more</title>
     <link rel="icon" type="image/x-icon" href="assets/images/me.jpg">
     <link rel="stylesheet" href="branding/greentheme.css">
+    <!-- <link rel="stylesheet" href="branding/bluetheme.css"> -->
     <link rel="stylesheet" href="assets/linksjson/links.css">
 </head>
 
 <body>
 
     <header>
-        <h1>Programming Encyclopaedia</h1>
+        <h1 id="header">Programming Encyclopaedia</h1>
     </header>
 
     <nav>
@@ -50,10 +51,12 @@
         function filterQuizzes() {
             let count = 0;
             let input = document.getElementById('quizSearch').value.toLowerCase();
-            let quizLinks = document.getElementById('quiz-list').getElementsByTagName('a');
+            let quizLinks = document.getElementById('quiz-list').getElementsByTagName('div');
 
             for (let i = 0; i < quizLinks.length; i++) {
-                let quizText = quizLinks[i].innerText.toLowerCase();
+                let quizText = quizLinks[i].getElementsByTagName("a")[0].innerHTML.toLowerCase().trim();
+                console.warn("QuizFilter",quizText);
+                // alert();
                 if (quizText.includes(input)) {
                     count++;
                     // console.log("Show");
@@ -80,7 +83,7 @@
     <script src="assets/js/loadmenu.js">
     </script>
 
-
+<div style="display: none;;" id="memsg"></div>
 
     <script src="https://varanasi-software-junction.github.io/Programming-is-a-Picnic./branding/branding.js"></script>
     <script src="branding/showmodal.js"></script>
