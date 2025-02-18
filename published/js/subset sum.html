@@ -14,7 +14,7 @@
 <body>
     <h1>Subset Sum Tree Visualization</h1>
     <label for="arrayInput">Enter numbers (comma separated):</label>
-    <input type="text" id="arrayInput" placeholder="e.g., 3,34,4,12,5,2">
+    <input type="text" id="arrayInput" placeholder="e.g., 3,34,4,12,5,2" value="2,3,4,5,6,7,8">
     <label for="targetInput">Enter target sum:</label>
     <input type="number" id="targetInput" placeholder="e.g., 9">
     <button onclick="startVisualization()">Visualize</button>
@@ -33,7 +33,7 @@
         function drawNode(x, y, text, color = "black") {
             ctx.fillStyle = "white";
             ctx.beginPath();
-            ctx.arc(x, y, 30, 0, Math.PI * 2);
+            ctx.arc(x, y, 50, 0, Math.PI * 2);
             ctx.fill();
             ctx.strokeStyle = color;
             ctx.stroke();
@@ -61,13 +61,13 @@
                 return;
             }
             
-            drawNode(x, y, `${target}`);
+            drawNode(x, y, `(${target},${index},${arr[index]})`);
             let dx = 200 / (depth + 1);
             
             drawLine(x, y + 30, x - dx, y + 100);
             drawSubsetTree(arr, target - arr[index], x - dx, y + 100, depth + 1, index + 1, [...path, arr[index]]);
             
-            drawLine(x, y + 30, x + dx, y + 100);
+            drawLine(x, y + 40, x + dx, y + 100);
             drawSubsetTree(arr, target, x + dx, y + 100, depth + 1, index + 1, path);
         }
 
