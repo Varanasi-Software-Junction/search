@@ -103,7 +103,41 @@ int main() {
     file.write((char*)&s, sizeof(s));
     file.close();
     return 0;
-}</code></pre>
+}
+
+
+</code></pre>
+<h2>5. Reading from the file.</h2>
+<pre><code>
+    #include <iostream>
+        #include <fstream>
+        using namespace std;
+        
+        struct Student {
+            char name[50];
+            int age;
+        };
+        
+        int main() {
+            Student s;
+        
+            // Read from binary file
+            ifstream file("student.dat", ios::binary);
+            
+            if (file.read((char*)&s, sizeof(s))) {
+                cout << "Name: " << s.name << endl;
+                cout << "Age: " << s.age << endl;
+            } else {
+                cout << "Error reading file!" << endl;
+            }
+        
+            file.close();
+            return 0;
+        }
+        
+
+
+</code></pre>
     </div>
     <div class="footer">
      
