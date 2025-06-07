@@ -29,6 +29,23 @@
         <br><label id="lblCount"></label>
     </div>
 
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        // Example: get the 'name' parameter
+        const q = params.get('q');
+        //   const lang = params.get('lang');
+
+        if (q) {
+            console.log("q is:", q);
+            document.getElementById("quizSearch").value = q;
+        } else {
+            console.log("q parameter not found.");
+        }
+
+    </script>
+
+
     <div id="quiz-list">
 
     </div>
@@ -55,7 +72,7 @@
 
             for (let i = 0; i < quizLinks.length; i++) {
                 let quizText = quizLinks[i].getElementsByTagName("a")[0].innerHTML.toLowerCase().trim();
-                console.warn("QuizFilter",quizText);
+                console.warn("QuizFilter", quizText);
                 // alert();
                 if (quizText.includes(input)) {
                     count++;
@@ -83,7 +100,7 @@
     <script src="assets/js/loadmenu.js">
     </script>
 
-<div style="display: none;;" id="memsg"></div>
+    <div style="display: none;;" id="memsg"></div>
 
     <script src="https://varanasi-software-junction.github.io/Programming-is-a-Picnic./branding/branding.js"></script>
     <script src="branding/showmodal.js"></script>
