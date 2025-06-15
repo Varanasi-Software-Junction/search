@@ -4,43 +4,43 @@
     "items":[
     {
         "title": "Algorithms and Programs",
-        "url": "published/dsa/index.html",
-        "pic":"assets/images/languagepics/dsa.png"
+        "url": "published/dsa/index.html"
+         
     },
     {
         "title": "Data Structures and Algorithms in Dart, Flutter Programming",
-        "url": "flutter/dsa/index.html",
-        "pic":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGaPQ6uIDTwwDaoWbOcmfpdfa4CWXJiUbwvfwIVEbq1vvHYmUr_9Rq6w4rGTU1fl4dhH3GH4j9BiSiVylBzIvVJuYMxBB3jPJsVpC8lbYoCfWBYxNZEdahYFOS4ARyZZ2HJ2vhhMEv-dY/s1600/Varanasi+Software+Junction+Phone+Logo.png"
+        "url": "flutter/dsa/index.html"
+        
     },
     {
         "title": "C Printf Basics Quiz",
-        "url": "published/index.html?fj=printf.json&qn=A%20Quiz%20on%20Printf",
-        "pic":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGaPQ6uIDTwwDaoWbOcmfpdfa4CWXJiUbwvfwIVEbq1vvHYmUr_9Rq6w4rGTU1fl4dhH3GH4j9BiSiVylBzIvVJuYMxBB3jPJsVpC8lbYoCfWBYxNZEdahYFOS4ARyZZ2HJ2vhhMEv-dY/s1600/Varanasi+Software+Junction+Phone+Logo.png"
+        "url": "published/index.html?fj=printf.json&qn=A%20Quiz%20on%20Printf"
+        
     },
     {
         "title": "C Printf and Scanf Basics Quiz",
-        "url": "published/index.html?fj=scanprint.json&qn=A%20Quiz%20on%20Printf",
-        "pic":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGaPQ6uIDTwwDaoWbOcmfpdfa4CWXJiUbwvfwIVEbq1vvHYmUr_9Rq6w4rGTU1fl4dhH3GH4j9BiSiVylBzIvVJuYMxBB3jPJsVpC8lbYoCfWBYxNZEdahYFOS4ARyZZ2HJ2vhhMEv-dY/s1600/Varanasi+Software+Junction+Phone+Logo.png"
+        "url": "published/index.html?fj=scanprint.json&qn=A%20Quiz%20on%20Printf"
+        
     },
     {
         "title": "Django Authentication Walkthrough",
-        "url": "django/multipleusrtypesdjango.html",
-        "pic":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGaPQ6uIDTwwDaoWbOcmfpdfa4CWXJiUbwvfwIVEbq1vvHYmUr_9Rq6w4rGTU1fl4dhH3GH4j9BiSiVylBzIvVJuYMxBB3jPJsVpC8lbYoCfWBYxNZEdahYFOS4ARyZZ2HJ2vhhMEv-dY/s1600/Varanasi+Software+Junction+Phone+Logo.png"
+        "url": "django/multipleusrtypesdjango.html"
+        
     },
     {
         "title": "If Else in C",
-        "url": "published/index.html?fj=ifelse.json&qn=If else in C",
-        "pic":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGaPQ6uIDTwwDaoWbOcmfpdfa4CWXJiUbwvfwIVEbq1vvHYmUr_9Rq6w4rGTU1fl4dhH3GH4j9BiSiVylBzIvVJuYMxBB3jPJsVpC8lbYoCfWBYxNZEdahYFOS4ARyZZ2HJ2vhhMEv-dY/s1600/Varanasi+Software+Junction+Phone+Logo.png"
+        "url": "published/index.html?fj=ifelse.json&qn=If else in C"
+        
     },
     {
         "title": "Interactive If Else in C",
-        "url": "published/index.html?fj=scanifelse.json&qn=If else in C",
-        "pic":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGaPQ6uIDTwwDaoWbOcmfpdfa4CWXJiUbwvfwIVEbq1vvHYmUr_9Rq6w4rGTU1fl4dhH3GH4j9BiSiVylBzIvVJuYMxBB3jPJsVpC8lbYoCfWBYxNZEdahYFOS4ARyZZ2HJ2vhhMEv-dY/s1600/Varanasi+Software+Junction+Phone+Logo.png"
+        "url": "published/index.html?fj=scanifelse.json&qn=If else in C"
+        
     },
     {
         "title": "Speech Synthesizer",
-        "url": "speechsynthesizer/index.html",
-        "pic":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGaPQ6uIDTwwDaoWbOcmfpdfa4CWXJiUbwvfwIVEbq1vvHYmUr_9Rq6w4rGTU1fl4dhH3GH4j9BiSiVylBzIvVJuYMxBB3jPJsVpC8lbYoCfWBYxNZEdahYFOS4ARyZZ2HJ2vhhMEv-dY/s1600/Varanasi+Software+Junction+Phone+Logo.png"
+        "url": "speechsynthesizer/index.html"
+        
     },
     {
         "title": "If else ternary and switch",

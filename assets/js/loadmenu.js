@@ -1,6 +1,22 @@
 // Load links dynamically from JSON
+const DEFAULT_PIC = "https://blogger.googleusercontent.com/img/a/AVvXsEhlfwIqq3YYxj6LMFr4E7IKN2bYIor-bFpbUXBT3Jthp8PKmRdWozV3hEk2xcj3kPrJ9WBIkXCr4lw5MTAz0AE5b0lPhQ2ReNbCmMOumP4zLTEOb7GY6s4YWcgcCfzltJVmQcgCObeQNRvn_SWPa_2c6cROZUOBHhRJB20PaV-peuA3GTSafM8JxgaYu5M=s450";
+
 async function loadLinks() {
     const urlParams = new URLSearchParams(window.location.search);
+
+    function previewLink(div) {
+  const iframe = div.querySelector('.preview-frame');
+  const a = div.querySelector('a');
+  iframe.src = a.href;
+  iframe.style.display = "block";
+}
+
+function hidePreview(div) {
+  const iframe = div.querySelector('.preview-frame');
+  iframe.style.display = "none";
+  iframe.src = ""; // optional: unload
+}
+
     // alert(urlParams)
     const link = `${urlParams.get('menu')}.json`; // Menu file
     let q = urlParams.get('q'); // Search query
@@ -32,20 +48,22 @@ async function loadLinks() {
     data.items.forEach(item => {
         const link = document.createElement("a"); // Create a new <a> element
         const innerdiv = document.createElement("div");
+        innerdiv.addEventListener("mouseover",previewLink);
         innerdiv.classList.add("showthelink");
         // link.classList.add("showthelink"); // Add the showthelink class
         link.href = item.url; // Set the href attribute to the URL from JSON
         link.target = "_blank"; // Open link in a new tab
         link.textContent = item.title; // Set the text to the title from JSON
-        /* const img=document.createElement("iframe");
-         img.title=item.title;
-         img.src=item.url;
-         img.style="border-radius:50%;width:100px;height:100px";
-         // link.innerHTML=img;
-         // link.innerHTML = img; // Set the text to the title from JSON
-         console.log (img.src);
-         // quizList.appendChild(img);
-         innerdiv.appendChild(img);*/
+         const iframe=document.createElement("iframe");
+         iframe.src=item.url;
+         iframe.classList.add("preview-frame");
+        innerdiv.appendChild(iframe);
+
+         const img = document.createElement("img");
+img.src = item.pic ? item.pic : DEFAULT_PIC;
+img.alt = item.title;
+img.className = "thumbnail";
+innerdiv.appendChild(img);
         innerdiv.appendChild(link);
         // quizList.appendChild(link); // Append the link to the quiz list
 
