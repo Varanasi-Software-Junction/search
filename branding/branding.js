@@ -31,6 +31,77 @@ document.body.appendChild(whatsappButton);
 const style = document.createElement('style');
 style.innerHTML = `
     /* Apply font only to flip-container and whatsapp-button */
+    /* Modal Box Styling */
+.messages_XYZ_modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.messages_XYZ_modal-box {
+    background: #fff;
+    padding: 30px;
+    max-width: 400px;
+    border-radius: 16px;
+    text-align: center;
+    font-family: 'Lora', serif;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    animation: messages_XYZ_fadeIn 0.4s ease-in-out;
+}
+
+.messages_XYZ_modal-box h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.messages_XYZ_modal-box p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.messages_XYZ_modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+}
+
+.messages_XYZ_modal-close:hover {
+    color: #000;
+}
+
+@keyframes messages_XYZ_fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* Show Message Button Styling */
+.messages_XYZ_show-message-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 18px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Lora', serif;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.messages_XYZ_show-message-btn:hover {
+    background-color: #555;
+}
+
     .flip-container, .whatsapp-button {
         font-family: 'Lora', serif;
     }
@@ -108,3 +179,64 @@ style.innerHTML = `
     }
 `;
 document.head.appendChild(style);
+
+
+//********************************************************* */
+// ========== FETCH AND DISPLAY TODAY'S MESSAGE ==========
+
+const messageJsonUrl = 'https://varanasi-software-junction.github.io/search/messages.json';
+const today = new Date().toISOString().split('T')[0];
+
+// Show modal only if not seen today
+if (localStorage.getItem('messageSeenDate') !== today) {
+  fetch(messageJsonUrl)
+    .then(res => res.json())
+    .then(data => {
+      if (data[today]) {
+        showModalMessage(data[today]);
+        localStorage.setItem('messageSeenDate', today);
+      }
+    })
+    .catch(err => console.warn('Failed to load messages.json:', err));
+}
+
+// Manual trigger button
+const showMessageBtn = document.createElement('button');
+showMessageBtn.textContent = "📬 Show Today’s Message";
+showMessageBtn.className = "messages_XYZ_show-message-btn";
+showMessageBtn.onclick = () => {
+  fetch(messageJsonUrl)
+    .then(res => res.json())
+    .then(data => {
+      if (data[today]) showModalMessage(data[today]);
+      else alert("No message for today.");
+    })
+    .catch(err => alert("Could not load the message."));
+};
+document.body.appendChild(showMessageBtn);
+
+// Modal rendering function
+function showModalMessage(message) {
+  const modalOverlay = document.createElement('div');
+  modalOverlay.className = 'messages_XYZ_modal-overlay';
+
+  const modalBox = document.createElement('div');
+  modalBox.className = 'messages_XYZ_modal-box';
+  modalBox.innerHTML = `
+    <span class="messages_XYZ_modal-close" title="Close">&times;</span>
+    <h2>📩 Today’s Message</h2>
+    <p>${message}</p>
+  `;
+
+  modalOverlay.appendChild(modalBox);
+  document.body.appendChild(modalOverlay);
+
+  modalBox.querySelector('.messages_XYZ_modal-close').onclick = () => modalOverlay.remove();
+  modalOverlay.onclick = (e) => {
+    if (e.target === modalOverlay) modalOverlay.remove();
+  };
+}
+
+
+
+//**************************************************** */
