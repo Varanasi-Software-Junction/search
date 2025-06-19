@@ -52,6 +52,7 @@ style.innerHTML = `
     position: relative;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     animation: messages_XYZ_fadeIn 0.4s ease-in-out;
+    transition:none;
 }
 
 .messages_XYZ_modal-box h2 {
@@ -216,7 +217,12 @@ showMessageBtn.onclick = () => {
 document.body.appendChild(showMessageBtn);
 
 // Modal rendering function
+
+
 function showModalMessage(message) {
+  const flipImage = document.querySelector('.flip-container');
+  const flipRect = flipImage.getBoundingClientRect();
+
   const modalOverlay = document.createElement('div');
   modalOverlay.className = 'messages_XYZ_modal-overlay';
 
@@ -228,8 +234,27 @@ function showModalMessage(message) {
     <p>${message}</p>
   `;
 
+  // Start modal from flip-image position and size
+  modalBox.style.position = 'fixed';
+  modalBox.style.top = `${flipRect.top}px`;
+  modalBox.style.left = `${flipRect.left}px`;
+  modalBox.style.width = `${flipRect.width}px`;
+  modalBox.style.height = `${flipRect.height}px`;
+  modalBox.style.transform = 'scale(0)';
+  modalBox.style.transition = 'all 0.5s ease-in-out';
+
   modalOverlay.appendChild(modalBox);
   document.body.appendChild(modalOverlay);
+
+  // Wait for next frame to trigger animation to center
+  requestAnimationFrame(() => {
+    modalBox.style.top = '50%';
+    modalBox.style.left = '50%';
+    modalBox.style.transform = 'translate(-50%, -50%) scale(1)';
+    modalBox.style.width = '90%';
+    modalBox.style.maxWidth = '400px';
+    modalBox.style.height = 'auto';
+  });
 
   modalBox.querySelector('.messages_XYZ_modal-close').onclick = () => modalOverlay.remove();
   modalOverlay.onclick = (e) => {
