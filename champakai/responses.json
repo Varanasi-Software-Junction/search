@@ -1,0 +1,8 @@
+{
+  "hello": "Hi there! 👋",
+  "hi": "Hello, friend!",
+  "your name": "I'm a JSON-powered chatbot!",
+  "how are you": "I'm doing great. Thanks for asking!",
+  "bye": "Goodbye! Have a great day!",
+  "default": "I didn't understand that. Can you ask something else?"
+}
