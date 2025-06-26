@@ -1,29 +1,59 @@
+
 {
-  "2025-06-17": "✅ Always use clear, meaningful variable names.\nExample:\nuser_age = 25  # ✅ Easy to understand\n👉 [Python Style Guide - Naming Conventions](https://peps.python.org/pep-0008/#naming-conventions)",
-  
-  "2025-06-18": "✅ Think like a detective while debugging — You’re both the detective and the culprit.\nExample:\ntry:\n    result = 5 / 0\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero!\")\n👉 [Python Exceptions - Official Docs](https://docs.python.org/3/tutorial/errors.html)",
-  
-  "2025-06-19": "✅ Use List Comprehensions for concise and efficient loops.\nExample:\nsquares = [i * i for i in range(5)]\nprint(squares)\n👉 [List Comprehensions - Python Docs](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)",
-  
-  "2025-06-20": "✅ Prefer enumerate() over range(len()) when looping with index.\nExample:\nfruits = ['apple', 'banana', 'mango']\nfor index, fruit in enumerate(fruits):\n    print(f\"{index}: {fruit}\")\n👉 [enumerate() - Python Docs](https://docs.python.org/3/library/functions.html#enumerate)",
-  
-  "2025-06-21": "✅ Always use 'with' when working with files to auto-close them safely.\nExample:\nwith open(\"data.txt\", \"r\") as file:\n    content = file.read()\nprint(content)\n👉 [File Handling - Python Docs](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files)",
-  
-  "2025-06-22": "✅ Use f-strings for clean and efficient string formatting (Python 3.6+).\nExample:\nname = \"Shubham\"\nage = 22\nprint(f\"Hello, my name is {name} and I am {age} years old.\")\n👉 [f-Strings - Python Docs](https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals)",
-  
-  "2025-06-23": "✅ Avoid mutable default arguments like lists or dictionaries in functions.\nExample:\ndef add_item(item, items=None):\n    if items is None:\n        items = []\n    items.append(item)\n    return items\nprint(add_item('Python'))\n👉 [Common Pitfalls - Python Docs](https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments)",
-  
-  "2025-06-24": "✅ Always add docstrings to your functions for clarity.\nExample:\ndef greet(name):\n    \"\"\"Returns a greeting for the given name.\"\"\"\n    return f\"Hello, {name}!\"\nprint(greet(\"Shubham\"))\n👉 [Python Docstrings - Official Docs](https://www.python.org/dev/peps/pep-0257/)",
-  
-  "2025-06-25": "✅ Use zip() to iterate over multiple lists at once.\nExample:\nnames = [\"Alice\", \"Bob\"]\nscores = [90, 85]\nfor name, score in zip(names, scores):\n    print(f\"{name} scored {score}\")\n👉 [zip() - Python Docs](https://docs.python.org/3/library/functions.html#zip)",
-  
-  "2025-06-26": "✅ For faster membership tests, use sets instead of lists.\nExample:\nitems = {1, 2, 3, 4, 5}\nif 3 in items:\n    print(\"Found!\")\n👉 [Python Sets - Official Docs](https://docs.python.org/3/tutorial/datastructures.html#sets)",
-  
-  "2025-06-27": "✅ Use try-except blocks to handle errors gracefully.\nExample:\ntry:\n    number = int(input(\"Enter a number: \"))\nexcept ValueError:\n    print(\"Please enter a valid integer.\")\n👉 [Handling Exceptions - Python Docs](https://docs.python.org/3/tutorial/errors.html)",
-  
-  "2025-06-28": "✅ Break large problems into smaller, single-purpose functions.\nExample:\ndef get_name():\n    return input(\"Enter your name: \")\ndef greet(name):\n    print(f\"Hello, {name}!\")\ngreet(get_name())\n👉 [Python Functions - Official Docs](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)",
-  
-  "2025-06-29": "✅ Use Virtual Environments to manage project dependencies and avoid conflicts.\nExample (Terminal):\npython -m venv venv\nsource venv/bin/activate  # On Windows: venv\\Scripts\\activate\n👉 [Virtual Environments - Python Docs](https://docs.python.org/3/library/venv.html)",
-  
-  "2025-06-30": "✅ Measure execution time for performance testing using the time module.\nExample:\nimport time\nstart = time.time()\nsum = 0\nfor i in range(1000000):\n    sum += i\nend = time.time()\nprint(f\"Execution time: {end - start:.2f} seconds\")\n👉 [time Module - Python Docs](https://docs.python.org/3/library/time.html)"
+  "2025-06-17": {
+    "content": "✅ Always use clear, meaningful variable names.\nExample:\nuser_age = 25  # ✅ Easy to understand",
+    "link": "https://peps.python.org/pep-0008/#naming-conventions"
+  },
+  "2025-06-18": {
+    "content": "✅ Think like a detective while debugging — You’re both the detective and the culprit.\nExample:\ntry:\n    result = 5 / 0\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero!\")",
+    "link": "https://docs.python.org/3/tutorial/errors.html"
+  },
+  "2025-06-19": {
+    "content": "✅ Use List Comprehensions for concise and efficient loops.\nExample:\nsquares = [i * i for i in range(5)]\nprint(squares)",
+    "link": "https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions"
+  },
+  "2025-06-20": {
+    "content": "✅ Prefer enumerate() over range(len()) when looping with index.\nExample:\nfruits = ['apple', 'banana', 'mango']\nfor index, fruit in enumerate(fruits):\n    print(f\"{index}: {fruit}\")",
+    "link": "https://docs.python.org/3/library/functions.html#enumerate"
+  },
+  "2025-06-21": {
+    "content": "✅ Always use 'with' when working with files to auto-close them safely.\nExample:\nwith open(\"data.txt\", \"r\") as file:\n    content = file.read()\nprint(content)",
+    "link": "https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files"
+  },
+  "2025-06-22": {
+    "content": "✅ Use f-strings for clean and efficient string formatting (Python 3.6+).\nExample:\nname = \"Shubham\"\nage = 22\nprint(f\"Hello, my name is {name} and I am {age} years old.\")",
+    "link": "https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals"
+  },
+  "2025-06-23": {
+    "content": "✅ Avoid mutable default arguments like lists or dictionaries in functions.\nExample:\ndef add_item(item, items=None):\n    if items is None:\n        items = []\n    items.append(item)\n    return items\nprint(add_item('Python'))",
+    "link": "https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments"
+  },
+  "2025-06-24": {
+    "content": "✅ Always add docstrings to your functions for clarity.\nExample:\ndef greet(name):\n    \"\"\"Returns a greeting for the given name.\"\"\"\n    return f\"Hello, {name}!\"\nprint(greet(\"Shubham\"))",
+    "link": "https://www.python.org/dev/peps/pep-0257/"
+  },
+  "2025-06-25": {
+    "content": "✅ Use zip() to iterate over multiple lists at once.\nExample:\nnames = [\"Alice\", \"Bob\"]\nscores = [90, 85]\nfor name, score in zip(names, scores):\n    print(f\"{name} scored {score}\")",
+    "link": "https://docs.python.org/3/library/functions.html#zip"
+  },
+  "2025-06-26": {
+    "content": "✅ For faster membership tests, use sets instead of lists.\nExample:\nitems = {1, 2, 3, 4, 5}\nif 3 in items:\n    print(\"Found!\")",
+    "link": "https://docs.python.org/3/tutorial/datastructures.html#sets"
+  },
+  "2025-06-27": {
+    "content": "✅ Use try-except blocks to handle errors gracefully.\nExample:\ntry:\n    number = int(input(\"Enter a number: \"))\nexcept ValueError:\n    print(\"Please enter a valid integer.\")",
+    "link": "https://docs.python.org/3/tutorial/errors.html"
+  },
+  "2025-06-28": {
+    "content": "✅ Break large problems into smaller, single-purpose functions.\nExample:\ndef get_name():\n    return input(\"Enter your name: \")\ndef greet(name):\n    print(f\"Hello, {name}!\")\ngreet(get_name())",
+    "link": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions"
+  },
+  "2025-06-29": {
+    "content": "✅ Use Virtual Environments to manage project dependencies and avoid conflicts.\nExample (Terminal):\npython -m venv venv\nsource venv/bin/activate  # On Windows: venv\\Scripts\\activate",
+    "link": "https://docs.python.org/3/library/venv.html"
+  },
+  "2025-06-30": {
+    "content": "✅ Measure execution time for performance testing using the time module.\nExample:\nimport time\nstart = time.time()\nsum = 0\nfor i in range(1000000):\n    sum += i\nend = time.time()\nprint(f\"Execution time: {end - start:.2f} seconds\")",
+    "link": "https://docs.python.org/3/library/time.html"
+  }
 }

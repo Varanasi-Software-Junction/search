@@ -225,13 +225,14 @@ function showModalMessage(message) {
 
   const modalOverlay = document.createElement('div');
   modalOverlay.className = 'messages_XYZ_modal-overlay';
-
+// alert(message);
   const modalBox = document.createElement('div');
   modalBox.className = 'messages_XYZ_modal-box';
   modalBox.innerHTML = `
     <span class="messages_XYZ_modal-close" title="Close">&times;</span>
     <h2>📩 Today’s Message</h2>
     <p>${message}</p>
+    
   `;
 
   // Start modal from flip-image position and size
