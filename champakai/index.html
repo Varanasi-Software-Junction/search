@@ -2,193 +2,205 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Champak's AI Chatbot</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Champak's AI Chatbot</title>
 
+  <!-- ✅ Basic SEO -->
+  <meta name="description" content="A beginner-friendly chatbot using HTML, CSS, JavaScript, and JSON. Created by Champak Roy.">
+  <meta name="author" content="Champak Roy">
 
+  <!-- ✅ Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:title" content="Build Your First Chatbot Using HTML, JS & JSON">
+  <meta property="og:description" content="Simple, elegant chatbot powered by JSON. Created by Champak Roy.">
+  <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhlfwIqq3YYxj6LMFr4E7IKN2bYIor-bFpbUXBT3Jthp8PKmRdWozV3hEk2xcj3kPrJ9WBIkXCr4lw5MTAz0AE5b0lPhQ2ReNbCmMOumP4zLTEOb7GY6s4YWcgcCfzltJVmQcgCObeQNRvn_SWPa_2c6cROZUOBHhRJB20PaV-peuA3GTSafM8JxgaYu5M=s450">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://varanasi-software-junction.github.io/search/champakai/">
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ✅ Twitter (X) Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Build a Simple Chatbot using HTML, JS, and JSON">
+  <meta name="twitter:description" content="Learn how to create a beginner-level chatbot with JSON and JavaScript.">
+  <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhlfwIqq3YYxj6LMFr4E7IKN2bYIor-bFpbUXBT3Jthp8PKmRdWozV3hEk2xcj3kPrJ9WBIkXCr4lw5MTAz0AE5b0lPhQ2ReNbCmMOumP4zLTEOb7GY6s4YWcgcCfzltJVmQcgCObeQNRvn_SWPa_2c6cROZUOBHhRJB20PaV-peuA3GTSafM8JxgaYu5M=s450">
 
+  <!-- ✅ Favicon -->
+  <link rel="icon" href="../assets/images/me.jpg" type="image/jpeg" />
 
-    <!-- ✅ Basic SEO -->
-    <meta name="description"
-        content="A beginner-friendly chatbot using HTML, CSS, JavaScript, and JSON. Created by Champak Roy.">
-    <meta name="author" content="Champak Roy">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      margin: 0;
+    }
 
-    <!-- ✅ Open Graph (Facebook, LinkedIn) -->
-    <meta property="og:title" content="Build Your First Chatbot Using HTML, JS & JSON">
-    <meta property="og:description" content="Simple, elegant chatbot powered by JSON. Created by Champak Roy.">
-    <meta property="og:image"
-        content="https://blogger.googleusercontent.com/img/a/AVvXsEhlfwIqq3YYxj6LMFr4E7IKN2bYIor-bFpbUXBT3Jthp8PKmRdWozV3hEk2xcj3kPrJ9WBIkXCr4lw5MTAz0AE5b0lPhQ2ReNbCmMOumP4zLTEOb7GY6s4YWcgcCfzltJVmQcgCObeQNRvn_SWPa_2c6cROZUOBHhRJB20PaV-peuA3GTSafM8JxgaYu5M=s450">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://varanasi-software-junction.github.io/search/champakai/">
+    h2 {
+      text-align: center;
+    }
 
-    <!-- ✅ Twitter (X) Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Build a Simple Chatbot using HTML, JS, and JSON">
-    <meta name="twitter:description" content="Learn how to create a beginner-level chatbot with JSON and JavaScript.">
-    <meta name="twitter:image"
-        content="https://blogger.googleusercontent.com/img/a/AVvXsEhlfwIqq3YYxj6LMFr4E7IKN2bYIor-bFpbUXBT3Jthp8PKmRdWozV3hEk2xcj3kPrJ9WBIkXCr4lw5MTAz0AE5b0lPhQ2ReNbCmMOumP4zLTEOb7GY6s4YWcgcCfzltJVmQcgCObeQNRvn_SWPa_2c6cROZUOBHhRJB20PaV-peuA3GTSafM8JxgaYu5M=s450">
+    .logo {
+      border-radius: 50%;
+      width: 40px;
+      margin-bottom: -10px;
+      vertical-align: middle;
+    }
 
-    <!-- ✅ Favicon (optional) -->
-    <link rel="icon" href="../assets/images/me.jpg" type="image/jpeg" />
+    .chatbox {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      height: 80vh;
+    }
 
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
 
+    .user,
+    .bot {
+      padding: 0.7rem;
+      border-radius: 10px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
 
+    .user {
+      background: #daf1ff;
+      align-self: flex-end;
+    }
 
+    .bot {
+      background: #e2e2e2;
+      align-self: flex-start;
+    }
 
-    \
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
-        }
+    .input-box {
+      display: flex;
+      flex-wrap: wrap;
+      border-top: 1px solid #ccc;
+      padding: 0.5rem;
+    }
 
-        .chatbox {
-            width: 90%;
-            max-width: 500px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
+    input {
+      flex: 1;
+      padding: 0.8rem;
+      border: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      min-width: 0;
+      margin-bottom: 0.5rem;
+    }
 
-        .messages {
-            height: 300px;
-            overflow-y: auto;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+    button {
+      padding: 0.8rem 1.2rem;
+      border: none;
+      background: #007bff;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
 
-        .user,
-        .bot {
-            padding: 0.7rem;
-            border-radius: 10px;
-            max-width: 80%;
-        }
+    button:hover {
+      background: #0056b3;
+    }
 
-        .user {
-            background: #daf1ff;
-            align-self: flex-end;
-        }
+    @media (max-width: 600px) {
+      .chatbox {
+        height: 90vh;
+      }
 
-        .bot {
-            background: #e2e2e2;
-            align-self: flex-start;
-        }
+      input,
+      button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
 
-        .input-box {
-            display: flex;
-            border-top: 1px solid #ccc;
-        }
-
-        input {
-            flex: 1;
-            padding: 0.8rem;
-            border: none;
-            font-size: 1rem;
-        }
-
-        button {
-            padding: 0.8rem 1.2rem;
-            border: none;
-            background: #007bff;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #0056b3;
-        }
-
-        .logo {
-            border-radius: 50%;
-            width: 40px;
-            margin-bottom: -15px;
-        }
-    </style>
-
+      .input-box {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <h2><img class="logo"
-            src="https://blogger.googleusercontent.com/img/a/AVvXsEhlfwIqq3YYxj6LMFr4E7IKN2bYIor-bFpbUXBT3Jthp8PKmRdWozV3hEk2xcj3kPrJ9WBIkXCr4lw5MTAz0AE5b0lPhQ2ReNbCmMOumP4zLTEOb7GY6s4YWcgcCfzltJVmQcgCObeQNRvn_SWPa_2c6cROZUOBHhRJB20PaV-peuA3GTSafM8JxgaYu5M=s450">
-        Champak's Chatbot</h2>
-    <div class="chatbox">
-        <div class="messages" id="chat"></div>
-        <div class="input-box">
-            <input onkeyup="sendMessage(event)" type="text" id="userInput" placeholder="Type your message..." />
-            <button onclick="sendMessage(event)">Send</button>
-        </div>
+  <h2><img class="logo" src="https://blogger.googleusercontent.com/img/a/AVvXsEhlfwIqq3YYxj6LMFr4E7IKN2bYIor-bFpbUXBT3Jthp8PKmRdWozV3hEk2xcj3kPrJ9WBIkXCr4lw5MTAz0AE5b0lPhQ2ReNbCmMOumP4zLTEOb7GY6s4YWcgcCfzltJVmQcgCObeQNRvn_SWPa_2c6cROZUOBHhRJB20PaV-peuA3GTSafM8JxgaYu5M=s450" alt="Champak Roy Logo">
+    Champak's Chatbot</h2>
+
+  <div class="chatbox">
+    <div class="messages" id="chat"></div>
+    <div class="input-box">
+      <input onkeyup="sendMessage(event)" type="text" id="userInput" placeholder="Type your message..." />
+      <button onclick="sendMessage(event)">Send</button>
     </div>
+  </div>
 
-    <script>
-        let responseMap = {};
+  <script>
+    let responseMap = {};
 
-        // Load JSON response data
-        fetch('responses.json')
-            .then(response => response.json())
-            .then(data => {
-                responseMap = data;
-            })
-            .catch(error => {
-                console.error("Error loading responses.json:", error);
-            });
+    // Load JSON response data
+    fetch('responses.json')
+      .then(response => response.json())
+      .then(data => {
+        responseMap = data;
+      })
+      .catch(error => {
+        console.error("Error loading responses.json:", error);
+      });
 
-        function sendMessage(event) {
-            console.log(event.key);
-            if (event.key != undefined) {
-                if (event.key != 'Enter') return; // Only send on Enter key
-            }
-            const input = document.getElementById('userInput');
-            const chat = document.getElementById('chat');
-            const userText = input.value.trim();
-            if (!userText) return;
+    function sendMessage(event) {
+      if (event && event.key !== undefined && event.key !== 'Enter') return;
 
-            // Show user message
-            const userDiv = document.createElement('div');
-            userDiv.className = 'user';
-            userDiv.textContent = userText;
-            chat.appendChild(userDiv);
+      const input = document.getElementById('userInput');
+      const chat = document.getElementById('chat');
+      const userText = input.value.trim();
+      if (!userText) return;
 
-            // Get bot reply
-            const botReply = getBotReply(userText);
+      // Show user message
+      const userDiv = document.createElement('div');
+      userDiv.className = 'user';
+      userDiv.textContent = userText;
+      chat.appendChild(userDiv);
 
-            // Show bot message
-            const botDiv = document.createElement('div');
-            botDiv.className = 'bot';
-            botDiv.textContent = botReply;
-            chat.appendChild(botDiv);
+      // Get bot reply
+      const botReply = getBotReply(userText);
 
-            // Scroll to bottom
-            chat.scrollTop = chat.scrollHeight;
+      // Show bot message
+      const botDiv = document.createElement('div');
+      botDiv.className = 'bot';
+      botDiv.textContent = botReply;
+      chat.appendChild(botDiv);
 
-            // Clear input
-            input.value = '';
+      // Scroll to bottom
+      chat.scrollTop = chat.scrollHeight;
+
+      // Clear input
+      input.value = '';
+    }
+
+    function getBotReply(input) {
+      input = input.toLowerCase();
+      for (let keyword in responseMap) {
+        if (input.includes(keyword) && keyword !== "default") {
+          return responseMap[keyword];
         }
-
-        function getBotReply(input) {
-            input = input.toLowerCase();
-
-            for (let keyword in responseMap) {
-                if (input.includes(keyword) && keyword !== "default") {
-                    return responseMap[keyword];
-                }
-            }
-
-            return responseMap["default"] || "Sorry, I don't know how to respond.";
-        }
-    </script>
+      }
+      return responseMap["default"] || "Sorry, I don't know how to respond.";
+    }
+  </script>
 
 </body>
 
