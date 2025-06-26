@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +9,9 @@
   <!-- SEO Meta -->
   <meta name="description" content="Chatbot with Text-to-Speech and Speech Recognition by Champak Roy">
   <meta name="author" content="Champak Roy">
+
+  <!-- ✅ Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     body {
@@ -51,7 +55,8 @@
       gap: 0.5rem;
     }
 
-    .user, .bot {
+    .user,
+    .bot {
       padding: 0.7rem;
       border-radius: 10px;
       max-width: 80%;
@@ -94,6 +99,9 @@
       cursor: pointer;
       border-radius: 5px;
       margin-left: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     button:hover {
@@ -101,7 +109,8 @@
     }
 
     @media (max-width: 600px) {
-      input, button {
+      input,
+      button {
         width: 100%;
         margin-bottom: 0.5rem;
       }
@@ -117,22 +126,28 @@
 
   <h2>
     <img class="logo" src="https://blogger.googleusercontent.com/img/a/AVvXsEhlfwIqq3YYxj6LMFr4E7IKN2bYIor-bFpbUXBT3Jthp8PKmRdWozV3hEk2xcj3kPrJ9WBIkXCr4lw5MTAz0AE5b0lPhQ2ReNbCmMOumP4zLTEOb7GY6s4YWcgcCfzltJVmQcgCObeQNRvn_SWPa_2c6cROZUOBHhRJB20PaV-peuA3GTSafM8JxgaYu5M=s450" alt="Champak Roy Logo">
-    Champak's Chatbot with Voice 🎙️🗣️
+    Champak's Chatbot with Voice
   </h2>
 
   <div class="chatbox">
     <div class="messages" id="chat"></div>
     <div class="input-box">
       <input onkeyup="sendMessage(event)" type="text" id="userInput" placeholder="Type or Speak your message..." />
-      <button onclick="startListening()">🎤 Speak</button>
-      <button onclick="sendMessage()">Send</button>
+      <!-- ✅ Speech-to-Text Button -->
+      <button onclick="startListening()">
+        <i class="fa-solid fa-microphone"></i> Speak
+      </button>
+      <!-- ✅ Send Button -->
+      <button onclick="sendMessage()">
+        <i class="fa-solid fa-paper-plane"></i> Send
+      </button>
     </div>
   </div>
 
   <script>
     let responseMap = {};
 
-    // ✅ Load chatbot replies from external JSON
+    // Load chatbot replies from JSON file
     fetch('responses.json')
       .then(response => response.json())
       .then(data => {
@@ -142,7 +157,6 @@
         console.error("Error loading responses.json:", error);
       });
 
-    // ✅ Send user message (by Enter key or button click)
     function sendMessage(event) {
       if (event && event.key !== undefined && event.key !== 'Enter') return;
 
@@ -151,32 +165,26 @@
       const userText = input.value.trim();
       if (!userText) return;
 
-      // Show user message
+      // User message
       const userDiv = document.createElement('div');
       userDiv.className = 'user';
       userDiv.textContent = userText;
       chat.appendChild(userDiv);
 
-      // Get bot reply
+      // Bot reply
       const botReply = getBotReply(userText);
 
-      // Show bot reply
       const botDiv = document.createElement('div');
       botDiv.className = 'bot';
       botDiv.textContent = botReply;
       chat.appendChild(botDiv);
 
-      // ✅ Make bot speak the reply
       speak(botReply);
 
-      // Scroll to latest message
       chat.scrollTop = chat.scrollHeight;
-
-      // Clear input
       input.value = '';
     }
 
-    // ✅ Get bot response from loaded JSON
     function getBotReply(input) {
       input = input.toLowerCase();
       for (let keyword in responseMap) {
@@ -187,7 +195,7 @@
       return responseMap["default"] || "Sorry, I don't know how to respond.";
     }
 
-    // ✅ Text-to-Speech Function
+    // ✅ Text-to-Speech
     function speak(text) {
       if ('speechSynthesis' in window) {
         const utterance = new SpeechSynthesisUtterance(text);
@@ -197,10 +205,10 @@
       }
     }
 
-    // ✅ Speech-to-Text Function (Speech Recognition)
+    // ✅ Speech-to-Text
     function startListening() {
       if (!('webkitSpeechRecognition' in window)) {
-        alert("Sorry, Speech Recognition is not supported in your browser.");
+        alert("Sorry, Speech Recognition not supported in this browser.");
         return;
       }
 
@@ -211,16 +219,17 @@
 
       recognition.start();
 
-      recognition.onresult = function(event) {
+      recognition.onresult = function (event) {
         const transcript = event.results[0][0].transcript;
         document.getElementById('userInput').value = transcript;
       };
 
-      recognition.onerror = function(event) {
+      recognition.onerror = function (event) {
         console.error("Speech recognition error:", event.error);
       };
     }
   </script>
 
 </body>
+
 </html>
