@@ -231,8 +231,8 @@ function showModalMessage(message) {
   modalBox.innerHTML = `
     <span class="messages_XYZ_modal-close" title="Close">&times;</span>
     <h2>📩 Today’s Message</h2>
-    <p>${message}</p>
-    
+    <p>${message["content"]}</p>
+    <p>${message["link"]}</p>
   `;
 
   // Start modal from flip-image position and size
