@@ -1,30 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Champak's AI Chatbot</title>
+  <title>Champak's AI Chatbot with Voice</title>
 
-  <!-- ✅ Basic SEO -->
-  <meta name="description" content="A beginner-friendly chatbot using HTML, CSS, JavaScript, and JSON. Created by Champak Roy.">
+  <!-- SEO Meta -->
+  <meta name="description" content="Chatbot with Text-to-Speech and Speech Recognition by Champak Roy">
   <meta name="author" content="Champak Roy">
-
-  <!-- ✅ Open Graph (Facebook, LinkedIn) -->
-  <meta property="og:title" content="Build Your First Chatbot Using HTML, JS & JSON">
-  <meta property="og:description" content="Simple, elegant chatbot powered by JSON. Created by Champak Roy.">
-  <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhlfwIqq3YYxj6LMFr4E7IKN2bYIor-bFpbUXBT3Jthp8PKmRdWozV3hEk2xcj3kPrJ9WBIkXCr4lw5MTAz0AE5b0lPhQ2ReNbCmMOumP4zLTEOb7GY6s4YWcgcCfzltJVmQcgCObeQNRvn_SWPa_2c6cROZUOBHhRJB20PaV-peuA3GTSafM8JxgaYu5M=s450">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://varanasi-software-junction.github.io/search/champakai/">
-
-  <!-- ✅ Twitter (X) Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Build a Simple Chatbot using HTML, JS, and JSON">
-  <meta name="twitter:description" content="Learn how to create a beginner-level chatbot with JSON and JavaScript.">
-  <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhlfwIqq3YYxj6LMFr4E7IKN2bYIor-bFpbUXBT3Jthp8PKmRdWozV3hEk2xcj3kPrJ9WBIkXCr4lw5MTAz0AE5b0lPhQ2ReNbCmMOumP4zLTEOb7GY6s4YWcgcCfzltJVmQcgCObeQNRvn_SWPa_2c6cROZUOBHhRJB20PaV-peuA3GTSafM8JxgaYu5M=s450">
-
-  <!-- ✅ Favicon -->
-  <link rel="icon" href="../assets/images/me.jpg" type="image/jpeg" />
 
   <style>
     body {
@@ -68,8 +51,7 @@
       gap: 0.5rem;
     }
 
-    .user,
-    .bot {
+    .user, .bot {
       padding: 0.7rem;
       border-radius: 10px;
       max-width: 80%;
@@ -104,13 +86,14 @@
     }
 
     button {
-      padding: 0.8rem 1.2rem;
+      padding: 0.8rem 1rem;
       border: none;
       background: #007bff;
       color: white;
       font-size: 1rem;
       cursor: pointer;
       border-radius: 5px;
+      margin-left: 0.5rem;
     }
 
     button:hover {
@@ -118,12 +101,7 @@
     }
 
     @media (max-width: 600px) {
-      .chatbox {
-        height: 90vh;
-      }
-
-      input,
-      button {
+      input, button {
         width: 100%;
         margin-bottom: 0.5rem;
       }
@@ -137,21 +115,24 @@
 
 <body>
 
-  <h2><img class="logo" src="https://blogger.googleusercontent.com/img/a/AVvXsEhlfwIqq3YYxj6LMFr4E7IKN2bYIor-bFpbUXBT3Jthp8PKmRdWozV3hEk2xcj3kPrJ9WBIkXCr4lw5MTAz0AE5b0lPhQ2ReNbCmMOumP4zLTEOb7GY6s4YWcgcCfzltJVmQcgCObeQNRvn_SWPa_2c6cROZUOBHhRJB20PaV-peuA3GTSafM8JxgaYu5M=s450" alt="Champak Roy Logo">
-    Champak's Chatbot</h2>
+  <h2>
+    <img class="logo" src="https://blogger.googleusercontent.com/img/a/AVvXsEhlfwIqq3YYxj6LMFr4E7IKN2bYIor-bFpbUXBT3Jthp8PKmRdWozV3hEk2xcj3kPrJ9WBIkXCr4lw5MTAz0AE5b0lPhQ2ReNbCmMOumP4zLTEOb7GY6s4YWcgcCfzltJVmQcgCObeQNRvn_SWPa_2c6cROZUOBHhRJB20PaV-peuA3GTSafM8JxgaYu5M=s450" alt="Champak Roy Logo">
+    Champak's Chatbot with Voice 🎙️🗣️
+  </h2>
 
   <div class="chatbox">
     <div class="messages" id="chat"></div>
     <div class="input-box">
-      <input onkeyup="sendMessage(event)" type="text" id="userInput" placeholder="Type your message..." />
-      <button onclick="sendMessage(event)">Send</button>
+      <input onkeyup="sendMessage(event)" type="text" id="userInput" placeholder="Type or Speak your message..." />
+      <button onclick="startListening()">🎤 Speak</button>
+      <button onclick="sendMessage()">Send</button>
     </div>
   </div>
 
   <script>
     let responseMap = {};
 
-    // Load JSON response data
+    // ✅ Load chatbot replies from external JSON
     fetch('responses.json')
       .then(response => response.json())
       .then(data => {
@@ -161,6 +142,7 @@
         console.error("Error loading responses.json:", error);
       });
 
+    // ✅ Send user message (by Enter key or button click)
     function sendMessage(event) {
       if (event && event.key !== undefined && event.key !== 'Enter') return;
 
@@ -178,19 +160,23 @@
       // Get bot reply
       const botReply = getBotReply(userText);
 
-      // Show bot message
+      // Show bot reply
       const botDiv = document.createElement('div');
       botDiv.className = 'bot';
       botDiv.textContent = botReply;
       chat.appendChild(botDiv);
 
-      // Scroll to bottom
+      // ✅ Make bot speak the reply
+      speak(botReply);
+
+      // Scroll to latest message
       chat.scrollTop = chat.scrollHeight;
 
       // Clear input
       input.value = '';
     }
 
+    // ✅ Get bot response from loaded JSON
     function getBotReply(input) {
       input = input.toLowerCase();
       for (let keyword in responseMap) {
@@ -200,8 +186,41 @@
       }
       return responseMap["default"] || "Sorry, I don't know how to respond.";
     }
+
+    // ✅ Text-to-Speech Function
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        window.speechSynthesis.speak(utterance);
+      } else {
+        console.log("Text-to-Speech not supported");
+      }
+    }
+
+    // ✅ Speech-to-Text Function (Speech Recognition)
+    function startListening() {
+      if (!('webkitSpeechRecognition' in window)) {
+        alert("Sorry, Speech Recognition is not supported in your browser.");
+        return;
+      }
+
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.start();
+
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById('userInput').value = transcript;
+      };
+
+      recognition.onerror = function(event) {
+        console.error("Speech recognition error:", event.error);
+      };
+    }
   </script>
 
 </body>
-
 </html>
