@@ -233,7 +233,7 @@ function showModalMessage(message) {
     <span class="messages_XYZ_modal-close" title="Close">&times;</span>
     <h2>📩 Today’s Python Tip</h2>
     <div>
-    <button onclick="doCopy()">Copy</button>
+    <button onclick="doCopy(event)">Copy</button>
     <pre  style="background-color:white;color:black;">${message.content}</pre>
     </div>
     <p><a href="${message.link}" target="_blank" class="tip-link">🔗 Learn More</a></p>
