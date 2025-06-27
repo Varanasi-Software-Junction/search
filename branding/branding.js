@@ -1,6 +1,12 @@
 // branding.js
 
 // ===== Add Google Font (Lora) =====
+
+function doCopy() {
+  const textToCopy = document.querySelector('.messages_XYZ_modal-box pre').textContent;
+  navigator.clipboard.writeText(textToCopy); 
+}
+
 const fontLink = document.createElement('link');
 fontLink.href = 'https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap';
 fontLink.rel = 'stylesheet';
@@ -222,7 +228,7 @@ function showModalMessage(message) {
     <span class="messages_XYZ_modal-close" title="Close">&times;</span>
     <h2>📩 Today’s Python Tip</h2>
     <div>
-    <button >Copy</button>
+    <button onclick="doCopy()">Copy</button>
     <pre  style="background-color:white;color:black;">${message.content}</pre>
     </div>
     <p><a href="${message.link}" target="_blank" class="tip-link">🔗 Learn More</a></p>
