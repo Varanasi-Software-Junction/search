@@ -1,8 +1,9 @@
 {
-  "hello": "Hi there! 👋",
-  "hi": "Hello, friend!",
-  "your name": "I'm a JSON-powered chatbot!",
-  "how are you": "I'm doing great. Thanks for asking!",
-  "bye": "Goodbye! Have a great day!",
-  "default": "I didn't understand that. Can you ask something else?"
+  "if else": "✅ IF-ELSE IN C:\n\n👉 Explanation:\nThe if-else statement allows decision-making in programs. It executes one block if a condition is true, and another if false.\n\n👉 Syntax:\n```c\nif(condition) {\n    // Code when condition is true\n} else {\n    // Code when condition is false\n}\n```\n\n👉 Example:\n```c\n#include<stdio.h>\nint main() {\n    int age = 18;\n    if(age >= 18) {\n        printf(\"You are eligible to vote.\\n\");\n    } else {\n        printf(\"You are not eligible to vote.\\n\");\n    }\n    return 0;\n}\n```\n\n👉 Assignment:\n1️⃣ Write a program to check if a number is positive or negative.\n2️⃣ Write a program to check if a number is even or odd.",
+
+  "ternary": "✅ TERNARY OPERATOR IN C:\n\n👉 Explanation:\nA shorthand form of if-else. Used when there is a single line decision.\n\n👉 Syntax:\n```c\ncondition ? true_expression : false_expression;\n```\n\n👉 Example:\n```c\n#include<stdio.h>\nint main() {\n    int num = 5;\n    (num % 2 == 0) ? printf(\"Even\\n\") : printf(\"Odd\\n\");\n    return 0;\n}\n```\n\n👉 Assignment:\n1️⃣ Use ternary to find the greatest of two numbers.\n2️⃣ Use ternary to check if a number is positive or negative.",
+
+  "switch": "✅ SWITCH STATEMENT IN C:\n\n👉 Explanation:\nSwitch is used when we want to perform different actions based on different constant values of a variable.\n\n👉 Syntax:\n```c\nswitch(expression) {\n    case value1:\n        // code\n        break;\n    case value2:\n        // code\n        break;\n    default:\n        // code\n}\n```\n\n👉 Example:\n```c\n#include<stdio.h>\nint main() {\n    int day = 3;\n    switch(day) {\n        case 1:\n            printf(\"Monday\\n\");\n            break;\n        case 2:\n            printf(\"Tuesday\\n\");\n            break;\n        case 3:\n            printf(\"Wednesday\\n\");\n            break;\n        default:\n            printf(\"Invalid day\\n\");\n    }\n    return 0;\n}\n```\n\n👉 Assignment:\n1️⃣ Write a program using switch to display month name when month number (1-12) is entered.\n2️⃣ Create a calculator using switch for operations (+, -, *, /).",
+
+  "default": "Sorry Champak! I don't have an answer for that. Try asking about: if else, ternary, or switch in C."
 }
