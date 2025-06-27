@@ -221,7 +221,7 @@ function showModalMessage(message) {
   modalBox.innerHTML = `
     <span class="messages_XYZ_modal-close" title="Close">&times;</span>
     <h2>📩 Today’s Python Tip</h2>
-    <pre>${message.content}</pre>
+    <pre  style="background-color:white;color:black;">${message.content}</pre>
     <p><a href="${message.link}" target="_blank" class="tip-link">🔗 Learn More</a></p>
     <h1>💡 Tip of the Day</h1>
   `;
