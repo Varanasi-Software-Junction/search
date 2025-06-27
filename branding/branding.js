@@ -223,6 +223,7 @@ function showModalMessage(message) {
     <h2>📩 Today’s Python Tip</h2>
     <pre>${message.content}</pre>
     <p><a href="${message.link}" target="_blank" class="tip-link">🔗 Learn More</a></p>
+    <h1>💡 Tip of the Day</h1>
   `;
 
   // Start from image position
