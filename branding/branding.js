@@ -2,9 +2,14 @@
 
 // ===== Add Google Font (Lora) =====
 
-function doCopy() {
+function doCopy(event) {
   const textToCopy = document.querySelector('.messages_XYZ_modal-box pre').textContent;
   navigator.clipboard.writeText(textToCopy); 
+  event.target.textContent = 'Copied!';
+  setTimeout(() => {  
+    event.target.textContent = 'Copy';
+  }, 2000);
+  console.log('Text copied to clipboard:', textToCopy);
 }
 
 const fontLink = document.createElement('link');
