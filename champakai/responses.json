@@ -1,9 +1,47 @@
 {
-  "if else": "✅ IF-ELSE IN C:\n\n👉 Explanation:\nThe if-else statement allows decision-making in programs. It executes one block if a condition is true, and another if false.\n\n👉 Syntax:\n```c\nif(condition) {\n    // Code when condition is true\n} else {\n    // Code when condition is false\n}\n```\n\n👉 Example:\n```c\n#include<stdio.h>\nint main() {\n    int age = 18;\n    if(age >= 18) {\n        printf(\"You are eligible to vote.\\n\");\n    } else {\n        printf(\"You are not eligible to vote.\\n\");\n    }\n    return 0;\n}\n```\n\n👉 Assignment:\n1️⃣ Write a program to check if a number is positive or negative.\n2️⃣ Write a program to check if a number is even or odd.",
+  "arithmetic operators": "✅ ARITHMETIC OPERATORS IN C:\n\n👉 Used for mathematical operations.\n\n👉 Operators:\n+ (Addition)\n- (Subtraction)\n* (Multiplication)\n/ (Division)\n% (Modulus)\n\n👉 Example:\n```c\nint a = 10, b = 3;\nprintf(\"Sum: %d\", a + b);\n```",
 
-  "ternary": "✅ TERNARY OPERATOR IN C:\n\n👉 Explanation:\nA shorthand form of if-else. Used when there is a single line decision.\n\n👉 Syntax:\n```c\ncondition ? true_expression : false_expression;\n```\n\n👉 Example:\n```c\n#include<stdio.h>\nint main() {\n    int num = 5;\n    (num % 2 == 0) ? printf(\"Even\\n\") : printf(\"Odd\\n\");\n    return 0;\n}\n```\n\n👉 Assignment:\n1️⃣ Use ternary to find the greatest of two numbers.\n2️⃣ Use ternary to check if a number is positive or negative.",
+  "relational operators": "✅ RELATIONAL OPERATORS:\n\n👉 Used for comparing values.\n\n👉 Operators:\n> Greater than\n< Less than\n>= Greater than or equal to\n<= Less than or equal to\n== Equal to\n!= Not equal to\n\n👉 Example:\n```c\nint x=5, y=10;\nif(x < y) printf(\"x is smaller\");\n```",
 
-  "switch": "✅ SWITCH STATEMENT IN C:\n\n👉 Explanation:\nSwitch is used when we want to perform different actions based on different constant values of a variable.\n\n👉 Syntax:\n```c\nswitch(expression) {\n    case value1:\n        // code\n        break;\n    case value2:\n        // code\n        break;\n    default:\n        // code\n}\n```\n\n👉 Example:\n```c\n#include<stdio.h>\nint main() {\n    int day = 3;\n    switch(day) {\n        case 1:\n            printf(\"Monday\\n\");\n            break;\n        case 2:\n            printf(\"Tuesday\\n\");\n            break;\n        case 3:\n            printf(\"Wednesday\\n\");\n            break;\n        default:\n            printf(\"Invalid day\\n\");\n    }\n    return 0;\n}\n```\n\n👉 Assignment:\n1️⃣ Write a program using switch to display month name when month number (1-12) is entered.\n2️⃣ Create a calculator using switch for operations (+, -, *, /).",
+  "logical operators": "✅ LOGICAL OPERATORS:\n\n👉 Used for combining conditions.\n\n👉 Operators:\n&& Logical AND\n|| Logical OR\n! Logical NOT\n\n👉 Example:\n```c\nint a=5, b=10;\nif(a>0 && b>0) printf(\"Both positive\");\n```",
 
-  "default": "Sorry Champak! I don't have an answer for that. Try asking about: if else, ternary, or switch in C."
+  "bitwise operators": "✅ BITWISE OPERATORS:\n\n👉 Used for bit-level operations.\n\n👉 Operators:\n& AND\n| OR\n^ XOR\n~ NOT\n<< Left Shift\n>> Right Shift\n\n👉 Example:\n```c\nint a=5, b=3;\nprintf(\"%d\", a & b);\n```",
+
+  "assignment operators": "✅ ASSIGNMENT OPERATORS:\n\n👉 Used to assign values.\n\n👉 Operators:\n= Assignment\n+= Add and assign\n-= Subtract and assign\n*= Multiply and assign\n/= Divide and assign\n%= Modulus and assign\n\n👉 Example:\n```c\nint x=10;\nx += 5;\nprintf(\"%d\", x);\n```",
+
+  "data types": "✅ DATA TYPES IN C:\n\n👉 Categories:\n- int\n- float\n- double\n- char\n\n👉 Example:\n```c\nint age = 25;\nfloat price = 99.5;\nchar grade = 'A';\n```",
+
+  "header files": "✅ HEADER FILES (TAGS) IN C:\n\n👉 Provide built-in functions.\n\n👉 Common headers:\n<stdio.h> - Input/Output\n<conio.h> - Console I/O (non-standard)\n<math.h> - Math functions\n<string.h> - String handling\n<stdlib.h> - Memory and utility\n\n👉 Example:\n```c\n#include<stdio.h>\n#include<string.h>\n```",
+
+  "preprocessor directives": "✅ PREPROCESSOR DIRECTIVES:\n\n👉 Instructions for compiler before compilation.\n\n👉 Examples:\n```c\n#include<stdio.h>\n#define PI 3.14\n```",
+
+  "storage classes": "✅ STORAGE CLASSES:\n\n👉 Types:\n- auto\n- static\n- extern\n- register\n\n👉 Example:\n```c\nstatic int count = 0;\n```",
+
+  "typedef": "✅ TYPEDEF:\n\n👉 Used to create alias for data types.\n\n👉 Example:\n```c\ntypedef unsigned int uint;\nuint age = 25;\n```",
+
+  "macros": "✅ MACROS:\n\n👉 Preprocessor constant definitions.\n\n👉 Example:\n```c\n#define PI 3.1416\n```",
+
+  "dynamic memory allocation": "✅ DYNAMIC MEMORY ALLOCATION:\n\n👉 Allocating memory at runtime.\n\n👉 Functions:\n- malloc()\n- calloc()\n- realloc()\n- free()\n\n👉 Example:\n```c\nint *p = (int*) malloc(sizeof(int) * 5);\n```",
+
+  "union": "✅ UNIONS:\n\n👉 Similar to structures but memory is shared.\n\n👉 Example:\n```c\nunion Data {\n  int i;\n  float f;\n};\n```",
+
+  "structure": "✅ STRUCTURES:\n\n👉 Grouping variables of different types.\n\n👉 Example:\n```c\nstruct Student {\n  char name[50];\n  int age;\n};\n```",
+
+  "recursion": "✅ RECURSION:\n\n👉 A function calling itself.\n\n👉 Example:\n```c\nint fact(int n) {\n  if(n==0) return 1;\n  return n * fact(n-1);\n}\n```",
+
+  "arrays": "✅ ARRAYS:\n\n👉 Collection of similar data type elements.\n\n👉 Example:\n```c\nint marks[5] = {90, 80, 70, 60, 50};\n```",
+
+  "functions": "✅ FUNCTIONS:\n\n👉 Reusable block of code.\n\n👉 Example:\n```c\nint add(int a, int b) {\n  return a + b;\n}\n```",
+
+  "strings": "✅ STRINGS:\n\n👉 Array of characters ending with '\\0'.\n\n👉 Example:\n```c\nchar name[20] = \"Champak\";\n```",
+
+  "pointers": "✅ POINTERS:\n\n👉 Store address of variables.\n\n👉 Example:\n```c\nint x = 10;\nint *p = &x;\nprintf(\"%d\", *p);\n```",
+
+  "file handling": "✅ FILE HANDLING:\n\n👉 Reading/writing files.\n\n👉 Example:\n```c\nFILE *fp;\nfp = fopen(\"data.txt\", \"w\");\nfprintf(fp, \"Hello\");\nfclose(fp);\n```",
+
+  "loops": "✅ LOOPS IN C:\n\n👉 Types:\n- for loop\n- while loop\n- do while loop\n\n👉 Example:\n```c\nfor(int i=1;i<=5;i++) printf(\"%d \",i);\n```",
+
+  "decision making": "✅ DECISION MAKING:\n\n👉 Types:\n- if\n- if-else\n- nested if\n- switch\n- ternary\n\n👉 Example:\n```c\nif(score > 50) printf(\"Pass\");\n```",
+
+  "default": "Sorry Champak! I don't know that. Try asking about: operators, loops, functions, arrays, strings, pointers, file handling, structures, typedef, macros, recursion, unions, dynamic memory allocation or any other C topic."
 }
