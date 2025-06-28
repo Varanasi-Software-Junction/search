@@ -1,47 +1,111 @@
 {
-  "arithmetic operators": "✅ ARITHMETIC OPERATORS IN C:\n\n👉 Used for mathematical operations.\n\n👉 Operators:\n+ (Addition)\n- (Subtraction)\n* (Multiplication)\n/ (Division)\n% (Modulus)\n\n👉 Example:\n```c\nint a = 10, b = 3;\nprintf(\"Sum: %d\", a + b);\n```",
+  "if else": {
+    "keywords": ["if", "if else", "if-else", "decision", "conditional"],
+    "response": "✅ IF-ELSE IN C:\n\n👉 Explanation:\nDecision-making block. Executes code based on condition.\n\n👉 Syntax:\n```c\nif(condition) {\n  // true\n} else {\n  // false\n}\n```\n\n👉 Example:\n```c\nint age=20;\nif(age>=18) printf(\"Adult\");\nelse printf(\"Minor\");\n```\n\n👉 To-Do:\n- Check even/odd\n- Check positive/negative"
+  },
 
-  "relational operators": "✅ RELATIONAL OPERATORS:\n\n👉 Used for comparing values.\n\n👉 Operators:\n> Greater than\n< Less than\n>= Greater than or equal to\n<= Less than or equal to\n== Equal to\n!= Not equal to\n\n👉 Example:\n```c\nint x=5, y=10;\nif(x < y) printf(\"x is smaller\");\n```",
+  "ternary": {
+    "keywords": ["ternary", "conditional operator", "short if"],
+    "response": "✅ TERNARY OPERATOR:\n\n👉 Syntax:\n```c\n(condition) ? true_result : false_result;\n```\n\n👉 Example:\n```c\nint num=5;\nprintf(\"%s\", (num%2==0)?\"Even\":\"Odd\");\n```\n\n👉 To-Do:\n- Greater of two numbers\n- Pass/Fail check"
+  },
 
-  "logical operators": "✅ LOGICAL OPERATORS:\n\n👉 Used for combining conditions.\n\n👉 Operators:\n&& Logical AND\n|| Logical OR\n! Logical NOT\n\n👉 Example:\n```c\nint a=5, b=10;\nif(a>0 && b>0) printf(\"Both positive\");\n```",
+  "switch": {
+    "keywords": ["switch", "case", "multiple choice", "multi-way decision"],
+    "response": "✅ SWITCH CASE:\n\n👉 Example:\n```c\nint day=3;\nswitch(day){\n case 1: printf(\"Monday\"); break;\n case 2: printf(\"Tuesday\"); break;\n default: printf(\"Other day\");\n}\n```\n\n👉 To-Do:\n- Day display\n- Simple calculator"
+  },
 
-  "bitwise operators": "✅ BITWISE OPERATORS:\n\n👉 Used for bit-level operations.\n\n👉 Operators:\n& AND\n| OR\n^ XOR\n~ NOT\n<< Left Shift\n>> Right Shift\n\n👉 Example:\n```c\nint a=5, b=3;\nprintf(\"%d\", a & b);\n```",
+  "for loop": {
+    "keywords": ["for", "for loop", "loops"],
+    "response": "✅ FOR LOOP:\n\n👉 Example:\n```c\nfor(int i=1;i<=5;i++) printf(\"%d \",i);\n```\n\n👉 To-Do:\n- Print 1 to 10\n- Factorial"
+  },
 
-  "assignment operators": "✅ ASSIGNMENT OPERATORS:\n\n👉 Used to assign values.\n\n👉 Operators:\n= Assignment\n+= Add and assign\n-= Subtract and assign\n*= Multiply and assign\n/= Divide and assign\n%= Modulus and assign\n\n👉 Example:\n```c\nint x=10;\nx += 5;\nprintf(\"%d\", x);\n```",
+  "while loop": {
+    "keywords": ["while", "while loop"],
+    "response": "✅ WHILE LOOP:\n\n👉 Example:\n```c\nint i=1;\nwhile(i<=5){\n printf(\"%d \",i);\n i++;\n}\n```\n\n👉 To-Do:\n- Sum till 10\n- Display even numbers"
+  },
 
-  "data types": "✅ DATA TYPES IN C:\n\n👉 Categories:\n- int\n- float\n- double\n- char\n\n👉 Example:\n```c\nint age = 25;\nfloat price = 99.5;\nchar grade = 'A';\n```",
+  "do while loop": {
+    "keywords": ["do while", "do-while", "exit controlled loop"],
+    "response": "✅ DO-WHILE:\n\n👉 Example:\n```c\nint i=1;\ndo{\n printf(\"%d \",i);\n i++;\n}while(i<=5);\n```\n\n👉 To-Do:\n- Display menu repeatedly\n- Print numbers"
+  },
 
-  "header files": "✅ HEADER FILES (TAGS) IN C:\n\n👉 Provide built-in functions.\n\n👉 Common headers:\n<stdio.h> - Input/Output\n<conio.h> - Console I/O (non-standard)\n<math.h> - Math functions\n<string.h> - String handling\n<stdlib.h> - Memory and utility\n\n👉 Example:\n```c\n#include<stdio.h>\n#include<string.h>\n```",
+  "arrays": {
+    "keywords": ["array", "arrays"],
+    "response": "✅ ARRAYS:\n\n👉 Example:\n```c\nint a[5] = {1,2,3,4,5};\n```\n\n👉 To-Do:\n- Sum of elements\n- Largest element"
+  },
 
-  "preprocessor directives": "✅ PREPROCESSOR DIRECTIVES:\n\n👉 Instructions for compiler before compilation.\n\n👉 Examples:\n```c\n#include<stdio.h>\n#define PI 3.14\n```",
+  "strings": {
+    "keywords": ["string", "strings"],
+    "response": "✅ STRINGS:\n\n👉 Example:\n```c\nchar name[10] = \"Champak\";\nprintf(\"%s\",name);\n```\n\n👉 To-Do:\n- Count vowels\n- String length"
+  },
 
-  "storage classes": "✅ STORAGE CLASSES:\n\n👉 Types:\n- auto\n- static\n- extern\n- register\n\n👉 Example:\n```c\nstatic int count = 0;\n```",
+  "pointers": {
+    "keywords": ["pointer", "pointers", "address", "dereference"],
+    "response": "✅ POINTERS:\n\n👉 Example:\n```c\nint x=10;\nint *p=&x;\nprintf(\"%d\",*p);\n```\n\n👉 To-Do:\n- Swap numbers using pointers\n- Print address of variables"
+  },
 
-  "typedef": "✅ TYPEDEF:\n\n👉 Used to create alias for data types.\n\n👉 Example:\n```c\ntypedef unsigned int uint;\nuint age = 25;\n```",
+  "functions": {
+    "keywords": ["function", "functions"],
+    "response": "✅ FUNCTIONS:\n\n👉 Example:\n```c\nint add(int a,int b){\n return a+b;\n}\n```\n\n👉 To-Do:\n- Factorial function\n- GCD using function"
+  },
 
-  "macros": "✅ MACROS:\n\n👉 Preprocessor constant definitions.\n\n👉 Example:\n```c\n#define PI 3.1416\n```",
+  "recursion": {
+    "keywords": ["recursion", "recursive", "function calling itself"],
+    "response": "✅ RECURSION:\n\n👉 Example:\n```c\nint fact(int n){\n if(n==0)return 1;\n return n*fact(n-1);\n}\n```\n\n👉 To-Do:\n- Factorial\n- Fibonacci"
+  },
 
-  "dynamic memory allocation": "✅ DYNAMIC MEMORY ALLOCATION:\n\n👉 Allocating memory at runtime.\n\n👉 Functions:\n- malloc()\n- calloc()\n- realloc()\n- free()\n\n👉 Example:\n```c\nint *p = (int*) malloc(sizeof(int) * 5);\n```",
+  "structures": {
+    "keywords": ["structure", "structures", "struct"],
+    "response": "✅ STRUCTURES:\n\n👉 Example:\n```c\nstruct Student{\n char name[20];\n int age;\n};\n```\n\n👉 To-Do:\n- Create Employee struct\n- Store student details"
+  },
 
-  "union": "✅ UNIONS:\n\n👉 Similar to structures but memory is shared.\n\n👉 Example:\n```c\nunion Data {\n  int i;\n  float f;\n};\n```",
+  "union": {
+    "keywords": ["union", "unions"],
+    "response": "✅ UNIONS:\n\n👉 Example:\n```c\nunion Data{\n int i;\n float f;\n};\n```\n\n👉 To-Do:\n- Demonstrate memory sharing\n- Define union for employee"
+  },
 
-  "structure": "✅ STRUCTURES:\n\n👉 Grouping variables of different types.\n\n👉 Example:\n```c\nstruct Student {\n  char name[50];\n  int age;\n};\n```",
+  "file handling": {
+    "keywords": ["file", "file handling", "files", "fopen", "fclose"],
+    "response": "✅ FILE HANDLING:\n\n👉 Example:\n```c\nFILE *fp;\nfp=fopen(\"file.txt\",\"w\");\nfprintf(fp,\"Hello\");\nfclose(fp);\n```\n\n👉 To-Do:\n- Write data to file\n- Read from file"
+  },
 
-  "recursion": "✅ RECURSION:\n\n👉 A function calling itself.\n\n👉 Example:\n```c\nint fact(int n) {\n  if(n==0) return 1;\n  return n * fact(n-1);\n}\n```",
+  "macros": {
+    "keywords": ["macro", "macros", "define"],
+    "response": "✅ MACROS:\n\n👉 Example:\n```c\n#define PI 3.14\n```\n\n👉 To-Do:\n- Create macros for square\n- Max of two numbers macro"
+  },
 
-  "arrays": "✅ ARRAYS:\n\n👉 Collection of similar data type elements.\n\n👉 Example:\n```c\nint marks[5] = {90, 80, 70, 60, 50};\n```",
+  "typedef": {
+    "keywords": ["typedef", "type alias"],
+    "response": "✅ TYPEDEF:\n\n👉 Example:\n```c\ntypedef unsigned int uint;\nuint x=5;\n```\n\n👉 To-Do:\n- Typedef for structure\n- Alias int as myInt"
+  },
 
-  "functions": "✅ FUNCTIONS:\n\n👉 Reusable block of code.\n\n👉 Example:\n```c\nint add(int a, int b) {\n  return a + b;\n}\n```",
+  "dynamic memory allocation": {
+    "keywords": ["malloc", "calloc", "realloc", "free", "dynamic memory"],
+    "response": "✅ DYNAMIC MEMORY ALLOCATION:\n\n👉 Example:\n```c\nint *p=(int*)malloc(5*sizeof(int));\n```\n\n👉 To-Do:\n- Allocate array dynamically\n- Free memory after use"
+  },
 
-  "strings": "✅ STRINGS:\n\n👉 Array of characters ending with '\\0'.\n\n👉 Example:\n```c\nchar name[20] = \"Champak\";\n```",
+  "storage classes": {
+    "keywords": ["storage class", "auto", "static", "register", "extern"],
+    "response": "✅ STORAGE CLASSES:\n\n👉 Types:\n- auto\n- static\n- extern\n- register\n\n👉 Example:\n```c\nstatic int count=0;\n```"
+  },
 
-  "pointers": "✅ POINTERS:\n\n👉 Store address of variables.\n\n👉 Example:\n```c\nint x = 10;\nint *p = &x;\nprintf(\"%d\", *p);\n```",
+  "preprocessor": {
+    "keywords": ["preprocessor", "preprocessor directives", "#define", "#include", "#ifdef"],
+    "response": "✅ PREPROCESSOR DIRECTIVES:\n\n👉 Examples:\n```c\n#include<stdio.h>\n#define PI 3.14\n```"
+  },
 
-  "file handling": "✅ FILE HANDLING:\n\n👉 Reading/writing files.\n\n👉 Example:\n```c\nFILE *fp;\nfp = fopen(\"data.txt\", \"w\");\nfprintf(fp, \"Hello\");\nfclose(fp);\n```",
+  "header files": {
+    "keywords": ["header", "header files", "tags", "include files"],
+    "response": "✅ HEADER FILES:\n\n👉 Examples:\n- stdio.h\n- conio.h\n- string.h\n- math.h\n- stdlib.h\n\n👉 Example:\n```c\n#include<stdio.h>\n```"
+  },
 
-  "loops": "✅ LOOPS IN C:\n\n👉 Types:\n- for loop\n- while loop\n- do while loop\n\n👉 Example:\n```c\nfor(int i=1;i<=5;i++) printf(\"%d \",i);\n```",
+  "operators": {
+    "keywords": ["operators", "arithmetic", "relational", "logical", "bitwise", "assignment"],
+    "response": "✅ OPERATORS IN C:\n\n👉 Types:\n- Arithmetic (+,-,*,/,%)\n- Relational (==, !=, >, <)\n- Logical (&&, ||, !)\n- Bitwise (&,|,^,~)\n- Assignment (=, +=, -=)\n\n👉 Example:\n```c\nint a=10, b=20;\nprintf(\"%d\", a+b);\n```"
+  },
 
-  "decision making": "✅ DECISION MAKING:\n\n👉 Types:\n- if\n- if-else\n- nested if\n- switch\n- ternary\n\n👉 Example:\n```c\nif(score > 50) printf(\"Pass\");\n```",
-
-  "default": "Sorry Champak! I don't know that. Try asking about: operators, loops, functions, arrays, strings, pointers, file handling, structures, typedef, macros, recursion, unions, dynamic memory allocation or any other C topic."
+  "default": {
+    "keywords": [],
+    "response": "Sorry Champak! I don't have that topic yet. Try keywords like: loops, arrays, strings, pointers, recursion, macros, storage classes, etc."
+  }
 }
