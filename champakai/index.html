@@ -164,6 +164,7 @@
                 if (responseMap[topic].keywords) {
                     for (let keyword of responseMap[topic].keywords) {
                         if (lowerInput.includes(keyword.toLowerCase())) {
+                            console.log("iternal");
                             return responseMap[topic].response;
                         }
                     }
@@ -171,6 +172,7 @@
             }
 
             // Default reply
+            console.log("default");
             return responseMap["default"].response || responseMap["default"];
         }
 
