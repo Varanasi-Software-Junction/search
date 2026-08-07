@@ -1,8 +1,8 @@
 {
   "id": "/",
-  "name": "Champak Search",
-  "short_name": "Champak Search",
-  "description": "Search programming lessons, coding editors and learning resources by Champak Roy.",
+  "name": "Champak Study Hub",
+  "short_name": "Study Hub",
+  "description": "Search, study, save and track programming lessons by Champak Roy.",
   "lang": "en-IN",
   "dir": "ltr",
   "start_url": "/",

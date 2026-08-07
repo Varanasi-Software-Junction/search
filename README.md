@@ -1,6 +1,6 @@
-# Champak Search PWA
+# Champak Study Hub PWA
 
-Installable search application for `search.learnwithchampak.live`.
+Installable, local-first studying hub for `search.learnwithchampak.live`. It preserves Champak Search while tracking searches, opened resources, learning status, saved resources, notes and recent activity in the browser.
 
 ## Deploy
 

@@ -2,7 +2,7 @@ importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 
 "use strict";
 
-const CACHE_VERSION = "champak-search-v4";
+const CACHE_VERSION = "champak-study-hub-v5";
 const APP_SHELL = [
   "/",
   "/index.html",
