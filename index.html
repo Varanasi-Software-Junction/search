@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Champak Study Hub — Search, Study and Track Learning</title>
-  <meta name="description" content="Search programming lessons, continue studying, save resources, write notes and track learning progress with Champak Roy.">
+  <meta name="description"
+    content="Search programming lessons, continue studying, save resources, write notes and track learning progress with Champak Roy.">
   <meta name="author" content="Champak Roy">
   <meta name="theme-color" content="#ea580c">
   <link rel="canonical" href="https://search.learnwithchampak.live/">
@@ -24,90 +26,730 @@
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
   <link rel="search" type="application/opensearchdescription+xml" title="Champak Search" href="/opensearch.xml">
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Champak Study Hub","url":"https://search.learnwithchampak.live/","potentialAction":{"@type":"SearchAction","target":"https://search.learnwithchampak.live/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+  <script
+    type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Champak Study Hub","url":"https://search.learnwithchampak.live/","potentialAction":{"@type":"SearchAction","target":"https://search.learnwithchampak.live/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
   <style>
-    :root{--brand:#ea580c;--dark:#9a3412;--ink:#1f2937;--muted:#64748b;--line:#fed7aa;--soft:#fff7ed;--card:#fff;--green:#15803d;--blue:#1d4ed8;--red:#b91c1c;--shadow:0 14px 35px rgba(124,45,18,.1)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(145deg,#fff7ed,#fff 42%,#fffbeb);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--dark)}[hidden]{display:none!important}
-    .page{width:min(1180px,94%);margin:auto;padding:24px 0 70px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px}.logo{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:var(--brand);color:#fff;font-weight:900;font-size:22px}.brand strong{display:block;color:var(--dark);font-size:20px}.brand small{color:var(--muted)}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#fff;color:var(--dark);border-radius:10px;padding:9px 13px;font-weight:700}.btn:hover,.btn:focus-visible{border-color:var(--brand);outline:3px solid #ffedd5}.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}.btn.green{color:var(--green)}.btn.danger{color:var(--red)}.btn.small{font-size:13px;padding:7px 10px}
-    .hero{text-align:center;padding:26px 12px 22px}.hero h1{margin:0;color:var(--dark);font-size:clamp(34px,6vw,60px);letter-spacing:-2px}.hero p{color:var(--muted);font-size:18px;margin:10px auto 22px}.search-form{display:grid;grid-template-columns:1fr auto;gap:10px;max-width:820px;margin:auto}.search-form input{width:100%;border:2px solid var(--line);border-radius:15px;padding:15px 18px;font-size:18px;background:#fff;box-shadow:var(--shadow)}.search-form input:focus{border-color:var(--brand);outline:3px solid #ffedd5}.status{min-height:24px;color:var(--muted);margin:12px 0 0;font-size:14px}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}.stat,.panel{background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.stat{padding:18px}.stat b{display:block;color:var(--dark);font-size:28px}.stat span{color:var(--muted);font-size:13px}.panel{padding:20px;margin:18px 0}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}.panel h2{margin:0;color:var(--dark);font-size:22px}.panel-sub{margin:4px 0 0;color:var(--muted);font-size:14px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{border:1px solid var(--line);border-radius:15px;padding:16px;background:#fff}.card h3{margin:0 0 7px;font-size:17px}.card p{color:var(--muted);font-size:14px;line-height:1.5;margin:6px 0}.meta{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0}.pill{padding:4px 8px;border-radius:999px;background:#ffedd5;color:var(--dark);font-size:12px;font-weight:700}.pill.done{background:#dcfce7;color:#166534}.pill.progress{background:#dbeafe;color:#1e40af}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.progress-bar{height:7px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:10px 0}.progress-bar span{display:block;height:100%;background:var(--brand)}
-    .toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px}.toolbar select,.toolbar input{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 11px}.results{display:grid;gap:12px}.result{border:1px solid var(--line);border-radius:15px;padding:17px;background:#fff}.result h3{margin:0 0 6px}.result h3 a{text-decoration:none}.result h3 a:hover{text-decoration:underline}.url{color:#15803d;font-size:12px;overflow-wrap:anywhere}.result p{color:var(--muted);line-height:1.55;margin:8px 0}mark{background:#fde68a;border-radius:3px;padding:0 2px}
-    .subject-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.subject{padding:14px;border:1px solid var(--line);background:#fff;border-radius:14px;text-align:left;color:var(--dark);font-weight:800}.subject span{display:block;color:var(--muted);font-size:12px;font-weight:500;margin-top:4px}.activity{list-style:none;padding:0;margin:0}.activity li{padding:10px 0;border-bottom:1px solid #ffedd5;font-size:14px}.activity li:last-child{border:0}.activity time{display:block;color:var(--muted);font-size:12px;margin-top:3px}.empty{color:var(--muted);padding:18px;text-align:center;border:1px dashed var(--line);border-radius:12px}.two-col{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.note-box{width:100%;min-height:100px;border:1px solid var(--line);border-radius:10px;padding:10px;resize:vertical}.dialog{border:0;border-radius:18px;padding:0;width:min(540px,92%);box-shadow:0 30px 90px #0004}.dialog::backdrop{background:#43140799}.dialog-body{padding:22px}.dialog h2{margin-top:0;color:var(--dark)}.toast{position:fixed;right:18px;bottom:18px;background:#1f2937;color:#fff;padding:12px 16px;border-radius:11px;opacity:0;transform:translateY(15px);transition:.2s;pointer-events:none;z-index:10}.toast.show{opacity:1;transform:none}.toast.error{background:var(--red)}details{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fff}details+details{margin-top:10px}summary{font-weight:800;color:var(--dark);cursor:pointer}code{background:#fff7ed;padding:2px 5px;border-radius:5px}
-    @media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.grid,.subject-grid,.two-col{grid-template-columns:1fr}.topbar{align-items:flex-start}.top-actions{justify-content:flex-end}.search-form{grid-template-columns:1fr}.search-form button{padding:13px}.page{padding-top:14px}.hero{padding-top:12px}}
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+    :root {
+      --brand: #ea580c;
+      --dark: #9a3412;
+      --ink: #1f2937;
+      --muted: #64748b;
+      --line: #fed7aa;
+      --soft: #fff7ed;
+      --card: #fff;
+      --green: #15803d;
+      --blue: #1d4ed8;
+      --red: #b91c1c;
+      --shadow: 0 14px 35px rgba(124, 45, 18, .1)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(145deg, #fff7ed, #fff 42%, #fffbeb);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit
+    }
+
+    button {
+      cursor: pointer
+    }
+
+    a {
+      color: var(--dark)
+    }
+
+    [hidden] {
+      display: none !important
+    }
+
+    .page {
+      width: min(1180px, 94%);
+      margin: auto;
+      padding: 24px 0 70px
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .logo {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 900;
+      font-size: 22px
+    }
+
+    .brand strong {
+      display: block;
+      color: var(--dark);
+      font-size: 20px
+    }
+
+    .brand small {
+      color: var(--muted)
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--dark);
+      border-radius: 10px;
+      padding: 9px 13px;
+      font-weight: 700
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      border-color: var(--brand);
+      outline: 3px solid #ffedd5
+    }
+
+    .btn.primary {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #fff
+    }
+
+    .btn.green {
+      color: var(--green)
+    }
+
+    .btn.danger {
+      color: var(--red)
+    }
+
+    .btn.small {
+      font-size: 13px;
+      padding: 7px 10px
+    }
+
+    .hero {
+      text-align: center;
+      padding: 26px 12px 22px
+    }
+
+    .hero h1 {
+      margin: 0;
+      color: var(--dark);
+      font-size: clamp(34px, 6vw, 60px);
+      letter-spacing: -2px
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      margin: 10px auto 22px
+    }
+
+    .search-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      max-width: 820px;
+      margin: auto
+    }
+
+    .search-form input {
+      width: 100%;
+      border: 2px solid var(--line);
+      border-radius: 15px;
+      padding: 15px 18px;
+      font-size: 18px;
+      background: #fff;
+      box-shadow: var(--shadow)
+    }
+
+    .search-form input:focus {
+      border-color: var(--brand);
+      outline: 3px solid #ffedd5
+    }
+
+    .status {
+      min-height: 24px;
+      color: var(--muted);
+      margin: 12px 0 0;
+      font-size: 14px
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 18px 0
+    }
+
+    .stat,
+    .panel {
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow)
+    }
+
+    .stat {
+      padding: 18px
+    }
+
+    .stat b {
+      display: block;
+      color: var(--dark);
+      font-size: 28px
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .panel {
+      padding: 20px;
+      margin: 18px 0
+    }
+
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px
+    }
+
+    .panel h2 {
+      margin: 0;
+      color: var(--dark);
+      font-size: 22px
+    }
+
+    .panel-sub {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 16px;
+      background: #fff
+    }
+
+    .card h3 {
+      margin: 0 0 7px;
+      font-size: 17px
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 6px 0
+    }
+
+    .meta {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin: 9px 0
+    }
+
+    .pill {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #ffedd5;
+      color: var(--dark);
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .pill.done {
+      background: #dcfce7;
+      color: #166534
+    }
+
+    .pill.progress {
+      background: #dbeafe;
+      color: #1e40af
+    }
+
+    .actions {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 12px
+    }
+
+    .progress-bar {
+      height: 7px;
+      background: #e2e8f0;
+      border-radius: 99px;
+      overflow: hidden;
+      margin: 10px 0
+    }
+
+    .progress-bar span {
+      display: block;
+      height: 100%;
+      background: var(--brand)
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-bottom: 14px
+    }
+
+    .toolbar select,
+    .toolbar input {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 10px;
+      padding: 9px 11px
+    }
+
+    .results {
+      display: grid;
+      gap: 12px
+    }
+
+    .result {
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 17px;
+      background: #fff
+    }
+
+    .result h3 {
+      margin: 0 0 6px
+    }
+
+    .result h3 a {
+      text-decoration: none
+    }
+
+    .result h3 a:hover {
+      text-decoration: underline
+    }
+
+    .url {
+      color: #15803d;
+      font-size: 12px;
+      overflow-wrap: anywhere
+    }
+
+    .result p {
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 8px 0
+    }
+
+    mark {
+      background: #fde68a;
+      border-radius: 3px;
+      padding: 0 2px
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px
+    }
+
+    .subject {
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 14px;
+      text-align: left;
+      color: var(--dark);
+      font-weight: 800
+    }
+
+    .subject span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      margin-top: 4px
+    }
+
+    .activity {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+
+    .activity li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ffedd5;
+      font-size: 14px
+    }
+
+    .activity li:last-child {
+      border: 0
+    }
+
+    .activity time {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 3px
+    }
+
+    .empty {
+      color: var(--muted);
+      padding: 18px;
+      text-align: center;
+      border: 1px dashed var(--line);
+      border-radius: 12px
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px
+    }
+
+    .note-box {
+      width: 100%;
+      min-height: 100px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      resize: vertical
+    }
+
+    .dialog {
+      border: 0;
+      border-radius: 18px;
+      padding: 0;
+      width: min(540px, 92%);
+      box-shadow: 0 30px 90px #0004
+    }
+
+    .dialog::backdrop {
+      background: #43140799
+    }
+
+    .dialog-body {
+      padding: 22px
+    }
+
+    .dialog h2 {
+      margin-top: 0;
+      color: var(--dark)
+    }
+
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: #1f2937;
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 11px;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: .2s;
+      pointer-events: none;
+      z-index: 10
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: none
+    }
+
+    .toast.error {
+      background: var(--red)
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px;
+      background: #fff
+    }
+
+    details+details {
+      margin-top: 10px
+    }
+
+    summary {
+      font-weight: 800;
+      color: var(--dark);
+      cursor: pointer
+    }
+
+    code {
+      background: #fff7ed;
+      padding: 2px 5px;
+      border-radius: 5px
+    }
+
+    @media(max-width:800px) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .grid,
+      .subject-grid,
+      .two-col {
+        grid-template-columns: 1fr
+      }
+
+      .topbar {
+        align-items: flex-start
+      }
+
+      .top-actions {
+        justify-content: flex-end
+      }
+
+      .search-form {
+        grid-template-columns: 1fr
+      }
+
+      .search-form button {
+        padding: 13px
+      }
+
+      .page {
+        padding-top: 14px
+      }
+
+      .hero {
+        padding-top: 12px
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important
+      }
+    }
   </style>
 </head>
+
 <body>
-<main class="page">
-  <header class="topbar">
-    <div class="brand"><div class="logo">CS</div><div><strong>Champak Study Hub</strong><small>Learn With Champak</small></div></div>
-    <div class="top-actions"><button id="installBtn" class="btn" hidden>Install App</button><button id="exportBtn" class="btn">Export</button><button id="importBtn" class="btn">Import</button><input id="importFile" type="file" accept="application/json" hidden></div>
-  </header>
-  <section class="hero">
-    <h1>Search. Study. Progress.</h1><p>Your personal programming study hub—built around the resources of Champak Roy.</p>
-    <form id="searchForm" class="search-form" role="search"><label for="searchBox" hidden>Search learning resources</label><input id="searchBox" type="search" placeholder="Search Python, DSA, AI/ML, SQL, React…" autocomplete="off"><button class="btn primary">Search Resources</button></form>
-    <div id="searchStatus" class="status" role="status" aria-live="polite">Loading learning resources…</div>
-  </section>
-  <section class="stats" aria-label="Learning statistics">
-    <div class="stat"><b id="studiedCount">0</b><span>Resources started</span></div><div class="stat"><b id="completedCount">0</b><span>Completed</span></div><div class="stat"><b id="savedCount">0</b><span>Saved in library</span></div><div class="stat"><b id="subjectCount">0</b><span>Subjects explored</span></div>
-  </section>
-  <section class="panel" id="continuePanel"><div class="panel-head"><div><h2>Continue Studying</h2><p class="panel-sub">Pick up where you left off.</p></div></div><div id="continueGrid" class="grid"></div></section>
-  <section class="panel"><div class="panel-head"><div><h2>Browse Subjects</h2><p class="panel-sub">Explore the complete learning collection.</p></div></div><div id="subjects" class="subject-grid"></div></section>
-  <section class="panel" id="resultsPanel"><div class="panel-head"><div><h2>Search Results</h2><p class="panel-sub">Open, save, track and add notes to resources.</p></div></div><div class="toolbar"><select id="subjectFilter" aria-label="Filter by subject"><option value="">All subjects</option></select><select id="statusFilter" aria-label="Filter by learning status"><option value="">All statuses</option><option value="not-started">Not started</option><option value="in-progress">In progress</option><option value="completed">Completed</option><option value="saved">Saved only</option></select><select id="sortBy" aria-label="Sort results"><option value="match">Best match</option><option value="az">A–Z</option><option value="recent">Recently studied</option><option value="visits">Most visited</option></select></div><div id="results" class="results"></div><div class="actions"><button id="showMoreBtn" class="btn" hidden>Show More</button></div></section>
-  <div class="two-col">
-    <section class="panel"><div class="panel-head"><div><h2>My Study Library</h2><p class="panel-sub">Saved resources and personal notes.</p></div></div><div id="libraryGrid" class="results"></div></section>
-    <section class="panel"><div class="panel-head"><div><h2>Recent Activity</h2><p class="panel-sub">Searches, openings and progress.</p></div><button id="clearActivityBtn" class="btn small danger">Clear</button></div><ul id="activityList" class="activity"></ul></section>
-  </div>
-  <section class="panel"><div class="panel-head"><div><h2>App & Notifications</h2><p class="panel-sub">Install the hub and receive lesson updates.</p></div></div><div class="actions"><button id="notifyBtn" class="btn primary">Receive Study Notifications</button><button id="pauseNotifyBtn" class="btn" hidden>Pause Notifications</button><span id="notificationStatus" class="status">Notifications are off.</span></div></section>
-  <section class="panel"><h2>Use Champak Search in Your Browser</h2><details><summary>Set it as a Chrome search engine</summary><p>Name: <code>Champak Search</code> &nbsp; Shortcut: <code>cs</code></p><p>URL: <code>https://search.learnwithchampak.live/?q=%s</code></p><p>Then type <code>cs python</code> in the address bar.</p></details><details><summary>About your study data</summary><p>Your searches, opened resources, notes and progress stay in this browser. Use Export for a backup or to move them to another device.</p></details></section>
-</main>
-<dialog id="noteDialog" class="dialog"><form method="dialog" class="dialog-body"><h2 id="noteTitle">Study note</h2><textarea id="noteText" class="note-box" placeholder="What should you revise or practise?"></textarea><div class="actions"><button id="saveNoteBtn" value="default" class="btn primary">Save Note</button><button value="cancel" class="btn">Cancel</button></div></form></dialog>
-<dialog id="importDialog" class="dialog"><form method="dialog" class="dialog-body"><h2>Import Study Data</h2><p>Merge keeps your existing data. Replace removes it and uses only the imported file.</p><div class="actions"><button id="mergeImportBtn" value="merge" class="btn primary">Merge</button><button id="replaceImportBtn" value="replace" class="btn danger">Replace</button><button value="cancel" class="btn">Cancel</button></div></form></dialog>
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script>
-"use strict";
-const DATA_URL="https://programmer-s-picnic.github.io/json-images/links/links.json",APP_ID="c2869c95-73e5-4416-93ad-b26aadf35512",KEY="champakStudyHubV3",MIN=3,PAGE_SIZE=20;
-let pages=[],visibleCount=PAGE_SIZE,currentResults=[],noteUrl="",pendingImport=null,deferredPrompt=null,dataState="loading",toastTimer;
-const $=id=>document.getElementById(id), els={box:$("searchBox"),status:$("searchStatus"),results:$("results"),subjects:$("subjects"),subjectFilter:$("subjectFilter"),statusFilter:$("statusFilter"),sort:$("sortBy"),more:$("showMoreBtn"),cont:$("continueGrid"),library:$("libraryGrid"),activity:$("activityList"),toast:$("toast")};
-const emptyData=()=>({version:3,searches:[],resources:{},activity:[],preferences:{}});let hub=emptyData();
-function norm(v){return String(v||"").normalize("NFKD").toLowerCase().replace(/[^\p{L}\p{N}+#.]+/gu," ").replace(/\s+/g," ").trim()}
-function esc(v){return String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
-function safeUrl(v){try{const u=new URL(v,location.origin);return ["http:","https:"].includes(u.protocol)?u.href:null}catch{return null}}
-function urlKey(v){const u=new URL(v);u.hash="";[...u.searchParams.keys()].filter(k=>/^utm_|^(fbclid|gclid)$/i.test(k)).forEach(k=>u.searchParams.delete(k));return u.href.replace(/\/$/,"")}
-function now(){return new Date().toISOString()}function formatDate(v){return v?new Intl.DateTimeFormat("en-IN",{dateStyle:"medium",timeStyle:"short"}).format(new Date(v)):"Never"}
-function toast(msg,error=false){clearTimeout(toastTimer);els.toast.textContent=msg;els.toast.className="toast show"+(error?" error":"");toastTimer=setTimeout(()=>els.toast.classList.remove("show"),2600)}
-function persist(){try{localStorage.setItem(KEY,JSON.stringify(hub));return true}catch{toast("Study data could not be saved.",true);return false}}
-function activity(type,text,url=null){hub.activity.unshift({type,text,resourceUrl:url,occurredAt:now()});hub.activity=hub.activity.slice(0,150)}
-function loadData(){try{const v=JSON.parse(localStorage.getItem(KEY));if(v&&v.version===3)hub={...emptyData(),...v,resources:v.resources||{}}}catch{}migrateV2();persist()}
-function migrateV2(){if(hub.preferences.v2Migrated)return;let recent=[],saved=[];try{recent=JSON.parse(localStorage.getItem("champakSearchRecentSearches"))||[]}catch{}try{saved=JSON.parse(localStorage.getItem("champakSearchSavedLinks"))||[]}catch{}recent.filter(x=>typeof x==="string").forEach(q=>hub.searches.push({query:q,searchedAt:now(),resultCount:null}));saved.filter(x=>x&&x.url&&safeUrl(x.url)).forEach(x=>{const k=urlKey(x.url);hub.resources[k]={title:x.title||"Untitled",url:safeUrl(x.url),subject:x.topic||x.type||"Other",description:x.description||"",tags:x.tags||[],status:"not-started",saved:true,note:"",visitCount:0,firstOpenedAt:null,lastOpenedAt:null,completedAt:null}});hub.preferences.v2Migrated=true}
-function recordFor(page){const k=urlKey(page.url);if(!hub.resources[k])hub.resources[k]={title:page.title,url:page.url,description:page.description,subject:page.subject,tags:page.tags,status:"not-started",saved:false,note:"",visitCount:0,firstOpenedAt:null,lastOpenedAt:null,completedAt:null};return hub.resources[k]}
-function statusOf(page){return hub.resources[urlKey(page.url)]?.status||"not-started"}
-function addSearch(q,count){hub.searches.unshift({query:q,searchedAt:now(),resultCount:count});hub.searches=hub.searches.slice(0,50);activity("searched",`Searched for “${q}”`);persist();renderActivity()}
-function openResource(page){const r=recordFor(page),t=now();r.firstOpenedAt||=t;r.lastOpenedAt=t;r.visitCount=(r.visitCount||0)+1;if(r.status==="not-started")r.status="in-progress";activity("opened",`Opened “${page.title}”`,page.url);persist();renderDashboard();window.open(page.url,"_blank","noopener,noreferrer")}
-function toggleSave(page){const r=recordFor(page);r.saved=!r.saved;activity(r.saved?"saved":"unsaved",`${r.saved?"Saved":"Removed"} “${page.title}” ${r.saved?"to":"from"} the study library`,page.url);persist();renderAll();toast(r.saved?"Saved to My Study Library.":"Removed from the library.")}
-function setStatus(page,status){const r=recordFor(page);r.status=status;r.completedAt=status==="completed"?now():null;if(status==="in-progress")r.lastOpenedAt=now();activity(status,`${status==="completed"?"Completed":"Started"} “${page.title}”`,page.url);persist();renderAll();toast(status==="completed"?"Marked completed.":"Added to Continue Studying.")}
-function editNote(page){const r=recordFor(page);noteUrl=urlKey(page.url);$("noteTitle").textContent=page.title;$("noteText").value=r.note||"";$("noteDialog").showModal()}
-$("saveNoteBtn").addEventListener("click",()=>{if(!noteUrl)return;hub.resources[noteUrl].note=$("noteText").value.trim();activity("note",`Updated note for “${hub.resources[noteUrl].title}”`,hub.resources[noteUrl].url);persist();renderAll();toast("Study note saved.")});
-function pageFromRecord(r){return pages.find(p=>urlKey(p.url)===urlKey(r.url))||{title:r.title,url:r.url,description:r.description||"",subject:r.subject||"Other",type:"",tags:r.tags||[]}}
-function card(page,compact=false){const r=hub.resources[urlKey(page.url)]||{},status=r.status||"not-started",label=status==="completed"?"Completed":status==="in-progress"?"In progress":"Not started";return `<article class="${compact?"card":"result"}"><h3><a href="${esc(page.url)}" data-action="open" data-url="${esc(page.url)}">${esc(page.title)}</a></h3>${page.description&&!compact?`<p>${esc(page.description)}</p>`:""}<div class="meta"><span class="pill ${status==="completed"?"done":status==="in-progress"?"progress":""}">${label}</span><span class="pill">${esc(page.subject||"Other")}</span>${r.saved?'<span class="pill">Saved</span>':""}</div>${compact?`<p>Last studied: ${formatDate(r.lastOpenedAt)} · ${r.visitCount||0} visits</p><div class="progress-bar"><span style="width:${status==="completed"?100:45}%"></span></div>`:`<div class="url">${esc(page.url)}</div>${r.note?`<p><strong>My note:</strong> ${esc(r.note)}</p>`:""}`}<div class="actions"><button class="btn small primary" data-action="open" data-url="${esc(page.url)}">${status==="in-progress"?"Continue":"Open"}</button><button class="btn small" data-action="save" data-url="${esc(page.url)}">${r.saved?"Unsave":"Save"}</button>${status!=="in-progress"&&status!=="completed"?`<button class="btn small green" data-action="start" data-url="${esc(page.url)}">Study</button>`:""}${status!=="completed"?`<button class="btn small green" data-action="complete" data-url="${esc(page.url)}">Complete</button>`:`<button class="btn small" data-action="start" data-url="${esc(page.url)}">Study Again</button>`}<button class="btn small" data-action="note" data-url="${esc(page.url)}">Note</button></div></article>`}
-function bindActions(root){root.querySelectorAll("[data-action]").forEach(el=>el.addEventListener("click",e=>{e.preventDefault();const page=pages.find(p=>urlKey(p.url)===urlKey(el.dataset.url))||pageFromRecord(hub.resources[urlKey(el.dataset.url)]);({open:openResource,save:toggleSave,start:p=>setStatus(p,"in-progress"),complete:p=>setStatus(p,"completed"),note:editNote})[el.dataset.action](page)}))}
-function score(p,q){const words=norm(q).split(" ").filter(Boolean),full=norm(q);let s=0,m=0;if(p.nt===full)s+=180;else if(p.nt.startsWith(full))s+=130;else if(p.nt.includes(full))s+=95;for(const w of words){if(!p.search.includes(w))continue;m++;if(p.nt.includes(w))s+=30;if(p.ng.includes(w))s+=20;if(p.ns.includes(w))s+=15;if(p.nd.includes(w))s+=7}s+=Math.round((m/words.length)*40)+(p.priority||0);return {s,m,needed:words.length<=2?words.length:Math.ceil(words.length*.75)}}
-function findResults(q){if(q.trim().length<MIN)return[];return pages.map(p=>({...p,...score(p,q)})).filter(p=>p.m>=p.needed&&p.s>=20).sort((a,b)=>b.s-a.s||a.title.localeCompare(b.title))}
-function applyFilters(list){let x=[...list],sf=els.subjectFilter.value,st=els.statusFilter.value;if(sf)x=x.filter(p=>p.subject===sf);if(st)x=x.filter(p=>st==="saved"?hub.resources[urlKey(p.url)]?.saved:statusOf(p)===st);if(els.sort.value==="az")x.sort((a,b)=>a.title.localeCompare(b.title));if(els.sort.value==="recent")x.sort((a,b)=>(hub.resources[urlKey(b.url)]?.lastOpenedAt||"").localeCompare(hub.resources[urlKey(a.url)]?.lastOpenedAt||""));if(els.sort.value==="visits")x.sort((a,b)=>(hub.resources[urlKey(b.url)]?.visitCount||0)-(hub.resources[urlKey(a.url)]?.visitCount||0));return x}
-function renderResults(){const list=applyFilters(currentResults),shown=list.slice(0,visibleCount);els.results.innerHTML=shown.length?shown.map(p=>card(p)).join(""):'<div class="empty">No resources match these filters.</div>';els.more.hidden=shown.length>=list.length;bindActions(els.results)}
-function search(record=false){const q=els.box.value.trim();visibleCount=PAGE_SIZE;if(dataState==="loading"){els.status.textContent="Learning resources are still loading…";return}if(q.length<MIN){currentResults=pages;els.status.textContent=`Type at least ${MIN} characters to search, or browse all resources below.`}else{currentResults=findResults(q);els.status.textContent=`${currentResults.length} result${currentResults.length===1?"":"s"} for “${q}”.`;if(record)addSearch(q,currentResults.length)}renderResults()}
-function renderDashboard(){const records=Object.values(hub.resources),started=records.filter(r=>r.status!=="not-started"),done=records.filter(r=>r.status==="completed"),saved=records.filter(r=>r.saved),subjects=new Set(started.map(r=>r.subject).filter(Boolean));$("studiedCount").textContent=started.length;$("completedCount").textContent=done.length;$("savedCount").textContent=saved.length;$("subjectCount").textContent=subjects.size;const cont=records.filter(r=>r.status==="in-progress").sort((a,b)=>(b.lastOpenedAt||"").localeCompare(a.lastOpenedAt||"")).slice(0,6);els.cont.innerHTML=cont.length?cont.map(r=>card(pageFromRecord(r),true)).join(""):'<div class="empty">Open a resource or choose Study to begin tracking your learning.</div>';bindActions(els.cont);els.library.innerHTML=saved.length?saved.sort((a,b)=>(b.lastOpenedAt||"").localeCompare(a.lastOpenedAt||"")).map(r=>card(pageFromRecord(r))).join(""):'<div class="empty">Saved resources will appear here.</div>';bindActions(els.library);renderActivity()}
-function renderActivity(){els.activity.innerHTML=hub.activity.length?hub.activity.slice(0,20).map(a=>`<li>${esc(a.text)}<time datetime="${esc(a.occurredAt)}">${formatDate(a.occurredAt)}</time></li>`).join(""):'<li class="empty">Your learning activity will appear here.</li>'}
-function renderSubjects(){const counts={};pages.forEach(p=>counts[p.subject]=(counts[p.subject]||0)+1);const names=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);els.subjects.innerHTML=names.slice(0,16).map(s=>`<button class="subject" data-subject="${esc(s)}">${esc(s)}<span>${counts[s]} resources</span></button>`).join("");els.subjectFilter.innerHTML='<option value="">All subjects</option>'+names.map(s=>`<option value="${esc(s)}">${esc(s)} (${counts[s]})</option>`).join("");els.subjects.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{els.subjectFilter.value=b.dataset.subject;currentResults=pages;visibleCount=PAGE_SIZE;renderResults();$("resultsPanel").scrollIntoView({behavior:"smooth"})}))}
-function renderAll(){renderDashboard();renderResults()}
-async function loadPages(){try{const c=new AbortController(),timer=setTimeout(()=>c.abort(),12000),res=await fetch(DATA_URL,{cache:"no-cache",signal:c.signal});clearTimeout(timer);if(!res.ok)throw Error(res.status);const data=await res.json();pages=(data.items||[]).map(x=>{const url=safeUrl(x.url);if(!url||!x.title)return null;const tags=Array.isArray(x.tags)?x.tags:[],subject=String(x.topic||x.type||tags[0]||"Other").trim()||"Other",p={title:String(x.title).trim(),url,description:String(x.description||"").trim(),type:String(x.type||"").trim(),subject,tags,priority:Number(x.priority)||0};p.nt=norm(p.title);p.nd=norm(p.description);p.ns=norm(subject);p.ng=norm(tags.join(" "));p.search=norm([p.title,p.description,p.type,subject,tags.join(" ")].join(" "));return p}).filter(Boolean);dataState="ready";currentResults=pages;renderSubjects();const q=new URLSearchParams(location.search).get("q")||"";els.box.value=q;search(Boolean(q));renderDashboard()}catch(e){console.error(e);dataState="error";els.status.textContent="Resources could not be loaded. If you are offline, reopen the app after one successful online visit."}}
-function exportData(){const blob=new Blob([JSON.stringify({...hub,exportedAt:now()},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`champak-study-hub-${now().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast("Study data exported.")}
-function normalizeImport(raw){if(!raw||typeof raw!=="object")throw Error();if(raw.version===3&&raw.resources)return raw;const v=emptyData();(raw.recentSearches||[]).forEach(q=>v.searches.push({query:String(q),searchedAt:now(),resultCount:null}));(raw.savedLinks||raw.savedSearches||[]).filter(x=>x&&x.url&&safeUrl(x.url)).forEach(x=>v.resources[urlKey(x.url)]={title:x.title||"Untitled",url:safeUrl(x.url),description:x.description||"",subject:x.topic||x.type||"Other",tags:x.tags||[],status:"not-started",saved:true,note:"",visitCount:0});return v}
-function completeImport(mode){const incoming=normalizeImport(pendingImport);if(mode==="replace")hub={...emptyData(),...incoming,version:3};else{hub.searches=[...(incoming.searches||[]),...hub.searches].slice(0,50);hub.resources={...hub.resources,...incoming.resources};hub.activity=[...(incoming.activity||[]),...hub.activity].slice(0,150)}persist();renderAll();toast("Study data imported successfully.");pendingImport=null}
-$("searchForm").addEventListener("submit",e=>{e.preventDefault();search(true);const q=els.box.value.trim(),u=q.length>=MIN?`?q=${encodeURIComponent(q)}`:location.pathname;history.pushState({},"",u)});let debounce;els.box.addEventListener("input",()=>{clearTimeout(debounce);debounce=setTimeout(()=>search(false),350)});[els.subjectFilter,els.statusFilter,els.sort].forEach(x=>x.addEventListener("change",()=>{visibleCount=PAGE_SIZE;renderResults()}));els.more.addEventListener("click",()=>{visibleCount+=PAGE_SIZE;renderResults()});$("exportBtn").addEventListener("click",exportData);$("importBtn").addEventListener("click",()=>$("importFile").click());$("importFile").addEventListener("change",()=>{const f=$("importFile").files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{pendingImport=JSON.parse(r.result);normalizeImport(pendingImport);$("importDialog").showModal()}catch{toast("This is not a valid Champak data file.",true)}};r.readAsText(f);$("importFile").value=""});$("mergeImportBtn").addEventListener("click",()=>completeImport("merge"));$("replaceImportBtn").addEventListener("click",()=>completeImport("replace"));$("clearActivityBtn").addEventListener("click",()=>{if(hub.activity.length&&confirm("Clear all recent activity? This does not remove saved resources or progress.")){hub.activity=[];persist();renderActivity();toast("Recent activity cleared.")}});window.addEventListener("popstate",()=>{els.box.value=new URLSearchParams(location.search).get("q")||"";search(false)});
-window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredPrompt=e;$("installBtn").hidden=false});$("installBtn").addEventListener("click",async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;$("installBtn").hidden=true});
-let oneSignal=null;window.OneSignalDeferred=window.OneSignalDeferred||[];window.OneSignalDeferred.push(async OneSignal=>{try{await OneSignal.init({appId:APP_ID,serviceWorkerPath:"OneSignalSDKWorker.js",serviceWorkerParam:{scope:"/"},autoResubscribe:true});oneSignal=OneSignal;updateNotify();OneSignal.User.PushSubscription.addEventListener("change",updateNotify)}catch{$("notificationStatus").textContent="Notifications are unavailable right now."}});function updateNotify(){const on=!!oneSignal?.User.PushSubscription.optedIn;$("notifyBtn").hidden=on||Notification.permission==="denied";$("pauseNotifyBtn").hidden=!on;$("notificationStatus").textContent=Notification.permission==="denied"?"Blocked in browser settings.":on?"Study notifications are active.":"Notifications are off."}$("notifyBtn").addEventListener("click",async()=>{try{if(!oneSignal)throw Error();await oneSignal.Notifications.requestPermission();if(Notification.permission==="granted")await oneSignal.User.PushSubscription.optIn();updateNotify();toast("Study notifications enabled.")}catch{toast("Notifications could not be enabled.",true)}});$("pauseNotifyBtn").addEventListener("click",async()=>{try{await oneSignal.User.PushSubscription.optOut();updateNotify();toast("Notifications paused.")}catch{toast("Notifications could not be paused.",true)}});
-loadData();renderDashboard();loadPages();if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("/OneSignalSDKWorker.js").catch(console.error));
-</script>
-</body></html>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">CS</div>
+        <div><strong>Champak Study Hub</strong><small>Learn With Champak</small></div>
+      </div>
+      <div class="top-actions"><button id="installBtn" class="btn" hidden>Install App</button><button id="exportBtn"
+          class="btn">Export</button><button id="importBtn" class="btn">Import</button><input id="importFile"
+          type="file" accept="application/json" hidden></div>
+    </header>
+    <section class="hero">
+      <h1>Search. Study. Progress.</h1>
+      <p>Your personal programming study hub—built around the resources of Champak Roy.</p>
+      <form id="searchForm" class="search-form" role="search"><label for="searchBox" hidden>Search learning
+          resources</label><input id="searchBox" type="search" placeholder="Search Python, DSA, AI/ML, SQL, React…"
+          autocomplete="off"><button class="btn primary">Search Resources</button></form>
+      <div id="searchStatus" class="status" role="status" aria-live="polite">Loading learning resources…</div>
+    </section>
+    <section class="stats" aria-label="Learning statistics">
+      <div class="stat"><b id="studiedCount">0</b><span>Resources started</span></div>
+      <div class="stat"><b id="completedCount">0</b><span>Completed</span></div>
+      <div class="stat"><b id="savedCount">0</b><span>Saved in library</span></div>
+      <div class="stat"><b id="subjectCount">0</b><span>Subjects explored</span></div>
+    </section>
+    <section class="panel" id="continuePanel">
+      <div class="panel-head">
+        <div>
+          <h2>Continue Studying</h2>
+          <p class="panel-sub">Pick up where you left off.</p>
+        </div>
+      </div>
+      <div id="continueGrid" class="grid"></div>
+    </section>
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Browse Subjects</h2>
+          <p class="panel-sub">Explore the complete learning collection.</p>
+        </div>
+      </div>
+      <div id="subjects" class="subject-grid"></div>
+    </section>
+    <section class="panel" id="resultsPanel">
+      <div class="panel-head">
+        <div>
+          <h2>Search Results</h2>
+          <p class="panel-sub">Open, save, track and add notes to resources.</p>
+        </div>
+      </div>
+      <div class="toolbar"><select id="subjectFilter" aria-label="Filter by subject">
+          <option value="">All subjects</option>
+        </select><select id="statusFilter" aria-label="Filter by learning status">
+          <option value="">All statuses</option>
+          <option value="not-started">Not started</option>
+          <option value="in-progress">In progress</option>
+          <option value="completed">Completed</option>
+          <option value="saved">Saved only</option>
+        </select><select id="sortBy" aria-label="Sort results">
+          <option value="match">Best match</option>
+          <option value="az">A–Z</option>
+          <option value="recent">Recently studied</option>
+          <option value="visits">Most visited</option>
+        </select></div>
+      <div id="results" class="results"></div>
+      <div class="actions"><button id="showMoreBtn" class="btn" hidden>Show More</button></div>
+    </section>
+    <div class="two-col">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>My Study Library</h2>
+            <p class="panel-sub">Saved resources and personal notes.</p>
+          </div>
+        </div>
+        <div id="libraryGrid" class="results"></div>
+      </section>
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Recent Activity</h2>
+            <p class="panel-sub">Searches, openings and progress.</p>
+          </div><button id="clearActivityBtn" class="btn small danger">Clear</button>
+        </div>
+        <ul id="activityList" class="activity"></ul>
+      </section>
+    </div>
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>App & Notifications</h2>
+          <p class="panel-sub">Install the hub and receive lesson updates.</p>
+        </div>
+      </div>
+      <div class="actions"><button id="notifyBtn" class="btn primary">Receive Study Notifications</button><button
+          id="pauseNotifyBtn" class="btn" hidden>Pause Notifications</button><span id="notificationStatus"
+          class="status">Notifications are off.</span></div>
+    </section>
+    <section class="panel">
+      <h2>Use Champak Search in Your Browser</h2>
+      <details>
+        <summary>Set it as a Chrome search engine</summary>
+        <p>Name: <code>Champak Search</code> &nbsp; Shortcut: <code>cs</code></p>
+        <p>URL: <code>https://search.learnwithchampak.live/?q=%s</code></p>
+        <p>Then type <code>cs python</code> in the address bar.</p>
+      </details>
+      <details>
+        <summary>About your study data</summary>
+        <p>Your searches, opened resources, notes and progress stay in this browser. Use Export for a backup or to move
+          them to another device.</p>
+      </details>
+    </section>
+  </main>
+  <dialog id="noteDialog" class="dialog">
+    <form method="dialog" class="dialog-body">
+      <h2 id="noteTitle">Study note</h2><textarea id="noteText" class="note-box"
+        placeholder="What should you revise or practise?"></textarea>
+      <div class="actions"><button id="saveNoteBtn" value="default" class="btn primary">Save Note</button><button
+          value="cancel" class="btn">Cancel</button></div>
+    </form>
+  </dialog>
+  <dialog id="importDialog" class="dialog">
+    <form method="dialog" class="dialog-body">
+      <h2>Import Study Data</h2>
+      <p>Merge keeps your existing data. Replace removes it and uses only the imported file.</p>
+      <div class="actions"><button id="mergeImportBtn" value="merge" class="btn primary">Merge</button><button
+          id="replaceImportBtn" value="replace" class="btn danger">Replace</button><button value="cancel"
+          class="btn">Cancel</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    "use strict";
+    const DATA_URL = "https://programmer-s-picnic.github.io/json-images/links/links.json", APP_ID = "c2869c95-73e5-4416-93ad-b26aadf35512", KEY = "champakStudyHubV3", MIN = 3, PAGE_SIZE = 20;
+    let pages = [], visibleCount = PAGE_SIZE, currentResults = [], noteUrl = "", pendingImport = null, deferredPrompt = null, dataState = "loading", toastTimer;
+    const $ = id => document.getElementById(id), els = { box: $("searchBox"), status: $("searchStatus"), results: $("results"), subjects: $("subjects"), subjectFilter: $("subjectFilter"), statusFilter: $("statusFilter"), sort: $("sortBy"), more: $("showMoreBtn"), cont: $("continueGrid"), library: $("libraryGrid"), activity: $("activityList"), toast: $("toast") };
+    const emptyData = () => ({ version: 3, searches: [], resources: {}, activity: [], preferences: {} }); let hub = emptyData();
+    function norm(v) { return String(v || "").normalize("NFKD").toLowerCase().replace(/[^\p{L}\p{N}+#.]+/gu, " ").replace(/\s+/g, " ").trim() }
+    function esc(v) { return String(v ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;") }
+    function safeUrl(v) { try { const u = new URL(v, location.origin); return ["http:", "https:"].includes(u.protocol) ? u.href : null } catch { return null } }
+    function urlKey(v) { const u = new URL(v); u.hash = "";[...u.searchParams.keys()].filter(k => /^utm_|^(fbclid|gclid)$/i.test(k)).forEach(k => u.searchParams.delete(k)); return u.href.replace(/\/$/, "") }
+    function now() { return new Date().toISOString() } function formatDate(v) { return v ? new Intl.DateTimeFormat("en-IN", { dateStyle: "medium", timeStyle: "short" }).format(new Date(v)) : "Never" }
+    function toast(msg, error = false) { clearTimeout(toastTimer); els.toast.textContent = msg; els.toast.className = "toast show" + (error ? " error" : ""); toastTimer = setTimeout(() => els.toast.classList.remove("show"), 2600) }
+    function persist() { try { localStorage.setItem(KEY, JSON.stringify(hub)); return true } catch { toast("Study data could not be saved.", true); return false } }
+    function activity(type, text, url = null) { hub.activity.unshift({ type, text, resourceUrl: url, occurredAt: now() }); hub.activity = hub.activity.slice(0, 150) }
+    function loadData() { try { const v = JSON.parse(localStorage.getItem(KEY)); if (v && v.version === 3) hub = { ...emptyData(), ...v, resources: v.resources || {} } } catch { } migrateV2(); persist() }
+    function migrateV2() { if (hub.preferences.v2Migrated) return; let recent = [], saved = []; try { recent = JSON.parse(localStorage.getItem("champakSearchRecentSearches")) || [] } catch { } try { saved = JSON.parse(localStorage.getItem("champakSearchSavedLinks")) || [] } catch { } recent.filter(x => typeof x === "string").forEach(q => hub.searches.push({ query: q, searchedAt: now(), resultCount: null })); saved.filter(x => x && x.url && safeUrl(x.url)).forEach(x => { const k = urlKey(x.url); hub.resources[k] = { title: x.title || "Untitled", url: safeUrl(x.url), subject: x.topic || x.type || "Other", description: x.description || "", tags: x.tags || [], status: "not-started", saved: true, note: "", visitCount: 0, firstOpenedAt: null, lastOpenedAt: null, completedAt: null } }); hub.preferences.v2Migrated = true }
+    function recordFor(page) { const k = urlKey(page.url); if (!hub.resources[k]) hub.resources[k] = { title: page.title, url: page.url, description: page.description, subject: page.subject, tags: page.tags, status: "not-started", saved: false, note: "", visitCount: 0, firstOpenedAt: null, lastOpenedAt: null, completedAt: null }; return hub.resources[k] }
+    function statusOf(page) { return hub.resources[urlKey(page.url)]?.status || "not-started" }
+    function addSearch(q, count) { hub.searches.unshift({ query: q, searchedAt: now(), resultCount: count }); hub.searches = hub.searches.slice(0, 50); activity("searched", `Searched for “${q}”`); persist(); renderActivity() }
+    function openResource(page) { const r = recordFor(page), t = now(); r.firstOpenedAt ||= t; r.lastOpenedAt = t; r.visitCount = (r.visitCount || 0) + 1; if (r.status === "not-started") r.status = "in-progress"; activity("opened", `Opened “${page.title}”`, page.url); persist(); renderDashboard(); window.open(page.url, "_blank", "noopener,noreferrer") }
+    function toggleSave(page) { const r = recordFor(page); r.saved = !r.saved; activity(r.saved ? "saved" : "unsaved", `${r.saved ? "Saved" : "Removed"} “${page.title}” ${r.saved ? "to" : "from"} the study library`, page.url); persist(); renderAll(); toast(r.saved ? "Saved to My Study Library." : "Removed from the library.") }
+    function setStatus(page, status) { const r = recordFor(page); r.status = status; r.completedAt = status === "completed" ? now() : null; if (status === "in-progress") r.lastOpenedAt = now(); activity(status, `${status === "completed" ? "Completed" : "Started"} “${page.title}”`, page.url); persist(); renderAll(); toast(status === "completed" ? "Marked completed." : "Added to Continue Studying.") }
+    function editNote(page) { const r = recordFor(page); noteUrl = urlKey(page.url); $("noteTitle").textContent = page.title; $("noteText").value = r.note || ""; $("noteDialog").showModal() }
+    $("saveNoteBtn").addEventListener("click", () => { if (!noteUrl) return; hub.resources[noteUrl].note = $("noteText").value.trim(); activity("note", `Updated note for “${hub.resources[noteUrl].title}”`, hub.resources[noteUrl].url); persist(); renderAll(); toast("Study note saved.") });
+    function pageFromRecord(r) { return pages.find(p => urlKey(p.url) === urlKey(r.url)) || { title: r.title, url: r.url, description: r.description || "", subject: r.subject || "Other", type: "", tags: r.tags || [] } }
+    function card(page, compact = false) { const r = hub.resources[urlKey(page.url)] || {}, status = r.status || "not-started", label = status === "completed" ? "Completed" : status === "in-progress" ? "In progress" : "Not started"; return `<article class="${compact ? "card" : "result"}"><h3><a href="${esc(page.url)}" data-action="open" data-url="${esc(page.url)}">${esc(page.title)}</a></h3>${page.description && !compact ? `<p>${esc(page.description)}</p>` : ""}<div class="meta"><span class="pill ${status === "completed" ? "done" : status === "in-progress" ? "progress" : ""}">${label}</span><span class="pill">${esc(page.subject || "Other")}</span>${r.saved ? '<span class="pill">Saved</span>' : ""}</div>${compact ? `<p>Last studied: ${formatDate(r.lastOpenedAt)} · ${r.visitCount || 0} visits</p><div class="progress-bar"><span style="width:${status === "completed" ? 100 : 45}%"></span></div>` : `<div class="url">${esc(page.url)}</div>${r.note ? `<p><strong>My note:</strong> ${esc(r.note)}</p>` : ""}`}<div class="actions"><button class="btn small primary" data-action="open" data-url="${esc(page.url)}">${status === "in-progress" ? "Continue" : "Open"}</button><button class="btn small" data-action="save" data-url="${esc(page.url)}">${r.saved ? "Unsave" : "Save"}</button>${status !== "in-progress" && status !== "completed" ? `<button class="btn small green" data-action="start" data-url="${esc(page.url)}">Study</button>` : ""}${status !== "completed" ? `<button class="btn small green" data-action="complete" data-url="${esc(page.url)}">Complete</button>` : `<button class="btn small" data-action="start" data-url="${esc(page.url)}">Study Again</button>`}<button class="btn small" data-action="note" data-url="${esc(page.url)}">Note</button></div></article>` }
+    function bindActions(root) { root.querySelectorAll("[data-action]").forEach(el => el.addEventListener("click", e => { e.preventDefault(); const page = pages.find(p => urlKey(p.url) === urlKey(el.dataset.url)) || pageFromRecord(hub.resources[urlKey(el.dataset.url)]); ({ open: openResource, save: toggleSave, start: p => setStatus(p, "in-progress"), complete: p => setStatus(p, "completed"), note: editNote })[el.dataset.action](page) })) }
+    function score(p, q) { const words = norm(q).split(" ").filter(Boolean), full = norm(q); let s = 0, m = 0; if (p.nt === full) s += 180; else if (p.nt.startsWith(full)) s += 130; else if (p.nt.includes(full)) s += 95; for (const w of words) { if (!p.search.includes(w)) continue; m++; if (p.nt.includes(w)) s += 30; if (p.ng.includes(w)) s += 20; if (p.ns.includes(w)) s += 15; if (p.nd.includes(w)) s += 7 } s += Math.round((m / words.length) * 40) + (p.priority || 0); return { s, m, needed: words.length <= 2 ? words.length : Math.ceil(words.length * .75) } }
+    function findResults(q) { if (q.trim().length < MIN) return []; return pages.map(p => ({ ...p, ...score(p, q) })).filter(p => p.m >= p.needed && p.s >= 20).sort((a, b) => b.s - a.s || a.title.localeCompare(b.title)) }
+    function applyFilters(list) { let x = [...list], sf = els.subjectFilter.value, st = els.statusFilter.value; if (sf) x = x.filter(p => p.subject === sf); if (st) x = x.filter(p => st === "saved" ? hub.resources[urlKey(p.url)]?.saved : statusOf(p) === st); if (els.sort.value === "az") x.sort((a, b) => a.title.localeCompare(b.title)); if (els.sort.value === "recent") x.sort((a, b) => (hub.resources[urlKey(b.url)]?.lastOpenedAt || "").localeCompare(hub.resources[urlKey(a.url)]?.lastOpenedAt || "")); if (els.sort.value === "visits") x.sort((a, b) => (hub.resources[urlKey(b.url)]?.visitCount || 0) - (hub.resources[urlKey(a.url)]?.visitCount || 0)); return x }
+    function renderResults() { const list = applyFilters(currentResults), shown = list.slice(0, visibleCount); els.results.innerHTML = shown.length ? shown.map(p => card(p)).join("") : '<div class="empty">No resources match these filters.</div>'; els.more.hidden = shown.length >= list.length; bindActions(els.results) }
+    function search(record = false) { const q = els.box.value.trim(); visibleCount = PAGE_SIZE; if (dataState === "loading") { els.status.textContent = "Learning resources are still loading…"; return } if (q.length < MIN) { currentResults = pages; els.status.textContent = `Type at least ${MIN} characters to search, or browse all resources below.` } else { currentResults = findResults(q); els.status.textContent = `${currentResults.length} result${currentResults.length === 1 ? "" : "s"} for “${q}”.`; if (record) addSearch(q, currentResults.length) } renderResults() }
+    function renderDashboard() { const records = Object.values(hub.resources), started = records.filter(r => r.status !== "not-started"), done = records.filter(r => r.status === "completed"), saved = records.filter(r => r.saved), subjects = new Set(started.map(r => r.subject).filter(Boolean)); $("studiedCount").textContent = started.length; $("completedCount").textContent = done.length; $("savedCount").textContent = saved.length; $("subjectCount").textContent = subjects.size; const cont = records.filter(r => r.status === "in-progress").sort((a, b) => (b.lastOpenedAt || "").localeCompare(a.lastOpenedAt || "")).slice(0, 6); els.cont.innerHTML = cont.length ? cont.map(r => card(pageFromRecord(r), true)).join("") : '<div class="empty">Open a resource or choose Study to begin tracking your learning.</div>'; bindActions(els.cont); els.library.innerHTML = saved.length ? saved.sort((a, b) => (b.lastOpenedAt || "").localeCompare(a.lastOpenedAt || "")).map(r => card(pageFromRecord(r))).join("") : '<div class="empty">Saved resources will appear here.</div>'; bindActions(els.library); renderActivity() }
+    function renderActivity() { els.activity.innerHTML = hub.activity.length ? hub.activity.slice(0, 20).map(a => `<li>${esc(a.text)}<time datetime="${esc(a.occurredAt)}">${formatDate(a.occurredAt)}</time></li>`).join("") : '<li class="empty">Your learning activity will appear here.</li>' }
+    function renderSubjects() { const counts = {}; pages.forEach(p => counts[p.subject] = (counts[p.subject] || 0) + 1); const names = Object.keys(counts).sort((a, b) => counts[b] - counts[a]); els.subjects.innerHTML = names.slice(0, 16).map(s => `<button class="subject" data-subject="${esc(s)}">${esc(s)}<span>${counts[s]} resources</span></button>`).join(""); els.subjectFilter.innerHTML = '<option value="">All subjects</option>' + names.map(s => `<option value="${esc(s)}">${esc(s)} (${counts[s]})</option>`).join(""); els.subjects.querySelectorAll("button").forEach(b => b.addEventListener("click", () => { els.subjectFilter.value = b.dataset.subject; currentResults = pages; visibleCount = PAGE_SIZE; renderResults(); $("resultsPanel").scrollIntoView({ behavior: "smooth" }) })) }
+    function renderAll() { renderDashboard(); renderResults() }
+    async function loadPages() { try { const c = new AbortController(), timer = setTimeout(() => c.abort(), 12000), res = await fetch(DATA_URL, { cache: "no-cache", signal: c.signal }); clearTimeout(timer); if (!res.ok) throw Error(res.status); const data = await res.json(); pages = (data.items || []).map(x => { const url = safeUrl(x.url); if (!url || !x.title) return null; const tags = Array.isArray(x.tags) ? x.tags : [], subject = String(x.topic || x.type || tags[0] || "Other").trim() || "Other", p = { title: String(x.title).trim(), url, description: String(x.description || "").trim(), type: String(x.type || "").trim(), subject, tags, priority: Number(x.priority) || 0 }; p.nt = norm(p.title); p.nd = norm(p.description); p.ns = norm(subject); p.ng = norm(tags.join(" ")); p.search = norm([p.title, p.description, p.type, subject, tags.join(" ")].join(" ")); return p }).filter(Boolean); dataState = "ready"; currentResults = pages; renderSubjects(); const q = new URLSearchParams(location.search).get("q") || ""; els.box.value = q; search(Boolean(q)); renderDashboard() } catch (e) { console.error(e); dataState = "error"; els.status.textContent = "Resources could not be loaded. If you are offline, reopen the app after one successful online visit." } }
+    function exportData() { const blob = new Blob([JSON.stringify({ ...hub, exportedAt: now() }, null, 2)], { type: "application/json" }), a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `champak-study-hub-${now().slice(0, 10)}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); toast("Study data exported.") }
+    function normalizeImport(raw) { if (!raw || typeof raw !== "object") throw Error(); if (raw.version === 3 && raw.resources) return raw; const v = emptyData(); (raw.recentSearches || []).forEach(q => v.searches.push({ query: String(q), searchedAt: now(), resultCount: null })); (raw.savedLinks || raw.savedSearches || []).filter(x => x && x.url && safeUrl(x.url)).forEach(x => v.resources[urlKey(x.url)] = { title: x.title || "Untitled", url: safeUrl(x.url), description: x.description || "", subject: x.topic || x.type || "Other", tags: x.tags || [], status: "not-started", saved: true, note: "", visitCount: 0 }); return v }
+    function completeImport(mode) { const incoming = normalizeImport(pendingImport); if (mode === "replace") hub = { ...emptyData(), ...incoming, version: 3 }; else { hub.searches = [...(incoming.searches || []), ...hub.searches].slice(0, 50); hub.resources = { ...hub.resources, ...incoming.resources }; hub.activity = [...(incoming.activity || []), ...hub.activity].slice(0, 150) } persist(); renderAll(); toast("Study data imported successfully."); pendingImport = null }
+    $("searchForm").addEventListener("submit", e => { e.preventDefault(); search(true); const q = els.box.value.trim(), u = q.length >= MIN ? `?q=${encodeURIComponent(q)}` : location.pathname; history.pushState({}, "", u) }); let debounce; els.box.addEventListener("input", () => { clearTimeout(debounce); debounce = setTimeout(() => search(false), 350) });[els.subjectFilter, els.statusFilter, els.sort].forEach(x => x.addEventListener("change", () => { visibleCount = PAGE_SIZE; renderResults() })); els.more.addEventListener("click", () => { visibleCount += PAGE_SIZE; renderResults() }); $("exportBtn").addEventListener("click", exportData); $("importBtn").addEventListener("click", () => $("importFile").click()); $("importFile").addEventListener("change", () => { const f = $("importFile").files[0]; if (!f) return; const r = new FileReader(); r.onload = () => { try { pendingImport = JSON.parse(r.result); normalizeImport(pendingImport); $("importDialog").showModal() } catch { toast("This is not a valid Champak data file.", true) } }; r.readAsText(f); $("importFile").value = "" }); $("mergeImportBtn").addEventListener("click", () => completeImport("merge")); $("replaceImportBtn").addEventListener("click", () => completeImport("replace")); $("clearActivityBtn").addEventListener("click", () => { if (hub.activity.length && confirm("Clear all recent activity? This does not remove saved resources or progress.")) { hub.activity = []; persist(); renderActivity(); toast("Recent activity cleared.") } }); window.addEventListener("popstate", () => { els.box.value = new URLSearchParams(location.search).get("q") || ""; search(false) });
+    window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); deferredPrompt = e; $("installBtn").hidden = false }); $("installBtn").addEventListener("click", async () => { if (!deferredPrompt) return; deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt = null; $("installBtn").hidden = true });
+    let oneSignal = null; window.OneSignalDeferred = window.OneSignalDeferred || []; window.OneSignalDeferred.push(async OneSignal => { try { await OneSignal.init({ appId: APP_ID, serviceWorkerPath: "OneSignalSDKWorker.js", serviceWorkerParam: { scope: "/" }, autoResubscribe: true }); oneSignal = OneSignal; updateNotify(); OneSignal.User.PushSubscription.addEventListener("change", updateNotify) } catch { $("notificationStatus").textContent = "Notifications are unavailable right now." } }); function updateNotify() { const on = !!oneSignal?.User.PushSubscription.optedIn; $("notifyBtn").hidden = on || Notification.permission === "denied"; $("pauseNotifyBtn").hidden = !on; $("notificationStatus").textContent = Notification.permission === "denied" ? "Blocked in browser settings." : on ? "Study notifications are active." : "Notifications are off." } $("notifyBtn").addEventListener("click", async () => { try { if (!oneSignal) throw Error(); await oneSignal.Notifications.requestPermission(); if (Notification.permission === "granted") await oneSignal.User.PushSubscription.optIn(); updateNotify(); toast("Study notifications enabled.") } catch { toast("Notifications could not be enabled.", true) } }); $("pauseNotifyBtn").addEventListener("click", async () => { try { await oneSignal.User.PushSubscription.optOut(); updateNotify(); toast("Notifications paused.") } catch { toast("Notifications could not be paused.", true) } });
+    loadData(); renderDashboard(); loadPages(); if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("/OneSignalSDKWorker.js").catch(console.error));
+  </script>
+</body>
+
+</html>
